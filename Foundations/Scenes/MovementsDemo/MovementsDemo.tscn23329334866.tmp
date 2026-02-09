@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://dbqhkxx5xehp6"]
+
+[ext_resource type="Material" uid="uid://bbql48vcb2mex" path="res://Resources/GrreenMat.tres" id="1_6sigh"]
+[ext_resource type="BoxMesh" uid="uid://grv64v1rt6bv" path="res://Resources/cubemesh.tres" id="1_bj4ew"]
+[ext_resource type="Script" uid="uid://i0lyhxe1pl5u" path="res://Scenes/MovementsDemo/MovementsDemo.gd" id="1_jkoba"]
+[ext_resource type="Texture2D" uid="uid://du33w8nrnq0gw" path="res://Assets/overcast_soil_puresky_4k.hdr" id="1_tq625"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jkoba"]
+panorama = ExtResource("1_tq625")
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_bj4ew"]
+sky_material = SubResource("PanoramaSkyMaterial_jkoba")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_6sigh"]
+background_mode = 2
+background_color = Color(0.5176471, 0.7176471, 0.5058824, 1)
+sky = SubResource("Sky_bj4ew")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sigh"]
+cull_mode = 2
+albedo_color = Color(0.13162065, 0.32243058, 0.6589754, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p0pbx"]
+size = Vector2(30, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bj4ew"]
+albedo_color = Color(1, 0.41960785, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p0pbx"]
+material = SubResource("StandardMaterial3D_bj4ew")
+size = Vector3(1, 3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tq625"]
+albedo_color = Color(1, 0.39215687, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tq625"]
+material = SubResource("StandardMaterial3D_tq625")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bky45"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tq625"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkoba"]
+albedo_color = Color(0.7490196, 0.23137255, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bky45"]
+material = SubResource("StandardMaterial3D_jkoba")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jkoba"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.0
+
+[node name="MovementsDemo" type="Node" unique_id=1350106138]
+script = ExtResource("1_jkoba")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1388000188]
+environment = SubResource("Environment_6sigh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=433617172]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=89608698]
+material_override = SubResource("StandardMaterial3D_6sigh")
+mesh = SubResource("PlaneMesh_p0pbx")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1070025049]
+transform = Transform3D(-0.6788004, -0.21775705, 0.701293, 0, 0.95502007, 0.2965413, -0.73432285, 0.20129235, -0.648268, 7.8170385, 5.3967395, -7.2523293)
+
+[node name="Box" type="MeshInstance3D" parent="." unique_id=1714068223]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 4, 1.5066864, 4)
+mesh = SubResource("BoxMesh_p0pbx")
+
+[node name="Box2" type="MeshInstance3D" parent="." unique_id=614275652]
+transform = Transform3D(-1.2776548, -0.030316353, -1.5384017, 1.234203, 1.1739364, -1.0481493, 0.9188808, -1.6189364, -0.73123467, -4, 2.5036304, -4)
+material_override = ExtResource("1_6sigh")
+mesh = ExtResource("1_bj4ew")
+
+[node name="Capsule1" type="MeshInstance3D" parent="Box2" unique_id=134730212]
+transform = Transform3D(-0.31941366, 0.38240516, 0.041726038, -0.007579063, 0.04796879, -0.49763584, -0.38460025, -0.31853586, -0.02484724, -0.41184628, -1.1957946, -0.5286703)
+mesh = SubResource("CapsuleMesh_tq625")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box2/Capsule1" unique_id=1164667540]
+transform = Transform3D(0.82, 0, 0, 0, -2.1855694e-08, 0.82, 0, -0.5, -3.584334e-08, 0, 0.21247393, -0.24266326)
+mesh = SubResource("CylinderMesh_bky45")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box2" unique_id=1102912950]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2, 0, 0)
+mesh = SubResource("SphereMesh_tq625")
+
+[node name="Capsule2" type="MeshInstance3D" parent="." unique_id=514568079]
+transform = Transform3D(1, -0.535, 0, 0, 0.492, 0.87, 0, -0.87, 0.492, 2.77, 2.517, -0.169)
+rotation_edit_mode = 2
+mesh = SubResource("CapsuleMesh_bky45")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Capsule2" unique_id=663865992]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.07, 0.59, 0.275)
+mesh = SubResource("CylinderMesh_jkoba")
