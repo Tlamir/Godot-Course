@@ -70,7 +70,7 @@ material_override = SubResource("StandardMaterial3D_6sigh")
 mesh = SubResource("PlaneMesh_p0pbx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1070025049]
-transform = Transform3D(0.7906897, -0.40566742, 0.45852342, 0, 0.74895567, 0.6626202, -0.6122171, -0.523927, 0.59219146, 4.5890136, 10.713537, 12.146114)
+transform = Transform3D(-0.6788004, -0.21775705, 0.701293, 0, 0.95502007, 0.2965413, -0.73432285, 0.20129235, -0.648268, 7.8170385, 5.3967395, -7.2523293)
 
 [node name="Box" type="MeshInstance3D" parent="." unique_id=1714068223]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -6.9321566, 3.8447936, 8.055069)

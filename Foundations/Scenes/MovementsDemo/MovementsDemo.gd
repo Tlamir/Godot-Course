@@ -6,8 +6,14 @@ var rotation_speed: float=90.0
 
 @onready var capsule_1: = $Box2/Capsule1
 
+@onready var box: MeshInstance3D = $Box
+@onready var capsule_2: MeshInstance3D = $Capsule2
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_SPACE:
+			capsule_2.look_at(box.global_position)
 	
 func _process(delta: float) -> void:
 	#Rotate around parrent axis
