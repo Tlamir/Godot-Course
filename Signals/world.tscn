@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://djojwuipm3ipv"]
+
+[ext_resource type="PackedScene" uid="uid://cwrxdu074u8pj" path="res://Scenes/orc.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://v45stjdavll3" path="res://Scripts/world.gd" id="1_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://cs402o7nhgprx" path="res://Scenes/hobbit.tscn" id="2_fj7yv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_f3sb7"]
+sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
+
+[sub_resource type="Environment" id="Environment_fj7yv"]
+background_mode = 2
+sky = SubResource("Sky_f3sb7")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv5m4"]
+albedo_color = Color(0.74509805, 0.28627452, 0.20784314, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tlwt5"]
+material = SubResource("StandardMaterial3D_gv5m4")
+
+[node name="World" type="Node3D" unique_id=1119213232]
+script = ExtResource("1_tlwt5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1279149956]
+environment = SubResource("Environment_fj7yv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1354197847]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=691753090]
+transform = Transform3D(12.86, 0, 0, 0, 12.86, 0, 0, 0, 12.86, 0, 0, 0)
+mesh = SubResource("PlaneMesh_tlwt5")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=476447995]
+transform = Transform3D(0.9262138, -0.13293877, 0.35278216, 0, 0.9357651, 0.352624, -0.37699863, -0.32660523, 0.86671853, -1.2778487, 1.4757619, 3.5500317)
+
+[node name="Orc" parent="." unique_id=1124734249 instance=ExtResource("1_f3sb7")]
+transform = Transform3D(-0.018499436, 0, 0.9998289, 0, 1, 0, -0.9998289, 0, -0.018499436, -5.977456, 0.99176407, 0)
+
+[node name="Hobbit" parent="." unique_id=588911181 instance=ExtResource("2_fj7yv")]
+transform = Transform3D(0.7223881, 0, -0.69148785, 0, 1, 0, 0.69148785, 0, 0.7223881, 0, 0.5907333, 0)
+
+[connection signal="ready_for_battle" from="Orc" to="." method="_on_orc_ready_for_battle"]
+[connection signal="visibility_changed" from="Hobbit" to="." method="_on_hobbit_visibility_changed"]

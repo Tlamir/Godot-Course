@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cs402o7nhgprx"]
+
+[ext_resource type="Script" uid="uid://fh7ioevcauw5" path="res://Scripts/hobbit.gd" id="1_whk12"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0u7re"]
+albedo_color = Color(0.6, 0.39607844, 0.023529412, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_whk12"]
+material = SubResource("StandardMaterial3D_0u7re")
+rings = 11
+
+[sub_resource type="SphereMesh" id="SphereMesh_fnqmn"]
+
+[node name="Hobbit" type="Node3D" unique_id=588911181 groups=["Hobbit"]]
+script = ExtResource("1_whk12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=833673075]
+transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_whk12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=259762466]
+transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, -0.2310601, 0.6480151, 0.25759083)
+mesh = SubResource("SphereMesh_fnqmn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=13850609]
+transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, 0.22159807, 0.6480151, 0.25759083)
+mesh = SubResource("SphereMesh_fnqmn")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cwrxdu074u8pj"]
+
+[ext_resource type="Script" uid="uid://c6xl8naj8m7st" path="res://Scenes/orc.gd" id="1_1qkx3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfpg5"]
+albedo_color = Color(0.16862746, 1, 0.14509805, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1qkx3"]
+material = SubResource("StandardMaterial3D_wfpg5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wfpg5"]
+
+[node name="Orc" type="Node3D" unique_id=1124734249]
+script = ExtResource("1_1qkx3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1528855343]
+mesh = SubResource("CapsuleMesh_1qkx3")
+
+[node name="EyeL" type="MeshInstance3D" parent="MeshInstance3D" unique_id=631450404]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.19771163, 0.64314824, 0.31113726)
+mesh = SubResource("SphereMesh_wfpg5")
+
+[node name="EyeR" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1345587029]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.16609035, 0.64314824, 0.31113726)
+mesh = SubResource("SphereMesh_wfpg5")
