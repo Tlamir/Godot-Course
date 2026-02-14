@@ -1,6 +1,10 @@
 extends Node3D
 
+class_name  Platform
+
+
 signal  new_platform(platform_post: Vector3)
+
 
 const WAIT_TIME: float=6.0
 const WAIT_TIME_VAR: float=1.2
