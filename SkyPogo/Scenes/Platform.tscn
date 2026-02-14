@@ -47,6 +47,10 @@ _data = {
 &"Vanish": SubResource("Animation_8n7cf")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pquxj"]
+height = 0.07897949
+radius = 1.2910156
+
 [node name="Platform" type="Node3D" unique_id=1735556484]
 script = ExtResource("1_pquxj")
 
@@ -58,15 +62,22 @@ mesh = SubResource("BoxMesh_7fcwl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=816929983]
 transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0, 0)
+visible = false
 shape = SubResource("BoxShape3D_7fcwl")
 
 [node name="Timer" type="Timer" parent="." unique_id=451641954]
 wait_time = 6.0
 one_shot = true
-autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=520327351]
 libraries/ = SubResource("AnimationLibrary_kti7u")
 
+[node name="PlayerDetector" type="Area3D" parent="." unique_id=1894390361]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector" unique_id=1038568970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25543213, 0)
+shape = SubResource("CylinderShape3D_pquxj")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
