@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://cosd32o44lsss"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cg2ps"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[ext_resource type="Texture2D" uid="uid://sl2sqhydhqdb" path="res://Resources/Images/above_the_clouds_6k.jpg" id="1_iukft"]
+[ext_resource type="PackedScene" uid="uid://cdb1im2sat21l" path="res://Scenes/Platform.tscn" id="2_gl6un"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gl6un"]
+panorama = ExtResource("1_iukft")
+energy_multiplier = 0.76
 
 [sub_resource type="Sky" id="Sky_iukft"]
-sky_material = SubResource("ProceduralSkyMaterial_cg2ps")
+sky_material = SubResource("PanoramaSkyMaterial_gl6un")
 
 [sub_resource type="Environment" id="Environment_gl6un"]
 background_mode = 2
@@ -23,3 +26,6 @@ shadow_enabled = true
 environment = SubResource("Environment_gl6un")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=652090813]
+transform = Transform3D(1, 0, 0, 0, 0.8524212, 0.5228557, 0, -0.5228557, 0.8524212, 0, 8, 5.5)
+
+[node name="Platform" parent="." unique_id=1735556484 instance=ExtResource("2_gl6un")]
