@@ -6,7 +6,7 @@ const GRAVITY: float = 15.0
 const JUMP_FORCE: float = 12.0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
