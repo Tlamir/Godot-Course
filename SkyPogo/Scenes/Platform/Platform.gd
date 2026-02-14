@@ -1,5 +1,7 @@
 extends Node3D
 
+signal  new_platform(platform_post: Vector3)
+
 const WAIT_TIME: float=6.0
 const WAIT_TIME_VAR: float=1.2
 
@@ -24,3 +26,4 @@ func _on_player_detector_body_entered(body: Node3D) -> void:
 		timer.start()
 		# Disconnect From signal
 		player_detector.body_entered.disconnect(_on_player_detector_body_entered)
+		new_platform.emit(position)
