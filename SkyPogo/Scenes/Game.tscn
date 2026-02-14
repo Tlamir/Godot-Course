@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://sl2sqhydhqdb" path="res://Resources/Images/above_the_clouds_6k.jpg" id="1_iukft"]
 [ext_resource type="PackedScene" uid="uid://cdb1im2sat21l" path="res://Scenes/Platform.tscn" id="2_gl6un"]
+[ext_resource type="PackedScene" uid="uid://bvvfdwfhh4u6p" path="res://Scenes/Player.tscn" id="3_j5yw3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gl6un"]
 panorama = ExtResource("1_iukft")
@@ -29,3 +30,6 @@ environment = SubResource("Environment_gl6un")
 transform = Transform3D(1, 0, 0, 0, 0.8524212, 0.5228557, 0, -0.5228557, 0.8524212, 0, 8, 5.5)
 
 [node name="Platform" parent="." unique_id=1735556484 instance=ExtResource("2_gl6un")]
+
+[node name="Player" parent="." unique_id=816719912 instance=ExtResource("3_j5yw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.544821, 0)
