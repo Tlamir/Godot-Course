@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://sl2sqhydhqdb" path="res://Resources/Images/above_the_clouds_6k.jpg" id="1_iukft"]
 [ext_resource type="PackedScene" uid="uid://bvvfdwfhh4u6p" path="res://Scenes/Player/Player.tscn" id="3_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://cxouyjm7mm48d" path="res://Scenes/Spawner/Spawner.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://bm38gt5tu8tpj" path="res://Scenes/Player/PlayerCamera.tscn" id="4_y3kpf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gl6un"]
 panorama = ExtResource("1_iukft")
@@ -26,10 +27,10 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1610065472]
 environment = SubResource("Environment_gl6un")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=652090813]
-transform = Transform3D(1, 0, 0, 0, 0.8524212, 0.5228557, 0, -0.5228557, 0.8524212, 0, 8, 5.5)
-
 [node name="Player" parent="." unique_id=816719912 instance=ExtResource("3_j5yw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.544821, 0)
 
 [node name="Spawner" parent="." unique_id=952478471 instance=ExtResource("4_ln2h6")]
+
+[node name="PlayerCamera" parent="." unique_id=1352535053 instance=ExtResource("4_y3kpf")]
+transform = Transform3D(1, 0, 0, 0, 0.9821857, 0.18791275, 0, -0.18791275, 0.9821857, 0, 16.942389, 15.295692)
