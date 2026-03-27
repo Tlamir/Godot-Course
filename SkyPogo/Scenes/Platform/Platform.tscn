@@ -49,7 +49,7 @@ _data = {
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pquxj"]
 height = 0.07897949
-radius = 1.2910156
+radius = 1.5405273
 
 [node name="Platform" type="Node3D" unique_id=1735556484]
 script = ExtResource("1_pquxj")
