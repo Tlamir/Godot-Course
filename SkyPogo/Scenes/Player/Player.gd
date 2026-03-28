@@ -3,7 +3,7 @@ extends CharacterBody3D
 class_name Player
 
 const GRAVITY: float = 15.0
-const JUMP_FORCE: float = 21.0
+const JUMP_FORCE: float = 11.0
 const ROTATION_SPEED: float = 4.0
 const MOVE_SPEED: float = 3.5
 

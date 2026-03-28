@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cosd32o44lsss"]
 
 [ext_resource type="Texture2D" uid="uid://sl2sqhydhqdb" path="res://Resources/Images/above_the_clouds_6k.jpg" id="1_iukft"]
+[ext_resource type="Script" uid="uid://ccqk7hwn2nmw7" path="res://Scenes/Game/Game.gd" id="1_y3kpf"]
 [ext_resource type="PackedScene" uid="uid://bvvfdwfhh4u6p" path="res://Scenes/Player/Player.tscn" id="3_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://cxouyjm7mm48d" path="res://Scenes/Spawner/Spawner.tscn" id="4_ln2h6"]
 [ext_resource type="PackedScene" uid="uid://bm38gt5tu8tpj" path="res://Scenes/Player/PlayerCamera.tscn" id="4_y3kpf"]
@@ -18,7 +19,10 @@ sky = SubResource("Sky_iukft")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3k6gv"]
+
 [node name="Game" type="Node3D" unique_id=1037281972]
+script = ExtResource("1_y3kpf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=343828195]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -34,3 +38,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.544821, 0)
 
 [node name="PlayerCamera" parent="." unique_id=1352535053 instance=ExtResource("4_y3kpf")]
 transform = Transform3D(1, 0, 0, 0, 0.9821857, 0.18791275, 0, -0.18791275, 0.9821857, 0, 16.942389, 15.295692)
+
+[node name="Floor" type="Area3D" parent="." unique_id=1849944982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5994914, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=24592469]
+shape = SubResource("WorldBoundaryShape3D_3k6gv")
+
+[connection signal="body_entered" from="Floor" to="." method="_on_floor_body_entered"]
