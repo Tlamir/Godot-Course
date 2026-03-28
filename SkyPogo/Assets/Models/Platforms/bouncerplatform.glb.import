@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3nirys4atg30"
-path="res://.godot/imported/3leyer.platform.round.pink.glb-79bbc4fd4530708b6defeaffce5ce106.scn"
+uid="uid://deiktlxa8g7vg"
+path="res://.godot/imported/bouncerplatform.glb-e5c78fb243216a9d25440c1056ba830b.scn"
 
 [deps]
 
-source_file="res://Scenes/Platform/3leyer.platform.round.pink.glb"
-dest_files=["res://.godot/imported/3leyer.platform.round.pink.glb-79bbc4fd4530708b6defeaffce5ce106.scn"]
+source_file="res://Assets/Models/Platforms/bouncerplatform.glb"
+dest_files=["res://.godot/imported/bouncerplatform.glb-e5c78fb243216a9d25440c1056ba830b.scn"]
 
 [params]
 

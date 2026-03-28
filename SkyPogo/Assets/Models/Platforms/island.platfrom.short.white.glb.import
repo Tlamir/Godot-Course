@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deiktlxa8g7vg"
-path="res://.godot/imported/bouncerplatform.glb-cef7bb90874ce6653b2f1a5cf95cbc13.scn"
+uid="uid://der1h4i8di73b"
+path="res://.godot/imported/island.platfrom.short.white.glb-2de55fdad3490df099e89f6a705abbe6.scn"
 
 [deps]
 
-source_file="res://Scenes/Platform/bouncerplatform.glb"
-dest_files=["res://.godot/imported/bouncerplatform.glb-cef7bb90874ce6653b2f1a5cf95cbc13.scn"]
+source_file="res://Assets/Models/Platforms/island.platfrom.short.white.glb"
+dest_files=["res://.godot/imported/island.platfrom.short.white.glb-2de55fdad3490df099e89f6a705abbe6.scn"]
 
 [params]
 

@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://cdb1im2sat21l"]
+[gd_scene format=3 uid="uid://c2gyfp8hlup08"]
 
-[ext_resource type="Script" uid="uid://yvuehptw1g4p" path="res://Scenes/Platform/Platform.gd" id="1_pquxj"]
+[ext_resource type="Script" uid="uid://yvuehptw1g4p" path="res://Scenes/Platform/Platform.gd" id="1_pb1q8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a2buc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fcwl"]
 
 [sub_resource type="Animation" id="Animation_pquxj"]
 length = 0.001
@@ -44,15 +48,17 @@ height = 0.07897949
 radius = 1.5405273
 
 [node name="Platform" type="Node3D" unique_id=1735556484]
-script = ExtResource("1_pquxj")
+script = ExtResource("1_pb1q8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1598420968]
 transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_a2buc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=135461485]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=816929983]
 transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("BoxShape3D_7fcwl")
 
 [node name="Timer" type="Timer" parent="." unique_id=451641954]
 wait_time = 6.0
