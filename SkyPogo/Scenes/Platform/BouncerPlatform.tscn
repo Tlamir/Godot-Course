@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cjugdsp48b4o8"]
+
+[ext_resource type="PackedScene" uid="uid://cdb1im2sat21l" path="res://Scenes/Platform/Platform.tscn" id="1_6ij2m"]
+[ext_resource type="ArrayMesh" uid="uid://dfiurrn3tvaqd" path="res://Resources/Bounceplatfrom_mesh.tres" id="2_dmq44"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7td8m"]
+height = 1.7753906
+
+[node name="BouncerPlatform" unique_id=1735556484 instance=ExtResource("1_6ij2m")]
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=1598420968]
+mesh = ExtResource("2_dmq44")
+
+[node name="CollisionShape3D" parent="StaticBody3D" parent_id_path=PackedInt32Array(135461485) index="0" unique_id=816929983]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, -0.056152344, 0)
+shape = SubResource("CylinderShape3D_7td8m")
+
+[node name="PlayerDetector" parent="." index="4" unique_id=1894390361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15768695, 0)

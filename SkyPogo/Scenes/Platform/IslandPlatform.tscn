@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ck4n0autl84dr"]
+
+[ext_resource type="PackedScene" uid="uid://cdb1im2sat21l" path="res://Scenes/Platform/Platform.tscn" id="1_aghvu"]
+[ext_resource type="ArrayMesh" uid="uid://ik1k2yc14lio" path="res://Resources/Island_mesh.tres" id="2_8a078"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yadut"]
+size = Vector3(1, 4.006592, 1)
+
+[node name="IslandPlatform" unique_id=1735556484 instance=ExtResource("1_aghvu")]
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=1598420968]
+mesh = ExtResource("2_8a078")
+
+[node name="CollisionShape3D" parent="StaticBody3D" parent_id_path=PackedInt32Array(135461485) index="0" unique_id=816929983]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0.498626, 0)
+shape = SubResource("BoxShape3D_yadut")
+
+[node name="PlayerDetector" parent="." index="4" unique_id=1894390361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1799173, 0)
+
+[node name="CollisionShape3D" parent="PlayerDetector" index="0" unique_id=1038568970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28041422, 0)
