@@ -1,6 +1,6 @@
 extends Node
 
-@export var platform_scene: PackedScene
+@export var platform_scenes: Array[PackedScene]
 @export var speed: int =50
 
 const OFFSET_UP: Vector2 = Vector2(2.5,4.0)
@@ -17,6 +17,7 @@ func get_random_offset(offset_range: Vector2) -> float:
 		
 
 func spawn_platform(old_platform_pos:Vector3)->void:
+	var platform_scene=platform_scenes.pick_random()
 	var new_platform: Platform = platform_scene.instantiate()
 	var new_y: float = randf_range(OFFSET_UP.x,OFFSET_UP.y)
 	

@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cxouyjm7mm48d"]
 
 [ext_resource type="Script" uid="uid://ci6bt2t4jb3kn" path="res://Scenes/Spawner/Spawner.gd" id="1_sop60"]
+[ext_resource type="PackedScene" uid="uid://deijpdln7xuab" path="res://Scenes/Platform/3LayerPlatform.tscn" id="2_n0n2f"]
+[ext_resource type="PackedScene" uid="uid://0lipu6ri3614" path="res://Scenes/Platform/Bouncer1Platform.tscn" id="3_cd6n5"]
 [ext_resource type="PackedScene" uid="uid://ck4n0autl84dr" path="res://Scenes/Platform/IslandPlatform.tscn" id="3_denu4"]
+[ext_resource type="PackedScene" uid="uid://cjugdsp48b4o8" path="res://Scenes/Platform/BouncerPlatform.tscn" id="4_ncssj"]
+[ext_resource type="PackedScene" uid="uid://chbds8u5abu6p" path="res://Scenes/Platform/IslandIcePlatform.tscn" id="5_f27g6"]
 
 [node name="Spawner" type="Node" unique_id=952478471]
 script = ExtResource("1_sop60")
-platform_scene = ExtResource("3_denu4")
+platform_scenes = Array[PackedScene]([ExtResource("2_n0n2f"), ExtResource("3_cd6n5"), ExtResource("4_ncssj"), ExtResource("5_f27g6"), ExtResource("3_denu4")])
 
 [node name="IslandPlatform" parent="." unique_id=1735556484 instance=ExtResource("3_denu4")]
