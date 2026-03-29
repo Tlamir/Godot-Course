@@ -7,10 +7,13 @@ const JUMP_FORCE: float = 14.0
 const ROTATION_SPEED: float = 4.0
 const MOVE_SPEED: float = 3.5
 const LAND_BUFFER: float =1.0
-
+const FALLEN_OFF_TH: float= -18.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var land_effect: AudioStreamPlayer3D = $LandEffect
+@onready var fall_effect: AudioStreamPlayer3D = $FallEffect
+
+var min_y_fall: float=10.0
 var last_landed: float = -5.0
 
 func _enter_tree() -> void:
@@ -28,6 +31,8 @@ func _physics_process(delta: float) -> void:
 	handle_animation()
 	handle_sound()
 	
+	
+
 
 func handle_gravity(delta: float) -> void:
 	 #Falling physics then jumping
@@ -41,6 +46,11 @@ func handle_sound()->void:
 		if position.y > last_landed:
 			land_effect.play()
 			last_landed= position.y+LAND_BUFFER
+	if velocity.y < min_y_fall:
+		min_y_fall=velocity.y
+		print(min_y_fall)
+	if velocity.y<FALLEN_OFF_TH and !fall_effect.playing:
+		fall_effect.play()
 			
 		
 	
