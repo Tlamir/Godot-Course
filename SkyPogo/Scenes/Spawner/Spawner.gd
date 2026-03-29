@@ -2,9 +2,14 @@ extends Node
 
 @export var platform_scenes: Array[PackedScene]
 @export var speed: int =50
+@onready var island_platform: Platform = $IslandPlatform
 
 const OFFSET_UP: Vector2 = Vector2(2.5,4.0)
 const OFFSET_SIDE: Vector2=Vector2(2.5,4.5)
+
+func _ready() -> void:
+	SignalHub.emit_spawner_loaded(island_platform.position.y)
+	
 
 func _enter_tree() -> void:
 	SignalHub.new_platform.connect(_on_new_platform)

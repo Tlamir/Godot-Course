@@ -19,4 +19,4 @@ shape = SubResource("BoxShape3D_yadut")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1799173, 0)
 
 [node name="CollisionShape3D" parent="PlayerDetector" index="0" unique_id=1038568970]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28041422, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0046907663, 0.33568406, 0.0011757463)

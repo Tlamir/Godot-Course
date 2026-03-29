@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bvjy8dmrr8rt" path="res://Scenes/Player/Player.gd" id="1_rpqav"]
 [ext_resource type="Texture2D" uid="uid://xj7bskx62kwe" path="res://Assets/Models/15_PLAYER_MODEL/Textures/colormap.png" id="2_ft8w5"]
+[ext_resource type="AudioStream" uid="uid://c68gyn23dhdco" path="res://Resources/23_SOUND_EFFECTS/Land1.wav" id="3_t26db"]
+[ext_resource type="AudioStream" uid="uid://i07dj7aplucx" path="res://Resources/23_SOUND_EFFECTS/Land2.wav" id="4_fk5o5"]
+[ext_resource type="AudioStream" uid="uid://c5nuw72uwphkb" path="res://Resources/23_SOUND_EFFECTS/Land3.wav" id="5_825xp"]
+[ext_resource type="AudioStream" uid="uid://bp8vmxnj6qbe5" path="res://Resources/23_SOUND_EFFECTS/Land4.wav" id="6_ji083"]
+[ext_resource type="AudioStream" uid="uid://bwxvuvlu8o360" path="res://Resources/23_SOUND_EFFECTS/Land5.wav" id="7_0kmp4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0j3ql"]
 
@@ -2709,6 +2714,14 @@ _data = {
 &"wheelchair-sit": SubResource("Animation_jbjyn")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i5acl"]
+streams_count = 5
+stream_0/stream = ExtResource("3_t26db")
+stream_1/stream = ExtResource("4_fk5o5")
+stream_2/stream = ExtResource("5_825xp")
+stream_3/stream = ExtResource("6_ji083")
+stream_4/stream = ExtResource("7_0kmp4")
+
 [node name="Player" type="CharacterBody3D" unique_id=816719912]
 script = ExtResource("1_rpqav")
 
@@ -2787,3 +2800,6 @@ skeleton = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1521860053]
 libraries/ = SubResource("AnimationLibrary_lw74r")
 autoplay = &"walk"
+
+[node name="LandEffect" type="AudioStreamPlayer3D" parent="." unique_id=243728336]
+stream = SubResource("AudioStreamRandomizer_i5acl")
