@@ -21,8 +21,7 @@ SignalHub="*uid://dakqt1gm0csym"
 
 [display]
 
-window/size/viewport_width=1956
-window/size/viewport_height=1100
+window/stretch/mode="canvas_items"
 
 [editor]
 

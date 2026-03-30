@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cm7rmxwywvuw2"]
+
+[ext_resource type="LabelSettings" uid="uid://cd57l5jxq3y4q" path="res://LabelWhite.tres" id="1_gh3qn"]
+
+[node name="HUD" type="Control" unique_id=1763479185]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=922719074]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer" unique_id=1676681375]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "LEVEL: 99"
+label_settings = ExtResource("1_gh3qn")
+vertical_alignment = 1
+
+[node name="BestLabel" type="Label" parent="MarginContainer" unique_id=2125910588]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "BEST: 9999"
+label_settings = ExtResource("1_gh3qn")
+horizontal_alignment = 2
+vertical_alignment = 1
