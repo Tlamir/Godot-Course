@@ -2,6 +2,14 @@
 
 [ext_resource type="LabelSettings" uid="uid://cd57l5jxq3y4q" path="res://LabelWhite.tres" id="1_gh3qn"]
 [ext_resource type="Script" uid="uid://blvietosp6k66" path="res://Scenes/HUDS/Hud.gd" id="1_ow2xg"]
+[ext_resource type="FontFile" uid="uid://cv20g6n6v2ee2" path="res://Resources/Fonts/LuckiestGuy-Regular.ttf" id="3_heejq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l8lsm"]
+font = ExtResource("3_heejq")
+font_size = 73
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 13
 
 [node name="HUD" type="Control" unique_id=1763479185]
 custom_minimum_size = Vector2(1152, 648)
@@ -38,4 +46,34 @@ size_flags_vertical = 0
 text = "BEST: 9999"
 label_settings = ExtResource("1_gh3qn")
 horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=980170169]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.38431373, 0.42745098, 0.43529412)
+
+[node name="GameOverLabel" type="Label" parent="ColorRect" unique_id=103336028]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -15.5
+offset_right = 72.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "GAME OVER 😱😵‍💫🥸"
+label_settings = SubResource("LabelSettings_l8lsm")
+horizontal_alignment = 1
 vertical_alignment = 1
