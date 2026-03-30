@@ -8,6 +8,10 @@ extends Control
 var _hsr: HighScoreResource = HighScoreResource.load_or_create()
 var _current_score: int=0
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("reload"):
+		get_tree().reload_current_scene()
+
 func _ready() -> void:
 	best_label.text="BEST: %d" %_hsr.high_score
 func _enter_tree() -> void:
