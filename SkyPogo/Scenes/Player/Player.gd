@@ -21,6 +21,8 @@ var _best_height: float =0.0
 
 func _ready() -> void:
 	_start_height=position.y
+	await get_tree().process_frame
+	SignalHub.emit_new_height_reached(_best_height)
 
 func _enter_tree() -> void:
 	SignalHub.spawner_loaded.connect(_on_spawner_loaded)
@@ -87,4 +89,5 @@ func _on_spawner_loaded(y_pos: float)->void:
 func update_best_height() -> void:
 	if position.y-_start_height>_best_height:
 		_best_height=position.y-_start_height
+		SignalHub.emit_new_height_reached(_best_height)
 	

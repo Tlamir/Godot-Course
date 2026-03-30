@@ -34,7 +34,7 @@ shadow_enabled = true
 environment = SubResource("Environment_gl6un")
 
 [node name="Player" parent="." unique_id=816719912 instance=ExtResource("3_j5yw3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.544821, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.984337, 0)
 
 [node name="Spawner" parent="." unique_id=952478471 instance=ExtResource("4_ln2h6")]
 

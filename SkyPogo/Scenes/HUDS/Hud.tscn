@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cm7rmxwywvuw2"]
 
 [ext_resource type="LabelSettings" uid="uid://cd57l5jxq3y4q" path="res://LabelWhite.tres" id="1_gh3qn"]
+[ext_resource type="Script" uid="uid://blvietosp6k66" path="res://Scenes/HUDS/Hud.gd" id="1_ow2xg"]
 
 [node name="HUD" type="Control" unique_id=1763479185]
 custom_minimum_size = Vector2(1152, 648)
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ow2xg")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=922719074]
 layout_mode = 1
@@ -25,7 +27,7 @@ theme_override_constants/margin_right = 24
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "LEVEL: 99"
+text = "Best Height: 0"
 label_settings = ExtResource("1_gh3qn")
 vertical_alignment = 1
 

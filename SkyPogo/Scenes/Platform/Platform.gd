@@ -6,7 +6,7 @@ class_name  Platform
 #signal  new_platform(platform_post: Vector3)
 
 
-const WAIT_TIME: float=6.0
+const WAIT_TIME: float=4.0
 const WAIT_TIME_VAR: float=1.2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -19,7 +19,7 @@ func _on_timer_timeout() -> void:
 func _ready() -> void:
 	timer.wait_time=WAIT_TIME
 	timer.wait_time+=randf_range(-WAIT_TIME_VAR,WAIT_TIME_VAR)
-	print("TIMER TIME: ",timer.wait_time)
+	
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 		queue_free()
