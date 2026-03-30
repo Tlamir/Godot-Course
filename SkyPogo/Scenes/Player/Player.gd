@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 class_name Player
 
-const GRAVITY: float = 0.0
+const GRAVITY: float = 15.0
 const JUMP_FORCE: float = 14.0
 const ROTATION_SPEED: float = 4.0
 const MOVE_SPEED: float = 3.5
@@ -15,6 +15,12 @@ const FALLEN_OFF_TH: float= -18.0
 
 var min_y_fall: float=10.0
 var last_landed: float = -5.0
+var _start_height: float = 0.0
+var _best_height: float =0.0
+
+
+func _ready() -> void:
+	_start_height=position.y
 
 func _enter_tree() -> void:
 	SignalHub.spawner_loaded.connect(_on_spawner_loaded)
@@ -30,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	handle_animation()
 	handle_sound()
+	update_best_height()
 	
 	
 
@@ -76,4 +83,8 @@ func handle_movement(delta: float)-> void:
 
 func _on_spawner_loaded(y_pos: float)->void:
 	last_landed=y_pos-LAND_BUFFER*2
+	
+func update_best_height() -> void:
+	if position.y-_start_height>_best_height:
+		_best_height=position.y-_start_height
 	
