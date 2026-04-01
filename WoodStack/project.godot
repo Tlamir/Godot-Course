@@ -11,8 +11,20 @@ config_version=5
 [application]
 
 config/name="WoodStack"
+run/main_scene="uid://dnobwgp1wl37f"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/stretch/mode="canvas_items"
+
+[editor]
+
+naming/scene_name_casing=1
+naming/script_name_casing=1
 
 [physics]
 
