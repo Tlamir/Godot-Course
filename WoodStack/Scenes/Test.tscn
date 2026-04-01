@@ -19,6 +19,18 @@ albedo_color = Color(0.16829999, 0.51, 0.51, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_ot306"]
 material = SubResource("StandardMaterial3D_ot306")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ot306"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ko2s7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ko2s7"]
+albedo_color = Color(0.77, 0.077000014, 0.077000014, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gxb1y"]
+material = SubResource("StandardMaterial3D_ko2s7")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0dy5s"]
+
 [node name="Test" type="Node" unique_id=1579600803]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1314320732]
@@ -34,3 +46,39 @@ transform = Transform3D(0.67749166, 0.42343643, -0.6014206, 0, 0.8176691, 0.5756
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=414280785]
 transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
 mesh = SubResource("BoxMesh_ot306")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=566419433]
+physics_material_override = SubResource("PhysicsMaterial_ot306")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=633834051]
+shape = SubResource("BoxShape3D_ko2s7")
+
+[node name="Capsule" type="RigidBody3D" parent="." unique_id=2101689801]
+transform = Transform3D(0.90128887, -0.42798042, -0.06716536, 0.43321875, 0.89039105, 0.13973404, 0, -0.15503801, 0.9879086, 0, 12.36081, -3.6445017)
+mass = 4.833
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Capsule" unique_id=1470623719]
+mesh = SubResource("CapsuleMesh_gxb1y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Capsule" unique_id=1451824247]
+shape = SubResource("CapsuleShape3D_0dy5s")
+
+[node name="Capsule2" type="RigidBody3D" parent="." unique_id=77661740]
+transform = Transform3D(1, 0, 0, 0, 0.6774924, 0.7355298, 0, -0.7355298, 0.6774924, 0, 12.36081, -1.2923594)
+mass = 4.833
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Capsule2" unique_id=602034989]
+mesh = SubResource("CapsuleMesh_gxb1y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Capsule2" unique_id=346614613]
+shape = SubResource("CapsuleShape3D_0dy5s")
+
+[node name="Capsule3" type="RigidBody3D" parent="." unique_id=1342419964]
+transform = Transform3D(0.6989647, 0.48451287, 0.5260187, -0.7151562, 0.47354326, 0.5141094, 0, -0.7355298, 0.6774924, 2.112481, 12.36081, -3.6884604)
+mass = 24.633
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Capsule3" unique_id=2109182987]
+mesh = SubResource("CapsuleMesh_gxb1y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Capsule3" unique_id=87336628]
+shape = SubResource("CapsuleShape3D_0dy5s")
