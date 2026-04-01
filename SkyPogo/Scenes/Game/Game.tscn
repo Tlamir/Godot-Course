@@ -49,7 +49,6 @@ shape = SubResource("WorldBoundaryShape3D_3k6gv")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1536824481]
 stream = ExtResource("6_3k6gv")
-volume_db = -80.0
 autoplay = true
 
 [node name="HUD" parent="." unique_id=1666757013 instance=ExtResource("7_1q8bt")]
