@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bnh4sn8m0q8na" path="res://Assets/07_MESH_TEXTURES/wood_table_worn_ao_1k.jpg" id="3_fgofq"]
 [ext_resource type="Texture2D" uid="uid://1xa82df3b88g" path="res://Assets/07_MESH_TEXTURES/wood_table_worn_nor_gl_1k.jpg" id="3_kldst"]
 [ext_resource type="Texture2D" uid="uid://dkvkddget1sbb" path="res://Assets/07_MESH_TEXTURES/rubber_tiles_nor_gl_1k.jpg" id="4_7lihs"]
+[ext_resource type="PackedScene" uid="uid://brdc1fvjsv1kx" path="res://Scenes/Brick/Brick.tscn" id="8_2irst"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gl6un"]
 panorama = ExtResource("1_iukft")
@@ -37,6 +38,9 @@ ao_texture = ExtResource("3_fgofq")
 [sub_resource type="BoxMesh" id="BoxMesh_kldst"]
 material = SubResource("StandardMaterial3D_j5yw3")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fgofq"]
+size = Vector3(1, 0.34033203, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bf53h"]
 albedo_texture = ExtResource("2_kldst")
 normal_enabled = true
@@ -46,6 +50,9 @@ ao_texture = ExtResource("3_b2bpf")
 
 [sub_resource type="BoxMesh" id="BoxMesh_71axn"]
 material = SubResource("StandardMaterial3D_bf53h")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2irst"]
+size = Vector3(1, 0.1652832, 1)
 
 [node name="Game" type="Node" unique_id=1916981456]
 
@@ -66,9 +73,21 @@ transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_b2bpf")
 mesh = SubResource("BoxMesh_kldst")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=967766895]
+[node name="StaticBody3D" type="StaticBody3D" parent="Table" unique_id=1132512897]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D" unique_id=1824486143]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0.32983398, 0)
+shape = SubResource("BoxShape3D_fgofq")
+
+[node name="PlayArea" type="MeshInstance3D" parent="." unique_id=967766895]
 transform = Transform3D(2.5, 0, 0, 0, 0.5, 0, 0, 0, 2.5, 0, 0.5080994, 0)
 mesh = SubResource("BoxMesh_71axn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayArea" unique_id=359677327]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayArea/StaticBody3D" unique_id=126996994]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0.4173584, 0)
+shape = SubResource("BoxShape3D_2irst")
 
 [node name="Lights" type="Node3D" parent="." unique_id=575234684]
 
@@ -89,3 +108,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7809591, 10, 2.4222631)
 light_color = Color(0.98848134, 0.96949893, 0.9339371, 1)
 light_energy = 2.835
 omni_range = 18.517
+
+[node name="Brick" parent="." unique_id=1986931034 instance=ExtResource("8_2irst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6337595, 4.215845, 0.95026374)
+
+[node name="Brick2" parent="." unique_id=1456011971 instance=ExtResource("8_2irst")]
+transform = Transform3D(1, 0, 0, 0, 0.73057956, 0.6828276, 0, -0.6828276, 0.73057956, 0.19990683, 4.215845, -0.8938544)
+
+[node name="Brick3" parent="." unique_id=1692918959 instance=ExtResource("8_2irst")]
+transform = Transform3D(0.28963318, 0.69926524, 0.65356004, -0.9571377, 0.21160008, 0.19776952, 0, -0.6828276, 0.73057956, -0.045200825, 5.3945527, -0.06965232)
