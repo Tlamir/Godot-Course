@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://tbjug2hem4b2"]
+
+[ext_resource type="Texture2D" uid="uid://61smebr1aslr" path="res://Assets/newman_lobby_4k.hdr" id="1_iukft"]
+[ext_resource type="Texture2D" uid="uid://c8py4t4c4ru08" path="res://Assets/07_MESH_TEXTURES/wood_table_worn_diff_1k.jpg" id="2_j5yw3"]
+[ext_resource type="Texture2D" uid="uid://b1g4hywt8e0xk" path="res://Assets/07_MESH_TEXTURES/rubber_tiles_diff_1k.jpg" id="2_kldst"]
+[ext_resource type="Texture2D" uid="uid://ck43ykxfmrp8a" path="res://Assets/07_MESH_TEXTURES/rubber_tiles_ao_1k.jpg" id="3_b2bpf"]
+[ext_resource type="Texture2D" uid="uid://bnh4sn8m0q8na" path="res://Assets/07_MESH_TEXTURES/wood_table_worn_ao_1k.jpg" id="3_fgofq"]
+[ext_resource type="Texture2D" uid="uid://1xa82df3b88g" path="res://Assets/07_MESH_TEXTURES/wood_table_worn_nor_gl_1k.jpg" id="3_kldst"]
+[ext_resource type="Texture2D" uid="uid://dkvkddget1sbb" path="res://Assets/07_MESH_TEXTURES/rubber_tiles_nor_gl_1k.jpg" id="4_7lihs"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gl6un"]
+panorama = ExtResource("1_iukft")
+energy_multiplier = 0.2
+
+[sub_resource type="Sky" id="Sky_iukft"]
+sky_material = SubResource("PanoramaSkyMaterial_gl6un")
+
+[sub_resource type="Environment" id="Environment_gl6un"]
+background_mode = 2
+sky = SubResource("Sky_iukft")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgofq"]
+load_path = "res://.godot/imported/wood_table_worn_diff_1k.jpg-54ca7664e3feac62bf260c1a8339c3f4.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2bpf"]
+albedo_texture = SubResource("CompressedTexture2D_fgofq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5yw3"]
+albedo_texture = ExtResource("2_j5yw3")
+normal_enabled = true
+normal_texture = ExtResource("3_kldst")
+ao_enabled = true
+ao_texture = ExtResource("3_fgofq")
+
+[sub_resource type="BoxMesh" id="BoxMesh_kldst"]
+material = SubResource("StandardMaterial3D_j5yw3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bf53h"]
+albedo_texture = ExtResource("2_kldst")
+normal_enabled = true
+normal_texture = ExtResource("4_7lihs")
+ao_enabled = true
+ao_texture = ExtResource("3_b2bpf")
+
+[sub_resource type="BoxMesh" id="BoxMesh_71axn"]
+material = SubResource("StandardMaterial3D_bf53h")
+
+[node name="Game" type="Node" unique_id=1916981456]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=52680787]
+environment = SubResource("Environment_gl6un")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1521236840]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1802521832]
+transform = Transform3D(0.71810645, 0.45102867, -0.5299965, 0, 0.7615622, 0.6480918, 0.6959333, -0.46539888, 0.54688275, -3.1063554, 4.2872458, 3.6045725)
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=84791693]
+transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_b2bpf")
+mesh = SubResource("BoxMesh_kldst")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=967766895]
+transform = Transform3D(2.5, 0, 0, 0, 0.5, 0, 0, 0, 2.5, 0, 0.5080994, 0)
+mesh = SubResource("BoxMesh_71axn")

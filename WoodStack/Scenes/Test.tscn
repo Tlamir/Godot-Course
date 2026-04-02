@@ -75,7 +75,7 @@ shape = SubResource("CapsuleShape3D_0dy5s")
 
 [node name="Capsule3" type="RigidBody3D" parent="." unique_id=1342419964]
 transform = Transform3D(0.6989647, 0.48451287, 0.5260187, -0.7151562, 0.47354326, 0.5141094, 0, -0.7355298, 0.6774924, 2.112481, 12.36081, -3.6884604)
-mass = 24.633
+mass = 0.001
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Capsule3" unique_id=2109182987]
 mesh = SubResource("CapsuleMesh_gxb1y")
