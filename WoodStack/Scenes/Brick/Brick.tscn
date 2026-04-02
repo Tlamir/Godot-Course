@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://brdc1fvjsv1kx"]
 
+[ext_resource type="Script" uid="uid://bye5kxuqtn0de" path="res://Scenes/Brick/Brick.gd" id="1_5q71n"]
 [ext_resource type="Texture2D" uid="uid://bqqm5n6564u2x" path="res://Assets/10_TEXTURE_MAPS/plywood_diff_1k.jpg" id="1_o450c"]
 [ext_resource type="Texture2D" uid="uid://bbguw1rx6qhy1" path="res://Assets/10_TEXTURE_MAPS/plywood_ao_1k.jpg" id="2_5q71n"]
 [ext_resource type="Texture2D" uid="uid://hgyctiqej280" path="res://Assets/10_TEXTURE_MAPS/plywood_nor_gl_1k.jpg" id="3_4c1ur"]
@@ -18,6 +19,9 @@ material = SubResource("StandardMaterial3D_lrdbq")
 size = Vector3(0.40466553, 0.39777833, 2.0006104)
 
 [node name="Brick" type="RigidBody3D" unique_id=1986931034]
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_5q71n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=679487372]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 2, 0, 0, 0)
@@ -26,3 +30,6 @@ mesh = SubResource("BoxMesh_6cswe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1173413945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030639768, -0.0004272163, 0.00079345703)
 shape = SubResource("BoxShape3D_o450c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

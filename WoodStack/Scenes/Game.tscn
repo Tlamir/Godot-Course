@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://1xa82df3b88g" path="res://Assets/07_MESH_TEXTURES/wood_table_worn_nor_gl_1k.jpg" id="3_kldst"]
 [ext_resource type="Texture2D" uid="uid://dkvkddget1sbb" path="res://Assets/07_MESH_TEXTURES/rubber_tiles_nor_gl_1k.jpg" id="4_7lihs"]
 [ext_resource type="PackedScene" uid="uid://brdc1fvjsv1kx" path="res://Scenes/Brick/Brick.tscn" id="8_2irst"]
+[ext_resource type="PackedScene" uid="uid://bu45jadatf5os" path="res://Scenes/Spawner/Spawner.tscn" id="9_bf53h"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gl6un"]
 panorama = ExtResource("1_iukft")
-energy_multiplier = 0.1
+energy_multiplier = 0.3
 
 [sub_resource type="Sky" id="Sky_iukft"]
 sky_material = SubResource("PanoramaSkyMaterial_gl6un")
@@ -73,7 +74,7 @@ transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_b2bpf")
 mesh = SubResource("BoxMesh_kldst")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Table" unique_id=1132512897]
+[node name="StaticBody3D" type="StaticBody3D" parent="Table" unique_id=1132512897 groups=["Table"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D" unique_id=1824486143]
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0.32983398, 0)
@@ -94,7 +95,7 @@ shape = SubResource("BoxShape3D_2irst")
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=120728178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07094097, 10, -0.011758566)
 light_color = Color(0.98848134, 0.96949893, 0.9339371, 1)
-light_energy = 2.835
+light_energy = 6.656
 omni_range = 18.517
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=427338291]
@@ -110,10 +111,12 @@ light_energy = 2.835
 omni_range = 18.517
 
 [node name="Brick" parent="." unique_id=1986931034 instance=ExtResource("8_2irst")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6337595, 4.215845, 0.95026374)
+transform = Transform3D(1, 0, 0, 0, 0.92853117, 0.37125438, 0, -0.37125438, 0.92853117, -0.2094245, 5.0659, -0.093503)
 
-[node name="Brick2" parent="." unique_id=1456011971 instance=ExtResource("8_2irst")]
-transform = Transform3D(1, 0, 0, 0, 0.73057956, 0.6828276, 0, -0.6828276, 0.73057956, 0.19990683, 4.215845, -0.8938544)
+[node name="Brick3" parent="." unique_id=289759890 instance=ExtResource("8_2irst")]
+transform = Transform3D(0.2395164, -0.36044803, 0.9015038, 0, 0.92853117, 0.37125438, -0.9708923, -0.08892152, 0.22239845, -0.2094245, 4.0260205, -0.9177625)
 
-[node name="Brick3" parent="." unique_id=1692918959 instance=ExtResource("8_2irst")]
-transform = Transform3D(0.28963318, 0.69926524, 0.65356004, -0.9571377, 0.21160008, 0.19776952, 0, -0.6828276, 0.73057956, -0.045200825, 5.3945527, -0.06965232)
+[node name="Brick2" parent="." unique_id=248852718 instance=ExtResource("8_2irst")]
+transform = Transform3D(0.7422098, -0.24880265, 0.6222715, 0.24122542, 0.96547705, 0.09830657, -0.62524784, 0.07714361, 0.7766042, -0.2094245, 4.011221, -0.093503)
+
+[node name="Spawner" parent="." unique_id=443022210 instance=ExtResource("9_bf53h")]
