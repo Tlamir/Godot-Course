@@ -73,7 +73,19 @@ mesh = SubResource("BoxMesh_71axn")
 [node name="Lights" type="Node3D" parent="." unique_id=575234684]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=120728178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.592, 10, 0)
-light_color = Color(1, 1, 0.7058824, 1)
-light_energy = 4.168
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07094097, 10, -0.011758566)
+light_color = Color(0.98848134, 0.96949893, 0.9339371, 1)
+light_energy = 2.835
+omni_range = 18.517
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=427338291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2375307, 10, -2.9656687)
+light_color = Color(0.98848134, 0.96949893, 0.9339371, 1)
+light_energy = 2.835
+omni_range = 18.517
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights" unique_id=143403867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7809591, 10, 2.4222631)
+light_color = Color(0.98848134, 0.96949893, 0.9339371, 1)
+light_energy = 2.835
 omni_range = 18.517
