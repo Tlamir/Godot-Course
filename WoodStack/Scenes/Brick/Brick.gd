@@ -5,7 +5,6 @@ class_name  Brick
 const TABLE_GROUP: String ="Table"
 
 func _on_sleeping_state_changed() -> void:
-	print("SleepStateChanged: ",sleeping)
 	if sleeping:
 		SignalHub.emit_on_brick_landed(position.y)
 		if sleeping_state_changed.is_connected(_on_sleeping_state_changed):

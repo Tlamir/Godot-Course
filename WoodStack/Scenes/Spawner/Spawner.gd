@@ -29,8 +29,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	handle_rotation(delta)
-	handle_translation(delta)
+	if brick_mesh.visible:
+		handle_rotation(delta)
+		handle_translation(delta)
 	position.y = lerp(position.y,_start_y+_highest_y,delta*LIFT_SPEED)
 
 func on_brick_landed(y_position: float) ->void:

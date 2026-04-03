@@ -71,9 +71,6 @@ light_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
 light_energy = 0.111
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1802521832]
-transform = Transform3D(0.71810645, 0.45102865, -0.5299965, 0, 0.7615622, 0.6480918, 0.6959333, -0.4653989, 0.54688275, -3.1063554, 5.659129, 3.6045725)
-
 [node name="Table" type="MeshInstance3D" parent="." unique_id=84791693]
 transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_b2bpf")
@@ -118,3 +115,8 @@ omni_range = 18.517
 
 [node name="Spawner" parent="." unique_id=443022210 instance=ExtResource("9_bf53h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.855, 0)
+
+[node name="Camera3D" parent="Spawner" index="2" unique_id=226468938]
+transform = Transform3D(0.709993, 0.33177623, -0.62115574, 0.012013238, 0.8762274, 0.48174825, 0.70410645, -0.34950003, 0.6181297, -3.6881847, 2.5626893, 3.6045725)
+
+[editable path="Spawner"]
