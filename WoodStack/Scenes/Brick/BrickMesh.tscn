@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://m16fpjouh11b"]
+
+[ext_resource type="Texture2D" uid="uid://bqqm5n6564u2x" path="res://Assets/10_TEXTURE_MAPS/plywood_diff_1k.jpg" id="1_30guq"]
+[ext_resource type="Texture2D" uid="uid://bbguw1rx6qhy1" path="res://Assets/10_TEXTURE_MAPS/plywood_ao_1k.jpg" id="2_wvqd6"]
+[ext_resource type="Texture2D" uid="uid://hgyctiqej280" path="res://Assets/10_TEXTURE_MAPS/plywood_nor_gl_1k.jpg" id="3_x0343"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrdbq"]
+albedo_texture = ExtResource("1_30guq")
+normal_enabled = true
+normal_texture = ExtResource("3_x0343")
+ao_enabled = true
+ao_texture = ExtResource("2_wvqd6")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6cswe"]
+material = SubResource("StandardMaterial3D_lrdbq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30guq"]
+transparency = 1
+blend_mode = 2
+albedo_color = Color(0, 0, 0, 0.41568628)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wvqd6"]
+material = SubResource("StandardMaterial3D_30guq")
+
+[node name="BrickMesh" type="MeshInstance3D" unique_id=1353888332]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 2, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_6cswe")
+
+[node name="Shadow" type="MeshInstance3D" parent="." unique_id=1004577561]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.006486236, 0, 0, 0, 1, 0, -7.714565, 0)
+mesh = SubResource("BoxMesh_wvqd6")

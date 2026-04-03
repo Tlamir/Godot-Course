@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://bu45jadatf5os"]
 
 [ext_resource type="Script" uid="uid://d3kde5xwa33lc" path="res://Scenes/Spawner/Spawner.gd" id="1_sop60"]
+[ext_resource type="PackedScene" uid="uid://m16fpjouh11b" path="res://Scenes/Brick/BrickMesh.tscn" id="2_v83ff"]
 
 [node name="Spawner" type="Node3D" unique_id=443022210]
 script = ExtResource("1_sop60")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1681671289]
+
+[node name="BrickMesh" parent="Pivot" unique_id=1353888332 instance=ExtResource("2_v83ff")]
