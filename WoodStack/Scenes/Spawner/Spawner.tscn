@@ -9,3 +9,9 @@ script = ExtResource("1_sop60")
 [node name="Pivot" type="Node3D" parent="." unique_id=1681671289]
 
 [node name="BrickMesh" parent="Pivot" unique_id=1353888332 instance=ExtResource("2_v83ff")]
+visible = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1083631891]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
