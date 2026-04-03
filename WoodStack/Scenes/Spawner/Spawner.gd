@@ -40,6 +40,7 @@ func on_brick_landed(y_position: float) ->void:
 	show_brick()
 	start_timer()
 	
+	
 func on_game_over() -> void:
 	print("Spawner Game Over")
 
@@ -77,6 +78,7 @@ func start_timer()->void:
 func show_brick()->void:
 	brick_mesh.show()
 func drop_brick()->void:
+	SignalHub.emit_on_brick_dropped(brick_mesh.global_transform)
 	brick_mesh.hide()
 
 func _on_timer_timeout() -> void:

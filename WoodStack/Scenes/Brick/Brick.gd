@@ -6,7 +6,10 @@ const TABLE_GROUP: String ="Table"
 
 func _on_sleeping_state_changed() -> void:
 	print("SleepStateChanged: ",sleeping)
-	SignalHub.emit_on_brick_landed(position.y)
+	if sleeping:
+		SignalHub.emit_on_brick_landed(position.y)
+		if sleeping_state_changed.is_connected(_on_sleeping_state_changed):
+			sleeping_state_changed.disconnect(_on_sleeping_state_changed)
 
 
 func _on_body_entered(body: Node) -> void:

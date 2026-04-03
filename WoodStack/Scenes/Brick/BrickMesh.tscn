@@ -14,19 +14,6 @@ ao_texture = ExtResource("2_wvqd6")
 [sub_resource type="BoxMesh" id="BoxMesh_6cswe"]
 material = SubResource("StandardMaterial3D_lrdbq")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30guq"]
-transparency = 1
-blend_mode = 2
-albedo_color = Color(0, 0, 0, 0.41568628)
-
-[sub_resource type="BoxMesh" id="BoxMesh_wvqd6"]
-material = SubResource("StandardMaterial3D_30guq")
-
 [node name="BrickMesh" type="MeshInstance3D" unique_id=1353888332]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 2, 0, 0, 0)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_6cswe")
-
-[node name="Shadow" type="MeshInstance3D" parent="." unique_id=1004577561]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.006486236, 0, 0, 0, 1, 0, -7.714565, 0)
-mesh = SubResource("BoxMesh_wvqd6")

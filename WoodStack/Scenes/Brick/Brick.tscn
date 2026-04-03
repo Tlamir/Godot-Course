@@ -4,17 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://m16fpjouh11b" path="res://Scenes/Brick/BrickMesh.tscn" id="2_tjjil"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o450c"]
-size = Vector3(0.40466553, 0.39777833, 2.0006104)
+size = Vector3(1.015, 0.993, 1.001)
 
 [node name="Brick" type="RigidBody3D" unique_id=1986931034]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 2, 0, 0, 0)
 contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("1_5q71n")
 
 [node name="BrickMesh" parent="." unique_id=1353888332 instance=ExtResource("2_tjjil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1173413945]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030639768, -0.0004272163, 0.00079345703)
 shape = SubResource("BoxShape3D_o450c")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
