@@ -31,7 +31,7 @@ func _ready() -> void:
 	call_deferred("late_init")
 	
 func late_init()->void:
-	on_brick_landed(0)
+	SignalHub.emit_on_brick_landed(0)
 	
 	
 
