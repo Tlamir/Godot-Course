@@ -11,11 +11,13 @@ const LIFT_SPEED: float= 5.0
 const MOVE_LIMIT: float =2.5
 const PIVOT_LIMIT:float=1.0
 
-var _spawn_time:float=2.0
+const NUMBER_PER_LEVEL: int =3
+const SPAWN_RED_MULT: float = 0.1
+
+var _spawn_time:float=8.0
 var _start_y:float=0.0
 var _highest_y:float=0.0
-
-
+var _level: int =0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !timer.is_stopped() and event.is_action_pressed("drop_brick"):
@@ -26,9 +28,12 @@ func _ready() -> void:
 	_start_y=position.y
 	SignalHub.on_brick_landed.connect(on_brick_landed)
 	SignalHub.on_game_over.connect(on_game_over)
+	call_deferred("late_init")
+	
+func late_init()->void:
 	on_brick_landed(0)
 	
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,7 +57,6 @@ func handle_rotation(delta: float)->void:
 	var rot_input: float = Input.get_axis(
 		"rotate_counter_cw","rotate_cw"
 	)
-	print(rot_input)
 	pivot.rotate_y(rot_input*delta*ROTATION_SPEED)
 	
 func handle_translation(delta: float) ->void:
@@ -77,6 +81,11 @@ func raise_pivot(y_position: float) -> void:
 	if y_position>_highest_y: _highest_y = y_position
 	
 func start_timer()->void:
+	if GameState.bricks_landed % NUMBER_PER_LEVEL == 0 :
+		_spawn_time-=SPAWN_RED_MULT*_spawn_time
+		_level+=1
+		SignalHub.emit_on_new_level(_level,_spawn_time)
+	print("hee",_spawn_time)
 	timer.wait_time=_spawn_time
 	timer.start()
 func show_brick()->void:
