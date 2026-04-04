@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3kde5xwa33lc" path="res://Scenes/Spawner/Spawner.gd" id="1_sop60"]
 [ext_resource type="PackedScene" uid="uid://m16fpjouh11b" path="res://Scenes/Brick/BrickMesh.tscn" id="2_v83ff"]
+[ext_resource type="AudioStream" uid="uid://b77orbopfw0xa" path="res://Assets/27_SOUND_AND_MUSIC/263675__release.wav" id="3_pcghw"]
 
 [node name="Spawner" type="Node3D" unique_id=443022210]
 script = ExtResource("1_sop60")
@@ -16,5 +17,8 @@ one_shot = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=226468938]
 transform = Transform3D(0.70999295, 0.33177623, -0.6211558, 0.1076425, 0.82056594, 0.5613241, 0.6959333, -0.46539888, 0.54688275, -3.1063554, 3.095181, 3.6045725)
+
+[node name="RelaseSound" type="AudioStreamPlayer3D" parent="." unique_id=1174210746]
+stream = ExtResource("3_pcghw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

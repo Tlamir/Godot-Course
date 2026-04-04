@@ -2,9 +2,20 @@
 
 [ext_resource type="Script" uid="uid://bye5kxuqtn0de" path="res://Scenes/Brick/Brick.gd" id="1_5q71n"]
 [ext_resource type="PackedScene" uid="uid://m16fpjouh11b" path="res://Scenes/Brick/BrickMesh.tscn" id="2_tjjil"]
+[ext_resource type="AudioStream" uid="uid://ck5xcgehlv0po" path="res://Assets/27_SOUND_AND_MUSIC/170902__knock1.wav" id="3_lrdbq"]
+[ext_resource type="AudioStream" uid="uid://cu5gl8wjsscet" path="res://Assets/27_SOUND_AND_MUSIC/170902__knock2.wav" id="4_6cswe"]
+[ext_resource type="AudioStream" uid="uid://dmrsosacb3ksv" path="res://Assets/27_SOUND_AND_MUSIC/170902__knock3.wav" id="5_m5yb6"]
+[ext_resource type="AudioStream" uid="uid://bw3ags54hi2xo" path="res://Assets/27_SOUND_AND_MUSIC/170902__knock4.wav" id="6_cxgx1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o450c"]
 size = Vector3(1.015, 0.993, 1.001)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5ciwy"]
+streams_count = 4
+stream_0/stream = ExtResource("3_lrdbq")
+stream_1/stream = ExtResource("4_6cswe")
+stream_2/stream = ExtResource("5_m5yb6")
+stream_3/stream = ExtResource("6_cxgx1")
 
 [node name="Brick" type="RigidBody3D" unique_id=1986931034]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 2, 0, 0, 0)
@@ -17,6 +28,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1173413945]
 shape = SubResource("BoxShape3D_o450c")
+
+[node name="SoundEffect" type="AudioStreamPlayer3D" parent="." unique_id=49779248]
+stream = SubResource("AudioStreamRandomizer_5ciwy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

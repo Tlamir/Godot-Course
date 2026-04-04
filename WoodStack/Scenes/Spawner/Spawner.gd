@@ -3,6 +3,7 @@ extends Node3D
 @onready var pivot: Node3D = $Pivot
 @onready var brick_mesh: MeshInstance3D = $Pivot/BrickMesh
 @onready var timer: Timer = $Timer
+@onready var relase_sound: AudioStreamPlayer3D = $RelaseSound
 
 const  ROTATION_SPEED: float = 4.0
 const  MOVE_SPEED: float = 2.0
@@ -93,6 +94,7 @@ func show_brick()->void:
 func drop_brick()->void:
 	SignalHub.emit_on_brick_dropped(brick_mesh.global_transform)
 	brick_mesh.hide()
+	relase_sound.play()
 
 func _on_timer_timeout() -> void:
 	drop_brick()

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://brdc1fvjsv1kx" path="res://Scenes/Brick/Brick.tscn" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://bu45jadatf5os" path="res://Scenes/Spawner/Spawner.tscn" id="9_bf53h"]
 [ext_resource type="PackedScene" uid="uid://j1xv3yeej1n5" path="res://Scenes/Ui.tscn" id="11_dahhg"]
+[ext_resource type="AudioStream" uid="uid://djsnmkhwoi6s3" path="res://Assets/27_SOUND_AND_MUSIC/Spring-Flowers(chosic.com).mp3" id="12_3so38"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gl6un"]
 panorama = ExtResource("1_iukft")
@@ -118,3 +119,8 @@ omni_range = 18.517
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.855, 0)
 
 [node name="UI" parent="." unique_id=1589503068 instance=ExtResource("11_dahhg")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1546341559]
+stream = ExtResource("12_3so38")
+volume_db = -9.592
+autoplay = true

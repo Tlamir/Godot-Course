@@ -3,6 +3,7 @@ extends RigidBody3D
 class_name  Brick
 
 const TABLE_GROUP: String ="Table"
+@onready var sound_effect: AudioStreamPlayer3D = $SoundEffect
 
 func _on_sleeping_state_changed() -> void:
 	if sleeping:
@@ -14,6 +15,7 @@ func _on_sleeping_state_changed() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	sound_effect.play()
 	if body.is_in_group(TABLE_GROUP) and !GameState.game_over:
 		GameState.game_over=true
 		SignalHub.emit_on_game_over()
