@@ -17,7 +17,10 @@ var _highest_y:float=0.0
 
 
 
-
+func _unhandled_input(event: InputEvent) -> void:
+	if !timer.is_stopped() and event.is_action_pressed("drop_brick"):
+		timer.stop()
+		drop_brick()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_start_y=position.y
