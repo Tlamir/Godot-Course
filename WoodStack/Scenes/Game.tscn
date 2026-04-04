@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dkvkddget1sbb" path="res://Assets/07_MESH_TEXTURES/rubber_tiles_nor_gl_1k.jpg" id="4_7lihs"]
 [ext_resource type="PackedScene" uid="uid://brdc1fvjsv1kx" path="res://Scenes/Brick/Brick.tscn" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://bu45jadatf5os" path="res://Scenes/Spawner/Spawner.tscn" id="9_bf53h"]
+[ext_resource type="PackedScene" uid="uid://j1xv3yeej1n5" path="res://Scenes/Ui.tscn" id="11_dahhg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gl6un"]
 panorama = ExtResource("1_iukft")
@@ -116,7 +117,4 @@ omni_range = 18.517
 [node name="Spawner" parent="." unique_id=443022210 instance=ExtResource("9_bf53h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.855, 0)
 
-[node name="Camera3D" parent="Spawner" index="2" unique_id=226468938]
-transform = Transform3D(0.709993, 0.33177623, -0.62115574, 0.012013238, 0.8762274, 0.48174825, 0.70410645, -0.34950003, 0.6181297, -3.6881847, 2.5626893, 3.6045725)
-
-[editable path="Spawner"]
+[node name="UI" parent="." unique_id=1589503068 instance=ExtResource("11_dahhg")]
