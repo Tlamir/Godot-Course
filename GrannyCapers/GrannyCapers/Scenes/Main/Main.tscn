@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://3pnbb76kyue3"]
+
+[ext_resource type="Script" uid="uid://di7rbm5bu141m" path="res://Scenes/Main/Main.gd" id="1_cmk6n"]
+[ext_resource type="Texture2D" uid="uid://g0bdky50wv6w" path="res://Assets/Images/BG_2D.jpeg" id="1_p8rbg"]
+[ext_resource type="AudioStream" uid="uid://c0rohuud0ny0h" path="res://Assets/Audio/Music/Boogie Party.mp3" id="2_qtv3y"]
+[ext_resource type="Texture2D" uid="uid://cxjykk8513y8" path="res://Assets/Images/GrannyPose-removebg-preview.png" id="4_i3fi7"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cmk6n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p8rbg")
+expand_mode = 3
+stretch_mode = 4
+flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 96
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Granny's Capers"
+
+[node name="PressSpaceLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press Shoot To Play"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qtv3y")
+autoplay = true
+parameters/looping = true
+
+[node name="GrannyTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -42.0
+offset_right = -242.0
+offset_bottom = 417.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_i3fi7")
