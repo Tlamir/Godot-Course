@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="InputHandling"
+run/main_scene="uid://dqd02bkmh4rov"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

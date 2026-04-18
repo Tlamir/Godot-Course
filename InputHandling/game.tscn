@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dqd02bkmh4rov"]
+
+[ext_resource type="Script" uid="uid://wqu1hmlpcwi2" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bo37spiugc75k" path="res://logic.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://brywneicfdmxw" path="res://box.gd" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://dbr0j668rm6ln" path="res://hud.tscn" id="4_fc0e3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwb40"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_80nbo"]
+sky_material = SubResource("ProceduralSkyMaterial_mwb40")
+
+[sub_resource type="Environment" id="Environment_e2o6t"]
+background_mode = 2
+sky = SubResource("Sky_80nbo")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_feb5d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fc0e3"]
+
+[node name="Game" type="Node3D" unique_id=52142179]
+script = ExtResource("1_80nbo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2073322866]
+environment = SubResource("Environment_e2o6t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2143080208]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1620546954]
+transform = Transform3D(1, 0, 0, 0, 0.9282718, 0.37190256, 0, -0.37190256, 0.9282718, 0, 1.2590162, 1.9436731)
+
+[node name="Box" type="Area3D" parent="." unique_id=1584041223]
+script = ExtResource("2_feb5d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=24848937]
+mesh = SubResource("BoxMesh_feb5d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box" unique_id=1204060459]
+shape = SubResource("BoxShape3D_fc0e3")
+
+[node name="Logic" type="Node" parent="." unique_id=925665059]
+script = ExtResource("2_e2o6t")
+
+[node name="Hud" parent="." unique_id=1915524512 instance=ExtResource("4_fc0e3")]
