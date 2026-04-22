@@ -91,6 +91,28 @@ _data = {
 &"Title": SubResource("Animation_w20t6")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i3fi7"]
+animation = &"Flash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o8wgc"]
+animation = &"Title"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w20t6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aw1lf"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5s61s"]
+states/End/position = Vector2(656, 100)
+states/Flash/node = SubResource("AnimationNodeAnimation_i3fi7")
+states/Flash/position = Vector2(521, 100)
+states/Title/node = SubResource("AnimationNodeAnimation_o8wgc")
+states/Title/position = Vector2(374, 100)
+transitions = ["Start", "Title", SubResource("AnimationNodeStateMachineTransition_w20t6"), "Title", "Flash", SubResource("AnimationNodeStateMachineTransition_aw1lf")]
+graph_offset = Vector2(-139, -209)
+
 [node name="Main" type="Control" unique_id=134419771]
 layout_mode = 3
 anchors_preset = 15
@@ -163,3 +185,8 @@ texture = ExtResource("4_i3fi7")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=219481630]
 root_node = NodePath("../MarginContainer/VBoxContainer/PressSpaceLabel")
 libraries/ = SubResource("AnimationLibrary_w20t6")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=120596269]
+root_node = NodePath("../MarginContainer/VBoxContainer/PressSpaceLabel")
+tree_root = SubResource("AnimationNodeStateMachine_5s61s")
+anim_player = NodePath("../AnimationPlayer")
