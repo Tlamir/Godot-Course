@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="GrannyCapers"
-run/main_scene="uid://3pnbb76kyue3"
+run/main_scene="uid://bmmfc1vvnuyfq"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
