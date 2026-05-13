@@ -8,8 +8,12 @@ class_name Granny
 @export var gravity: float = -70.0
 @export var run_speed: float = 4.0
 @export var roatation_speed: float = 2.7
+@export var jump_velocity: float=20 
+@export var air_control_factor: float = 0.7
 
 const GROUP_NAME = "Granny"
+
+var _can_double_jump: bool = false
 
 @onready var debug_label: Label3D = $DebugLabel
 
@@ -31,13 +35,14 @@ func _handle_input(delta: float) -> void:
 		velocity.y += delta * gravity
 		_handle_rotation(delta)
 		_handle_movement()
-		
+		_handle_jump()
 
 func _handle_movement()->void:
 	var input: float = Input.get_axis("move_forward","move_backward")
 	var direction: Vector3 = transform.basis.z*input
-	velocity.x=direction.x*run_speed
-	velocity.z=direction.z*run_speed
+	var speed: float =run_speed if is_on_floor() else run_speed*air_control_factor
+	velocity.x=direction.x*speed
+	velocity.z=direction.z*speed
 	return
 	
 	
@@ -45,10 +50,18 @@ func _handle_movement()->void:
 func _handle_rotation(delta: float)->void:
 	var input: float= Input.get_axis("move_right","move_left")
 	rotate_y(roatation_speed*input*delta)
-	return
+	return  
 
-	
-	
+func _handle_jump() -> void:
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y=jump_velocity
+			_can_double_jump=true
+		elif _can_double_jump and velocity.y>0.0:
+			velocity.y=jump_velocity
+			_can_double_jump=false
+			
+			
 
 func _update_debug() -> void:
 	var s: String = "floor:%s\n" % [is_on_floor()]
