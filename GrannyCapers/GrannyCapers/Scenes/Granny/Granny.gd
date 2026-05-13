@@ -14,6 +14,7 @@ class_name Granny
 const GROUP_NAME = "Granny"
 
 var _can_double_jump: bool = false
+var _is_moving: bool =false	
 
 @onready var debug_label: Label3D = $DebugLabel
 
@@ -33,24 +34,33 @@ func _physics_process(delta: float) -> void:
 
 func _handle_input(delta: float) -> void:
 		velocity.y += delta * gravity
-		_handle_rotation(delta)
-		_handle_movement()
+		
+		
+		
+		var rotated:bool = _handle_rotation(delta)
+		var moved: bool =_handle_movement()
+		_is_moving =moved or rotated
 		_handle_jump()
 
-func _handle_movement()->void:
+func _handle_movement()->bool:
 	var input: float = Input.get_axis("move_forward","move_backward")
+	if is_equal_approx(input,0.0):
+		velocity.x=0.0
+		velocity.z=0.0
+		return false
+		
 	var direction: Vector3 = transform.basis.z*input
 	var speed: float =run_speed if is_on_floor() else run_speed*air_control_factor
 	velocity.x=direction.x*speed
 	velocity.z=direction.z*speed
-	return
+	return true
 	
 	
 
-func _handle_rotation(delta: float)->void:
+func _handle_rotation(delta: float)->bool:
 	var input: float= Input.get_axis("move_right","move_left")
 	rotate_y(roatation_speed*input*delta)
-	return  
+	return  !is_equal_approx(input,0.0)
 
 func _handle_jump() -> void:
 	if Input.is_action_just_pressed("jump"):
