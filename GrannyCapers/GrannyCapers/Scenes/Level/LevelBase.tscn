@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dvxhdoqb1xwpm" path="res://Assets/Audio/Music/Adventures in Adventureland.mp3" id="4_lmtt4"]
 [ext_resource type="AudioStream" uid="uid://cgnfsivumhmys" path="res://Assets/Audio/Music/Lord of the Rangs.mp3" id="5_ooqsx"]
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
-[ext_resource type="PackedScene" uid="uid://dgbw4qxpotdm" path="res://Scenes/Granny/Granny.tscn" id="7_yqkkm"]
+[ext_resource type="PackedScene" uid="uid://c2ns5tnh3hn7f" path="res://Scenes/Granny/Granny.scn" id="7_yqkkm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -47,4 +47,3 @@ autoplay = true
 [node name="TestPlatform" parent="." unique_id=508629629 instance=ExtResource("6_v5c15")]
 
 [node name="Granny" parent="." unique_id=1239572103 instance=ExtResource("7_yqkkm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10547376, 0)
