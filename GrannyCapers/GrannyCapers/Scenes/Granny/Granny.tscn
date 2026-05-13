@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dgbw4qxpotdm"]
 
+[ext_resource type="Script" uid="uid://bbrx6u4l6clcb" path="res://Scenes/Granny/Granny.gd" id="1_cqa7y"]
 [ext_resource type="Texture2D" uid="uid://cgq7kg78mrm7p" path="res://Assets/Models/Granny/Granny_FitnessGrandma_diffuse.jpg" id="1_rk2ul"]
 [ext_resource type="Texture2D" uid="uid://c2vbqylaj4w8b" path="res://Assets/Models/Granny/Granny_FitnessGrandma_normal.jpg" id="2_cqa7y"]
 [ext_resource type="Texture2D" uid="uid://dj1u7qvp1wxk3" path="res://Assets/Models/Granny/Granny_FitnessGrandma_FaceAnimMap.png" id="3_4xqq0"]
@@ -7544,7 +7545,12 @@ _data = {
 &"Tpose": SubResource("Animation_uucpy")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rk2ul"]
+radius = 0.31201172
+height = 1.9050293
+
 [node name="Granny" type="CharacterBody3D" unique_id=1239572103]
+script = ExtResource("1_cqa7y")
 
 [node name="Model" type="Node3D" parent="." unique_id=847937579]
 
@@ -8268,3 +8274,12 @@ autoplay = &"Idle"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=498869855]
 transform = Transform3D(-1, 0, -8.7422784e-08, -2.2429127e-08, 0.96652853, 0.25655934, 8.4496605e-08, 0.25655934, -0.96652853, 0.11074829, 2.385339, -2.1986804)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=471650766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9624854, 0)
+shape = SubResource("CapsuleShape3D_rk2ul")
+
+[node name="DebugLabel" type="Label3D" parent="." unique_id=2058165137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07578, 0)
+billboard = 1
+text = "000000000000000000000"

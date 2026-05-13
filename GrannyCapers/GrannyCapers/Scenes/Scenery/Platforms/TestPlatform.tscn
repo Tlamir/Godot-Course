@@ -18,6 +18,7 @@ size = Vector2(50, 50)
 mesh = SubResource("PlaneMesh_tq6yr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=555988484]
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1027052858]
 shape = SubResource("WorldBoundaryShape3D_tq6yr")
