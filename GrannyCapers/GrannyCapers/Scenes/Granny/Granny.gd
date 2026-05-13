@@ -7,6 +7,7 @@ class_name Granny
 
 @export var gravity: float = -70.0
 @export var run_speed: float = 4.0
+@export var roatation_speed: float = 2.7
 
 const GROUP_NAME = "Granny"
 
@@ -42,7 +43,9 @@ func _handle_movement()->void:
 	
 
 func _handle_rotation(delta: float)->void:
-	pass
+	var input: float= Input.get_axis("move_right","move_left")
+	rotate_y(roatation_speed*input*delta)
+	return
 
 	
 	
