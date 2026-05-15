@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://dgved8ku5vcl2"]
 
 [ext_resource type="PackedScene" uid="uid://0l0jxx703bcr" path="res://Scenes/PickUp/PickUp.tscn" id="1_nufq0"]
+[ext_resource type="AudioStream" uid="uid://cmprjsgvrqc47" path="res://Assets/Effetcs/coin_pickup.wav" id="2_4wfm8"]
 [ext_resource type="PackedScene" uid="uid://camwbepvh0lf2" path="res://Assets/18_PICKUP_SCENE/coin-gold.glb" id="2_wp81s"]
 
 [node name="Coin" unique_id=1208324445 instance=ExtResource("1_nufq0")]
+
+[node name="Effects" parent="." index="0" unique_id=1244079948]
+stream = ExtResource("2_4wfm8")
 
 [node name="coin-gold2" parent="Visuals" parent_id_path=PackedInt32Array(1282981152) index="0" unique_id=801929293 instance=ExtResource("2_wp81s")]
