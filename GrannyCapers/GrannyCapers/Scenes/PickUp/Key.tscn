@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c6s0iu6kjw1us"]
+
+[ext_resource type="PackedScene" uid="uid://0l0jxx703bcr" path="res://Scenes/PickUp/PickUp.tscn" id="1_1833u"]
+[ext_resource type="Script" uid="uid://c3pgkyvnqlrmi" path="res://Scenes/PickUp/Key.gd" id="2_cqbun"]
+[ext_resource type="PackedScene" uid="uid://d2t48fb77biad" path="res://Assets/18_PICKUP_SCENE/key.glb" id="2_pilpt"]
+
+[node name="Key" unique_id=1208324445 instance=ExtResource("1_1833u")]
+monitoring = false
+script = ExtResource("2_cqbun")
+pickup_type = 1
+
+[node name="key2" parent="Visuals" parent_id_path=PackedInt32Array(1282981152) index="0" unique_id=1804456575 instance=ExtResource("2_pilpt")]

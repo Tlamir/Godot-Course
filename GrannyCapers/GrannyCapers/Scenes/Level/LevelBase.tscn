@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b7jarbbyqplg0" path="res://Scenes/PickUp/Jewel.tscn" id="8_y3j2c"]
 [ext_resource type="PackedScene" uid="uid://dgved8ku5vcl2" path="res://Scenes/PickUp/Coin.tscn" id="9_kt428"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickUpTracker/PickupTracker.tscn" id="10_6ehlo"]
+[ext_resource type="PackedScene" uid="uid://c6s0iu6kjw1us" path="res://Scenes/PickUp/Key.tscn" id="11_yeolc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -66,3 +67,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, -2.2)
 
 [node name="PickupTracker" parent="." unique_id=1119397065 instance=ExtResource("10_6ehlo")]
+
+[node name="Key" parent="." unique_id=122312897 instance=ExtResource("11_yeolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1073046, 0, -0.16631937)

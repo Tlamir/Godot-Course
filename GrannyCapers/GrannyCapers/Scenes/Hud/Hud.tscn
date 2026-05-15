@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://diiqqw6341r72"]
 
 [ext_resource type="Script" uid="uid://bslp3hmi6b0do" path="res://Scenes/Hud/Hud.gd" id="1_ysf55"]
+[ext_resource type="Texture2D" uid="uid://dhcrh6rd4vyar" path="res://Assets/23_KEY/key.png" id="2_bbjj2"]
 [ext_resource type="Texture2D" uid="uid://c6deecgs7aio4" path="res://Assets/Images/Textures/Items/coin-gold.png" id="2_iteex"]
 [ext_resource type="Texture2D" uid="uid://bh0xh4b13rhw8" path="res://Assets/Images/Textures/Items/jewel.png" id="3_xymhr"]
 
@@ -32,6 +33,16 @@ anchor_right = 1.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xymhr")
 
+[node name="HBKey" type="HBoxContainer" parent="PanelContainer" unique_id=1942139685]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureRectKey" type="TextureRect" parent="PanelContainer/HBKey" unique_id=1198829911]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_bbjj2")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=2140419342]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -48,7 +59,7 @@ texture = ExtResource("2_iteex")
 
 [node name="LabelCoins" type="Label" parent="PanelContainer/HBoxContainer/HBCoin" unique_id=1857844254]
 layout_mode = 2
-text = "0/000"
+text = "0/0"
 label_settings = SubResource("LabelSettings_xymhr")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -63,7 +74,7 @@ texture = ExtResource("3_xymhr")
 
 [node name="LabelJewel" type="Label" parent="PanelContainer/HBoxContainer/HBJewel" unique_id=824787149]
 layout_mode = 2
-text = "0/000"
+text = "0/0"
 label_settings = SubResource("LabelSettings_xymhr")
 horizontal_alignment = 1
 vertical_alignment = 1
