@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://cgnfsivumhmys" path="res://Assets/Audio/Music/Lord of the Rangs.mp3" id="5_ooqsx"]
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
 [ext_resource type="PackedScene" uid="uid://c2ns5tnh3hn7f" path="res://Scenes/Granny/Granny.scn" id="7_yqkkm"]
+[ext_resource type="PackedScene" uid="uid://b7jarbbyqplg0" path="res://Scenes/PickUp/Jewel.tscn" id="8_y3j2c"]
+[ext_resource type="PackedScene" uid="uid://dgved8ku5vcl2" path="res://Scenes/PickUp/Coin.tscn" id="9_kt428"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -47,3 +49,11 @@ autoplay = true
 [node name="TestPlatform" parent="." unique_id=508629629 instance=ExtResource("6_v5c15")]
 
 [node name="Granny" parent="." unique_id=1239572103 instance=ExtResource("7_yqkkm")]
+
+[node name="Pickups" type="Node" parent="." unique_id=2068813653]
+
+[node name="jewel" parent="Pickups" unique_id=1208324445 instance=ExtResource("8_y3j2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999964, -4.5)
+
+[node name="Coin" parent="." unique_id=1696101569 instance=ExtResource("9_kt428")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 3)

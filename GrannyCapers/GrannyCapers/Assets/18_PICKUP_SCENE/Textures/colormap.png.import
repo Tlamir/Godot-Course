@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkvhttdwiilgb"
-path.s3tc="res://.godot/imported/dot.png-600c4a29a2cfc6db19a71488fbaf5a0d.s3tc.ctex"
+uid="uid://ubb7fhlmd8b2"
+path.s3tc="res://.godot/imported/colormap.png-88c63b65f26f41ffae9bb8d989ca8fba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Images/Textures/08_PARTICLES/dot.png"
-dest_files=["res://.godot/imported/dot.png-600c4a29a2cfc6db19a71488fbaf5a0d.s3tc.ctex"]
+source_file="res://Assets/18_PICKUP_SCENE/Textures/colormap.png"
+dest_files=["res://.godot/imported/colormap.png-88c63b65f26f41ffae9bb8d989ca8fba.s3tc.ctex"]
 
 [params]
 

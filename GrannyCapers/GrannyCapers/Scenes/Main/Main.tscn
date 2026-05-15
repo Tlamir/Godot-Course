@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://g0bdky50wv6w" path="res://Assets/Images/BG_2D.jpeg" id="1_p8rbg"]
 [ext_resource type="AudioStream" uid="uid://c0rohuud0ny0h" path="res://Assets/Audio/Music/Boogie Party.mp3" id="2_qtv3y"]
 [ext_resource type="Texture2D" uid="uid://cxjykk8513y8" path="res://Assets/Images/GrannyPose-removebg-preview.png" id="4_i3fi7"]
-[ext_resource type="PackedScene" uid="uid://ckef5ams4cod0" path="res://Scenes/FloatingStarts/FloatingStarts.tscn" id="5_o8wgc"]
+[ext_resource type="PackedScene" uid="uid://ckef5ams4cod0" path="res://Scenes/Effects/FloatingStarts/FloatingStarts.tscn" id="5_o8wgc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i3fi7"]
 font_size = 96
