@@ -17,6 +17,7 @@ func _enter_tree() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Granny:
+		SignalHub.emit_pickup_collected(self)
 		_disable()
 		_kill()
 	

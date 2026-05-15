@@ -7550,6 +7550,7 @@ radius = 0.31201172
 height = 1.9050293
 
 [node name="Granny" type="CharacterBody3D" unique_id=1239572103]
+collision_layer = 2
 script = ExtResource("1_cqa7y")
 
 [node name="Model" type="Node3D" parent="." unique_id=847937579]

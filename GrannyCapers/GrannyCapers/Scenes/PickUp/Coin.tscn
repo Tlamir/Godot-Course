@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://camwbepvh0lf2" path="res://Assets/18_PICKUP_SCENE/coin-gold.glb" id="2_wp81s"]
 
 [node name="Coin" unique_id=1208324445 instance=ExtResource("1_nufq0")]
+pickup_type = 2
 
 [node name="Effects" parent="." index="0" unique_id=1244079948]
 stream = ExtResource("2_4wfm8")
