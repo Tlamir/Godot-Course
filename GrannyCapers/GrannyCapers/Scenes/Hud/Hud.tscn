@@ -39,9 +39,12 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="TextureRectKey" type="TextureRect" parent="PanelContainer/HBKey" unique_id=1198829911]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_bbjj2")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=2140419342]
 layout_mode = 2
