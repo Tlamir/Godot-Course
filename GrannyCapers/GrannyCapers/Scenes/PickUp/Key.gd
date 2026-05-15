@@ -10,6 +10,7 @@ func _ready() -> void:
 	SignalHub.on_jewels_collected.connect(_enable)
 	
 	
+	
 func _enable():
 	set_deferred("monitoring",true)
 	show()
@@ -18,4 +19,5 @@ func _enable():
 
 func _kill():
 	effects.stream = KEY_COLLECT
+	SignalHub.emit_key_collected()
 	super()
