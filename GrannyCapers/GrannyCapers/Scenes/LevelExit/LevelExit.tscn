@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dyldmp46jptqe"]
+
+[ext_resource type="PackedScene" uid="uid://o456cnn3c4jp" path="res://Assets/25_EXIT_DOOR/25_EXIT_DOOR/fence-straight.glb" id="1_6edub"]
+[ext_resource type="PackedScene" uid="uid://beds6p1cplelt" path="res://Assets/25_EXIT_DOOR/25_EXIT_DOOR/door-rotate-large.glb" id="1_m8yfu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8yfu"]
+size = Vector3(1.1281738, 2.0372925, 0.6123047)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6edub"]
+size = Vector3(2.3851929, 2.4645996, 0.94763184)
+
+[node name="LevelExit" type="Node3D" unique_id=1700915603]
+
+[node name="fence-straight2" parent="." unique_id=72504483 instance=ExtResource("1_6edub")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5.2108035e-15, 0, -0.048341572)
+
+[node name="fence-straight3" parent="." unique_id=2096880230 instance=ExtResource("1_6edub")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5.2108035e-15, 0.3, -0.048341572)
+
+[node name="fence-straight4" parent="." unique_id=1672887216 instance=ExtResource("1_6edub")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5.2108035e-15, 0.70000005, -0.048341572)
+
+[node name="door-rotate-large2" parent="." unique_id=1672823163 instance=ExtResource("1_m8yfu")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
+[node name="ExitArea" type="Area3D" parent="." unique_id=1385935212]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitArea" unique_id=1627005321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057495117, 1.0871887, 0.19384766)
+shape = SubResource("BoxShape3D_m8yfu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1614268551]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1465219244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025054932, 1.2674136, -0.1071167)
+shape = SubResource("BoxShape3D_6edub")
+debug_color = Color(0.93384314, 2.2140146e-05, 0.64506185, 0.41960785)
+
+[node name="LabelHolder" type="Node3D" parent="." unique_id=1645468487]
+visible = false
+
+[node name="LabelKey" type="Label3D" parent="LabelHolder" unique_id=609056687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.5)
+modulate = Color(1, 0.26999998, 0.26999998, 1)
+text = "You Need Key To Progress !! 😱"
