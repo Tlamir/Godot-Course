@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://diiqqw6341r72"]
+[gd_scene format=3 uid="uid://diiqqw6341r72"]
 
 [ext_resource type="Script" uid="uid://bslp3hmi6b0do" path="res://Scenes/Hud/Hud.gd" id="1_ysf55"]
+[ext_resource type="Texture2D" uid="uid://c6deecgs7aio4" path="res://Assets/Images/Textures/Items/coin-gold.png" id="2_iteex"]
+[ext_resource type="Texture2D" uid="uid://bh0xh4b13rhw8" path="res://Assets/Images/Textures/Items/jewel.png" id="3_xymhr"]
 
-[node name="Hud" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xymhr"]
+content_margin_left = 24.0
+content_margin_top = 18.0
+content_margin_right = 24.0
+content_margin_bottom = 18.0
+bg_color = Color(0.034138396, 0.006304871, 0.2279784, 0.3137255)
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_xymhr"]
+font_size = 32
+
+[node name="Hud" type="Control" unique_id=626522329]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -11,3 +24,46 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ysf55")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=976698103]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xymhr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=2140419342]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 13
+
+[node name="HBCoin" type="HBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1366458512]
+layout_mode = 2
+
+[node name="TextureRectCoin" type="TextureRect" parent="PanelContainer/HBoxContainer/HBCoin" unique_id=1420433195]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_iteex")
+
+[node name="LabelCoins" type="Label" parent="PanelContainer/HBoxContainer/HBCoin" unique_id=1857844254]
+layout_mode = 2
+text = "0/000"
+label_settings = SubResource("LabelSettings_xymhr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBJewel" type="HBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=2052258596]
+layout_mode = 2
+
+[node name="TextureRectJewel" type="TextureRect" parent="PanelContainer/HBoxContainer/HBJewel" unique_id=307869733]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_xymhr")
+
+[node name="LabelJewel" type="Label" parent="PanelContainer/HBoxContainer/HBJewel" unique_id=824787149]
+layout_mode = 2
+text = "0/000"
+label_settings = SubResource("LabelSettings_xymhr")
+horizontal_alignment = 1
+vertical_alignment = 1

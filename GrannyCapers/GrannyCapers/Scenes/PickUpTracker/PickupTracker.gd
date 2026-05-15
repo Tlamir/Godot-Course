@@ -25,4 +25,5 @@ func on_pickup_collected(pick_up: PickUp):
 		PickUp.PickUpType.Coin:
 			pickup_scores.coins_count+=1
 	print(pickup_scores)
+	SignalHub.emit_pickup_scores_updated(pickup_scores)
 	
