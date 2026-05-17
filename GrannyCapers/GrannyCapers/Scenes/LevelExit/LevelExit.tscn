@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://o456cnn3c4jp" path="res://Assets/25_EXIT_DOOR/25_EXIT_DOOR/fence-straight.glb" id="1_6edub"]
 [ext_resource type="PackedScene" uid="uid://beds6p1cplelt" path="res://Assets/25_EXIT_DOOR/25_EXIT_DOOR/door-rotate-large.glb" id="1_m8yfu"]
+[ext_resource type="Script" uid="uid://ccmgehltrp03q" path="res://Scenes/LevelExit/LevelExit.gd" id="1_xn2r3"]
+[ext_resource type="AudioStream" uid="uid://df4mx7elcy1v3" path="res://Assets/25_EXIT_DOOR/25_EXIT_DOOR/242503__wrong-action.wav" id="3_q37bc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8yfu"]
 size = Vector3(1.1281738, 2.0372925, 0.6123047)
@@ -10,6 +12,7 @@ size = Vector3(1.1281738, 2.0372925, 0.6123047)
 size = Vector3(2.3851929, 2.4645996, 0.94763184)
 
 [node name="LevelExit" type="Node3D" unique_id=1700915603]
+script = ExtResource("1_xn2r3")
 
 [node name="fence-straight2" parent="." unique_id=72504483 instance=ExtResource("1_6edub")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5.2108035e-15, 0, -0.048341572)
@@ -40,9 +43,14 @@ shape = SubResource("BoxShape3D_6edub")
 debug_color = Color(0.93384314, 2.2140146e-05, 0.64506185, 0.41960785)
 
 [node name="LabelHolder" type="Node3D" parent="." unique_id=1645468487]
-visible = false
 
 [node name="LabelKey" type="Label3D" parent="LabelHolder" unique_id=609056687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.5)
 modulate = Color(1, 0.26999998, 0.26999998, 1)
 text = "You Need Key To Progress !! 😱"
+
+[node name="Effects" type="AudioStreamPlayer3D" parent="." unique_id=1911900824]
+stream = ExtResource("3_q37bc")
+
+[connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]
+[connection signal="body_exited" from="ExitArea" to="." method="_on_exit_area_body_exited"]

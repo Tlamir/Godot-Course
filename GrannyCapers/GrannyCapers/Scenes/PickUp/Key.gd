@@ -19,5 +19,4 @@ func _enable():
 
 func _kill():
 	effects.stream = KEY_COLLECT
-	SignalHub.emit_key_collected()
 	super()

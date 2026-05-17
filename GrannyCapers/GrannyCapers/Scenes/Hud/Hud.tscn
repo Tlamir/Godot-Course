@@ -13,6 +13,9 @@ content_margin_bottom = 18.0
 bg_color = Color(0.034138396, 0.006304871, 0.2279784, 0.3137255)
 corner_detail = 1
 
+[sub_resource type="LabelSettings" id="LabelSettings_bbjj2"]
+font_size = 32
+
 [sub_resource type="LabelSettings" id="LabelSettings_xymhr"]
 font_size = 32
 
@@ -37,6 +40,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xymhr")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme_override_constants/separation = 37
 
 [node name="TextureRectKey" type="TextureRect" parent="PanelContainer/HBKey" unique_id=1198829911]
 visible = false
@@ -45,6 +49,13 @@ layout_mode = 2
 texture = ExtResource("2_bbjj2")
 expand_mode = 3
 stretch_mode = 4
+
+[node name="LabelExit" type="Label" parent="PanelContainer/HBKey" unique_id=285065574]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Go To Exit 😊"
+label_settings = SubResource("LabelSettings_bbjj2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=2140419342]
 layout_mode = 2

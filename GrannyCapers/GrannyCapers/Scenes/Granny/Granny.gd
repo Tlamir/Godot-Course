@@ -7,7 +7,7 @@ class_name Granny
 
 @export var gravity: float = -70.0
 @export var run_speed: float = 4.0
-@export var roatation_speed: float = 2.7
+@export var roatation_speed: float = 4.3
 @export var jump_velocity: float=20 
 @export var air_control_factor: float = 0.7
 
