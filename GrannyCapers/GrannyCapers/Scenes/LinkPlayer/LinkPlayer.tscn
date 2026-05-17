@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c33l85ymm3iug"]
+
+[ext_resource type="Script" uid="uid://d2dxh5d4yko6e" path="res://Scenes/LinkPlayer/LinkPlayer.gd" id="1_qfb3n"]
+
+[node name="LinkPlayer" type="Node" unique_id=2095999024]
+script = ExtResource("1_qfb3n")
