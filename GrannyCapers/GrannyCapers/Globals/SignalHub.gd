@@ -4,6 +4,10 @@ signal on_pickup_collected(pick_up: PickUp)
 signal on_pickup_scores_updated(scores: PickUpScores)
 signal on_jewels_collected()
 signal on_key_collected()
+signal on_level_completed()
+
+func emit_level_completed() -> void :
+	on_level_completed.emit()
 
 func emit_pickup_collected(pick_up: PickUp) -> void:
 	on_pickup_collected.emit(pick_up)

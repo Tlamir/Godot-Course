@@ -5,6 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://c6deecgs7aio4" path="res://Assets/Images/Textures/Items/coin-gold.png" id="2_iteex"]
 [ext_resource type="Texture2D" uid="uid://bh0xh4b13rhw8" path="res://Assets/Images/Textures/Items/jewel.png" id="3_xymhr"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ysf55"]
+font_size = 105
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 0.84300005)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ighhf"]
+font_size = 59
+outline_size = 21
+outline_color = Color(0.24, 0.24, 0.24, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xymhr"]
 content_margin_left = 24.0
 content_margin_top = 18.0
@@ -28,6 +38,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ysf55")
+
+[node name="LevelCompleteRect" type="ColorRect" parent="." unique_id=1033678119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.35253903, 0.6398056, 0.808)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelCompleteRect" unique_id=1241669331]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CompleteLabel" type="Label" parent="LevelCompleteRect/VBoxContainer" unique_id=1386123520]
+layout_mode = 2
+text = "Level Complete!"
+label_settings = SubResource("LabelSettings_ysf55")
+
+[node name="ContinueLabel" type="Label" parent="LevelCompleteRect/VBoxContainer" unique_id=843277262]
+visible = false
+layout_mode = 2
+text = "Go to next Level"
+label_settings = SubResource("LabelSettings_ighhf")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=976698103]
 layout_mode = 1
@@ -92,3 +138,5 @@ text = "0/0"
 label_settings = SubResource("LabelSettings_xymhr")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=232203404]

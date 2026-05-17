@@ -18,6 +18,7 @@ func _ready() -> void:
 func _on_exit_area_body_entered(body: Node3D) -> void:
 	if key_collected:
 		print("Level Completed")
+		SignalHub.on_level_completed.emit()
 	else:
 		label_holder.show()
 
