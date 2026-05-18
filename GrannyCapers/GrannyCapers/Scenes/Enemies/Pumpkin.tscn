@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://3qhbbee8xgka"]
 
+[ext_resource type="Script" uid="uid://bwve6f3es0unt" path="res://Scenes/Enemies/Pumpkin.gd" id="1_x8an1"]
 [ext_resource type="PackedScene" uid="uid://b66qubu0y7jk8" path="res://Assets/Models/Kay/Pumpkin.glb" id="1_xo5vy"]
 [ext_resource type="AudioStream" uid="uid://dir3x7eq8pbpr" path="res://Assets/Enemies/29_PUMPKIN/pumpkin.wav" id="2_a0roh"]
 [ext_resource type="PackedScene" uid="uid://dwd0adpeokj6m" path="res://Scenes/FallsOff/FallsOff.tscn" id="3_8mxa7"]
@@ -10,6 +11,7 @@ radius = 0.36572266
 height = 1.0059814
 
 [node name="Pumpkin" type="CharacterBody3D" unique_id=1367649949]
+script = ExtResource("1_x8an1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1995569087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4685669, 0)
