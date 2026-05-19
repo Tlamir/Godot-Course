@@ -165,14 +165,14 @@ _data = {
 script = ExtResource("1_gnxa0")
 
 [node name="coffin2" parent="." unique_id=1832348365 instance=ExtResource("1_n1y8b")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.14, -0.52)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, -0.14, -0.52)
 
 [node name="coffin-old2" parent="." unique_id=925667759 instance=ExtResource("2_75yw0")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.14, -0.52)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, -0.14, -0.52)
 visible = false
 
 [node name="VampireModel" parent="." unique_id=463435812 instance=ExtResource("3_75yw0")]
-transform = Transform3D(-1.5, -1.3113416e-07, 5.7320566e-15, 0, -6.556708e-08, -1.5, 1.3113416e-07, -1.5, 6.556708e-08, 0, 0, 0)
+transform = Transform3D(-1.8, -1.57361e-07, 6.8784674e-15, 0, -7.86805e-08, -1.8, 1.57361e-07, -1.8, 7.86805e-08, 0, 0, 0)
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1311540769]
