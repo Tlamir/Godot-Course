@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://dcdf0vhsvbgdr"]
+
+[ext_resource type="PackedScene" uid="uid://cdg2yf2br63ud" path="res://Assets/33_VAMPIRE_COFFIN/coffin.glb" id="1_n1y8b"]
+[ext_resource type="PackedScene" uid="uid://c37meidmxbw2r" path="res://Assets/33_VAMPIRE_COFFIN/coffin-old.glb" id="2_75yw0"]
+[ext_resource type="PackedScene" uid="uid://cefw52qbk3x0h" path="res://Scenes/Enemies/VampireModel.tscn" id="3_75yw0"]
+[ext_resource type="AudioStream" uid="uid://b2lmri3k474bs" path="res://Assets/33_VAMPIRE_COFFIN/coffin_open.wav" id="4_an8mv"]
+[ext_resource type="AudioStream" uid="uid://ilvbxqu1s1kr" path="res://Assets/33_VAMPIRE_COFFIN/269115__visualpony__growl-4.wav" id="5_0htxb"]
+[ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="6_0htxb"]
+
+[sub_resource type="Animation" id="Animation_75yw0"]
+resource_name = "Apper"
+length = 3.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coffin2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4000001, 2.2, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.43633232, 0), Vector3(0, 0, 0), Vector3(0, -0.43633232, 0), Vector3(0, 0, 0), Vector3(0, 0.43633232, 0), Vector3(0, 0, 0), Vector3(0, -0.43633232, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VampireModel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("coffin-old2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("coffin2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_an8mv")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_0htxb")
+}],
+"times": PackedFloat32Array(0, 1.6)
+}
+tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VampireModel:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.4, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5707964, 3.1415927, 0), Vector3(-0.37524578, 3.1415927, 0), Vector3(-1.5707964, 3.1415927, 0), Vector3(0, 3.1415927, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b512b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coffin2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VampireModel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("coffin-old2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("coffin2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VampireModel:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 3.1415927, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b512b"]
+_data = {
+&"Apper": SubResource("Animation_75yw0"),
+&"RESET": SubResource("Animation_b512b")
+}
+
+[node name="VampireCoffin" type="Node3D" unique_id=1469871280]
+
+[node name="coffin2" parent="." unique_id=1832348365 instance=ExtResource("1_n1y8b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.14, -0.52)
+
+[node name="coffin-old2" parent="." unique_id=925667759 instance=ExtResource("2_75yw0")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.14, -0.52)
+visible = false
+
+[node name="VampireModel" parent="." unique_id=463435812 instance=ExtResource("3_75yw0")]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1311540769]
+libraries/ = SubResource("AnimationLibrary_b512b")
+
+[node name="Sounds" type="AudioStreamPlayer3D" parent="." unique_id=20171741]
+
+[node name="PlayerDetect" type="RayCast3D" parent="." unique_id=1908772649]
+target_position = Vector3(0, 0, -5)
+collision_mask = 3
+debug_shape_custom_color = Color(0.77799493, 0.11462962, 0.9999998, 1)
+
+[node name="LinkPlayer" parent="." unique_id=2095999024 instance=ExtResource("6_0htxb")]
