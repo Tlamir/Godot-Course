@@ -38,7 +38,7 @@ stream = ExtResource("4_klt6b")
 stream = SubResource("AudioStreamRandomizer_jn3d0")
 
 [node name="RunningTimer" type="Timer" parent="." unique_id=577292184]
-wait_time = 3.0
+wait_time = 4.0
 autostart = true
 
 [connection signal="timeout" from="RunningTimer" to="." method="_on_running_timer_timeout"]

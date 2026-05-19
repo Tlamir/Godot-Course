@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dvtuo801fbd3h"]
+
+[ext_resource type="Script" uid="uid://0ug4hqv4tnw1" path="res://Scenes/ObjectContainer.gd" id="1_tejs8"]
+
+[node name="ObjectContainer" type="Node" unique_id=668340910]
+script = ExtResource("1_tejs8")

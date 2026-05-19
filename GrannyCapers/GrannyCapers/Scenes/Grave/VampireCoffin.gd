@@ -1,6 +1,8 @@
 extends Node3D
 
 const OFFSET_Y: Vector3= Vector3(0,1,0)
+const VAMPIRE_COFFIN = preload("res://Scenes/Grave/VampireCoffin.tscn")
+const VAMPIRE_CHARACTER = preload("res://Scenes/Enemies/VampireCharacter.tscn")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player_detect: RayCast3D = $PlayerDetect
@@ -15,3 +17,7 @@ func _open_coffin():
 	if player_detect.is_colliding() and player_detect.get_collider() == link_player.granny:
 		animation_player.play("Apper")
 		set_physics_process(false)
+
+func create_character()-> void:
+	var ns: VampireCharacter = VAMPIRE_CHARACTER.instantiate()
+	SignalHub.emit_add_new_scene(ns,global_position)
