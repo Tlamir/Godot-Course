@@ -2,12 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://dfjxxhtwjn3oj" path="res://Assets/38_TURRET/tower-square-build-b.glb" id="1_himyi"]
 [ext_resource type="PackedScene" uid="uid://dlvlmbix3gnxj" path="res://Assets/38_TURRET/weapon-turret.glb" id="1_n04wy"]
+[ext_resource type="Script" uid="uid://lg5rfovy382v" path="res://Scenes/Enemies/Turret/Turret.gd" id="1_n47qk"]
 [ext_resource type="AudioStream" uid="uid://bar2mhs7ydcqs" path="res://Assets/38_TURRET/Spell_02_Short.wav" id="3_7mq1q"]
+[ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="5_por4k"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_n04wy"]
 radius = 10.0
 
 [node name="Turret" type="Node3D" unique_id=181623826]
+script = ExtResource("1_n47qk")
 
 [node name="tower-square-build-b2" parent="." unique_id=1692397965 instance=ExtResource("1_himyi")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -31,3 +34,9 @@ shape = SubResource("SphereShape3D_n04wy")
 
 [node name="Effect" type="AudioStreamPlayer3D" parent="." unique_id=2048709536]
 stream = ExtResource("3_7mq1q")
+
+[node name="LinkPlayer" parent="." unique_id=2095999024 instance=ExtResource("5_por4k")]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

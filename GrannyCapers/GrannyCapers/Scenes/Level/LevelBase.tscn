@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cyarapgf8ijd3" path="res://Scenes/Enemies/Ghost.tscn" id="14_pggwt"]
 [ext_resource type="PackedScene" uid="uid://dcdf0vhsvbgdr" path="res://Scenes/Grave/VampireCoffin.tscn" id="15_t11kh"]
 [ext_resource type="PackedScene" uid="uid://dvtuo801fbd3h" path="res://Scenes/ObjectContainer.tscn" id="17_72khm"]
+[ext_resource type="PackedScene" uid="uid://dnpuusw507yfn" path="res://Scenes/Enemies/Turret/Turret.tscn" id="17_ypf5a"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -90,3 +91,6 @@ visible = false
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 11.5, 0.1, -1.8000001)
 
 [node name="ObjectContainer" parent="." unique_id=668340910 instance=ExtResource("17_72khm")]
+
+[node name="Turret" parent="." unique_id=181623826 instance=ExtResource("17_ypf5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
