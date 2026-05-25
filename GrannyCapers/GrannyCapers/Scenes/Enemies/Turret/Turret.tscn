@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dnpuusw507yfn"]
+
+[ext_resource type="PackedScene" uid="uid://dfjxxhtwjn3oj" path="res://Assets/38_TURRET/tower-square-build-b.glb" id="1_himyi"]
+[ext_resource type="PackedScene" uid="uid://dlvlmbix3gnxj" path="res://Assets/38_TURRET/weapon-turret.glb" id="1_n04wy"]
+
+[node name="Turret" type="Node3D" unique_id=181623826]
+
+[node name="weapon-turret2" parent="." unique_id=535006995 instance=ExtResource("1_n04wy")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.2, 0)
+
+[node name="tower-square-build-b2" parent="." unique_id=1692397965 instance=ExtResource("1_himyi")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
