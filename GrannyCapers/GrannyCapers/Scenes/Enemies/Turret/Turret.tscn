@@ -2,11 +2,32 @@
 
 [ext_resource type="PackedScene" uid="uid://dfjxxhtwjn3oj" path="res://Assets/38_TURRET/tower-square-build-b.glb" id="1_himyi"]
 [ext_resource type="PackedScene" uid="uid://dlvlmbix3gnxj" path="res://Assets/38_TURRET/weapon-turret.glb" id="1_n04wy"]
+[ext_resource type="AudioStream" uid="uid://bar2mhs7ydcqs" path="res://Assets/38_TURRET/Spell_02_Short.wav" id="3_7mq1q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n04wy"]
+radius = 10.0
 
 [node name="Turret" type="Node3D" unique_id=181623826]
 
-[node name="weapon-turret2" parent="." unique_id=535006995 instance=ExtResource("1_n04wy")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.2, 0)
-
 [node name="tower-square-build-b2" parent="." unique_id=1692397965 instance=ExtResource("1_himyi")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="PivotPoint" type="Node3D" parent="." unique_id=1447214023]
+
+[node name="weapon-turret2" parent="PivotPoint" unique_id=535006995 instance=ExtResource("1_n04wy")]
+transform = Transform3D(-1.5, 0, 1.3113416e-07, 0, 1.5, 0, -1.3113416e-07, 0, -1.5, 0, 1.2, 0)
+
+[node name="ShootPoint" type="Marker3D" parent="PivotPoint" unique_id=407358016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -0.5)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1265760769]
+
+[node name="PlayerDetection" type="Area3D" parent="." unique_id=602836214]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection" unique_id=621273185]
+shape = SubResource("SphereShape3D_n04wy")
+
+[node name="Effect" type="AudioStreamPlayer3D" parent="." unique_id=2048709536]
+stream = ExtResource("3_7mq1q")
