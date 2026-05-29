@@ -12,6 +12,13 @@ class_name Granny
 @export var air_control_factor: float = 0.7
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var tree_sm_grounded: AnimationNodeStateMachinePlayback = animation_tree["parameters/Grounded/playback"]
+@onready var bone_attachment_3d: BoneAttachment3D = $Model/Armature/Skeleton3D/BoneAttachment3D
+
+@export var shoot_speed: float=10.0
+@export var shoot_vertical_speed: float = 3.0
+
+
+const FIREBALL = preload("res://Scenes/Enemies/Fireball.tscn")
 
 const GROUP_NAME = "Granny"
 
@@ -97,3 +104,9 @@ func _update_debug() -> void:
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Throw":
 		_throwing=false
+		
+func _create_fireball() -> void:
+	var fb: FireBall = FIREBALL.instantiate()
+	fb.setup(shoot_speed,-global_transform.basis.z,shoot_vertical_speed)
+	SignalHub.emit_add_new_scene(fb,bone_attachment_3d.global_position)
+	
