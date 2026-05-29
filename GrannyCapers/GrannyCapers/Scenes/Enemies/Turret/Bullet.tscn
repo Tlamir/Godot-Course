@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b2b07v1chbtdn"]
 
+[ext_resource type="Script" uid="uid://nmespoqi3ib8" path="res://Scenes/Enemies/Turret/Bullet.gd" id="1_8n1i1"]
 [ext_resource type="PackedScene" uid="uid://ca47m381i8cct" path="res://Assets/38_TURRET/weapon-ammo-bullet.glb" id="1_xoo5c"]
 [ext_resource type="PackedScene" uid="uid://d3xp7sxi4qcnb" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="2_n8166"]
 [ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="3_8n1i1"]
@@ -54,6 +55,7 @@ material = SubResource("StandardMaterial3D_8n1i1")
 size = Vector2(0.2, 0.2)
 
 [node name="Bullet" type="Node3D" unique_id=554524198]
+script = ExtResource("1_8n1i1")
 
 [node name="weapon-ammo-bullet2" parent="." unique_id=881281947 instance=ExtResource("1_xoo5c")]
 transform = Transform3D(-1.2, 0, -1.04907336e-07, 0, 1.2, 0, 1.04907336e-07, 0, -1.2, 0, 0, 0)

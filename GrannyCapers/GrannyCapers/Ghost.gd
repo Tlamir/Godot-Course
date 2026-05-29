@@ -21,7 +21,7 @@ var _frozen_timer: float=0.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if !link_player.granny:
 		return
 	look_at(link_player.granny_pos)
