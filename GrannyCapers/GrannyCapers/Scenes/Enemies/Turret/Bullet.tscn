@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b2b07v1chbtdn"]
+
+[ext_resource type="PackedScene" uid="uid://ca47m381i8cct" path="res://Assets/38_TURRET/weapon-ammo-bullet.glb" id="1_xoo5c"]
+[ext_resource type="PackedScene" uid="uid://d3xp7sxi4qcnb" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="2_n8166"]
+[ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="3_8n1i1"]
+
+[sub_resource type="Curve" id="Curve_n8166"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8n1i1"]
+curve = SubResource("Curve_n8166")
+
+[sub_resource type="Gradient" id="Gradient_n8166"]
+colors = PackedColorArray(1, 0.4249097, 0.35419908, 1, 0.9969166, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8n1i1"]
+gradient = SubResource("Gradient_n8166")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n8166"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.1
+emission_ring_radius = 0.06
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 0, 1)
+spread = 1.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.39999998
+color = Color(0.97859687, 0.8602326, 0.49010885, 1)
+color_ramp = SubResource("GradientTexture1D_8n1i1")
+alpha_curve = SubResource("CurveTexture_8n1i1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8n1i1"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_8fxfu"]
+material = SubResource("StandardMaterial3D_8n1i1")
+size = Vector2(0.2, 0.2)
+
+[node name="Bullet" type="Node3D" unique_id=554524198]
+
+[node name="weapon-ammo-bullet2" parent="." unique_id=881281947 instance=ExtResource("1_xoo5c")]
+transform = Transform3D(-1.2, 0, -1.04907336e-07, 0, 1.2, 0, 1.04907336e-07, 0, -1.2, 0, 0, 0)
+
+[node name="LifeTimer" parent="." unique_id=2123403912 instance=ExtResource("2_n8166")]
+life_time = 10.0
+
+[node name="LinkPlayer" parent="." unique_id=2095999024 instance=ExtResource("3_8n1i1")]
+
+[node name="Trail" type="GPUParticles3D" parent="." unique_id=34172774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+amount = 100
+lifetime = 0.29000000000000004
+randomness = 0.42
+process_material = SubResource("ParticleProcessMaterial_n8166")
+draw_pass_1 = SubResource("QuadMesh_8fxfu")

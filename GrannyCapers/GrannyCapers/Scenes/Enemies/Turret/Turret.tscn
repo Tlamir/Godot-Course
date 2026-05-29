@@ -24,6 +24,7 @@ transform = Transform3D(-1.5, 0, 1.3113416e-07, 0, 1.5, 0, -1.3113416e-07, 0, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -0.5)
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1265760769]
+wait_time = 2.0
 
 [node name="PlayerDetection" type="Area3D" parent="." unique_id=602836214]
 collision_layer = 0
