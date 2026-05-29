@@ -10,11 +10,14 @@ class_name Granny
 @export var roatation_speed: float = 4.3
 @export var jump_velocity: float=20 
 @export var air_control_factor: float = 0.7
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var tree_sm_grounded: AnimationNodeStateMachinePlayback = animation_tree["parameters/Grounded/playback"]
 
 const GROUP_NAME = "Granny"
 
 var _can_double_jump: bool = false
-var _is_moving: bool =false	
+var _is_moving: bool = false	
+var _throwing:bool = false
 
 @onready var debug_label: Label3D = $DebugLabel
 
@@ -35,11 +38,15 @@ func _physics_process(delta: float) -> void:
 func _handle_input(delta: float) -> void:
 		velocity.y += delta * gravity
 		
-		
+		if _throwing:
+			_is_moving=false
+			return
 		
 		var rotated:bool = _handle_rotation(delta)
 		var moved: bool =_handle_movement()
 		_is_moving =moved or rotated
+		
+		_handle_shoot()
 		_handle_jump()
 
 func _handle_movement()->bool:
@@ -56,13 +63,20 @@ func _handle_movement()->bool:
 	return true
 	
 	
-
+func _handle_shoot() -> void:
+	if Input.is_action_just_pressed("shoot") and !_throwing and is_on_floor():
+		_throwing=true
+		tree_sm_grounded.travel("Throw")
+	
 func _handle_rotation(delta: float)->bool:
 	var input: float= Input.get_axis("move_right","move_left")
 	rotate_y(roatation_speed*input*delta)
 	return  !is_equal_approx(input,0.0)
 
 func _handle_jump() -> void:
+	if _throwing:
+		return
+		
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y=jump_velocity
@@ -78,3 +92,8 @@ func _update_debug() -> void:
 	s += "vel: %s\n" % GrannyUtils.formatted_vec3(velocity)
 	s += "pos: %s\n" % GrannyUtils.formatted_vec3(global_position)
 	debug_label.text = s
+
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Throw":
+		_throwing=false
