@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
 [ext_resource type="PackedScene" uid="uid://c2ns5tnh3hn7f" path="res://Scenes/Granny/Granny.scn" id="7_yqkkm"]
 [ext_resource type="PackedScene" uid="uid://b7jarbbyqplg0" path="res://Scenes/PickUp/Jewel.tscn" id="8_y3j2c"]
+[ext_resource type="PackedScene" uid="uid://dy7tkg3eilevf" path="res://Scenes/Collider/HurtBox.tscn" id="8_ypf5a"]
 [ext_resource type="PackedScene" uid="uid://dgved8ku5vcl2" path="res://Scenes/PickUp/Coin.tscn" id="9_kt428"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickUpTracker/PickupTracker.tscn" id="10_6ehlo"]
 [ext_resource type="PackedScene" uid="uid://c6s0iu6kjw1us" path="res://Scenes/PickUp/Key.tscn" id="11_yeolc"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cyarapgf8ijd3" path="res://Scenes/Enemies/Ghost.tscn" id="14_pggwt"]
 [ext_resource type="PackedScene" uid="uid://dcdf0vhsvbgdr" path="res://Scenes/Grave/VampireCoffin.tscn" id="15_t11kh"]
 [ext_resource type="PackedScene" uid="uid://dvtuo801fbd3h" path="res://Scenes/ObjectContainer.tscn" id="17_72khm"]
+[ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="17_ypf5a"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -35,6 +37,13 @@ playback_mode = 1
 streams_count = 2
 stream_0/stream = ExtResource("4_lmtt4")
 stream_1/stream = ExtResource("5_ooqsx")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vi1qd"]
+radius = 1.095
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5t4eg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_72khm"]
 
 [node name="LevelBase" type="Node" unique_id=748250787]
 script = ExtResource("1_78m1b")
@@ -56,6 +65,10 @@ autoplay = true
 [node name="TestPlatform" parent="." unique_id=508629629 instance=ExtResource("6_v5c15")]
 
 [node name="Granny" parent="." unique_id=1239572103 instance=ExtResource("7_yqkkm")]
+
+[node name="HurtBox" parent="Granny" unique_id=782627327 instance=ExtResource("8_ypf5a")]
+collision_mask = 4
+shape = SubResource("SphereShape3D_vi1qd")
 
 [node name="Pickups" type="Node" parent="." unique_id=2068813653]
 
@@ -93,5 +106,17 @@ transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70
 
 [node name="Timer" type="Timer" parent="." unique_id=553743768]
 wait_time = 4.0
+
+[node name="TestEnemy" type="Node3D" parent="." unique_id=389677998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.859068, 0, -11.285558)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestEnemy" unique_id=1147077421]
+mesh = SubResource("CylinderMesh_5t4eg")
+
+[node name="DamageCollider" parent="TestEnemy" unique_id=1104991143 instance=ExtResource("17_ypf5a")]
+collision_layer = 4
+collision_mask = 8
+damage_amount = 40
+shape = SubResource("CylinderShape3D_72khm")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
