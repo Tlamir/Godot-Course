@@ -24,6 +24,7 @@ func apply_impact_effects():
 		die()
 	if explodes_on_hit:
 		GrannyUtils.print_with_parent(self,"DamageCollider explodes_on_hit()")
+		SignalHub.emit_add_new_explosion(global_position)
 		
 	
 func _on_area_entered(_area: Area3D) -> void:
