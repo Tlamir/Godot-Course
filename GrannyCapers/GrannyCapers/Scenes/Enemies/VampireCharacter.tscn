@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://dhlmu8efolg0v" path="res://Assets/Enemies/Vampire/vampire-sucking-blood-short.wav" id="4_klt6b"]
 [ext_resource type="AudioStream" uid="uid://casul0w8o15dd" path="res://Assets/Enemies/Vampire/vampire2.wav" id="5_da5t6"]
 [ext_resource type="AudioStream" uid="uid://ibys1sat3js7" path="res://Assets/Enemies/Vampire/vampire_running.wav" id="6_r8kva"]
+[ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="8_jn3d0"]
+[ext_resource type="PackedScene" uid="uid://dy7tkg3eilevf" path="res://Scenes/Collider/HurtBox.tscn" id="9_1lxr4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f74nq"]
 radius = 0.33154297
@@ -16,6 +18,12 @@ height = 0.8154602
 streams_count = 2
 stream_0/stream = ExtResource("5_da5t6")
 stream_1/stream = ExtResource("6_r8kva")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1lxr4"]
+size = Vector3(1.025, 1, 0.17)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jn3d0"]
+size = Vector3(1.57, 1.63, 0.795)
 
 [node name="VampireCharacter" type="CharacterBody3D" unique_id=708182153]
 script = ExtResource("1_da5t6")
@@ -41,4 +49,21 @@ stream = SubResource("AudioStreamRandomizer_jn3d0")
 wait_time = 4.0
 autostart = true
 
+[node name="DamageCollider" parent="." unique_id=782627327 instance=ExtResource("8_jn3d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90000004, -0.50000006)
+collision_layer = 4
+collision_mask = 8
+damage_amount = 16
+explodes_on_hit = false
+dies_on_hit = false
+shape = SubResource("BoxShape3D_1lxr4")
+
+[node name="HurtBox" parent="." unique_id=1451523643 instance=ExtResource("9_1lxr4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+collision_layer = 128
+collision_mask = 16
+max_health = 30
+shape = SubResource("BoxShape3D_jn3d0")
+
 [connection signal="timeout" from="RunningTimer" to="." method="_on_running_timer_timeout"]
+[connection signal="damage_given" from="DamageCollider" to="." method="_on_damage_collider_damage_given"]

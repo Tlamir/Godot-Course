@@ -5,10 +5,17 @@
 [ext_resource type="AudioStream" uid="uid://dir3x7eq8pbpr" path="res://Assets/Enemies/29_PUMPKIN/pumpkin.wav" id="2_a0roh"]
 [ext_resource type="PackedScene" uid="uid://dwd0adpeokj6m" path="res://Scenes/FallsOff/FallsOff.tscn" id="3_8mxa7"]
 [ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="4_x8an1"]
+[ext_resource type="PackedScene" uid="uid://dy7tkg3eilevf" path="res://Scenes/Collider/HurtBox.tscn" id="6_5c131"]
+[ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="7_rwjsl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xo5vy"]
 radius = 0.36572266
 height = 1.0059814
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rwjsl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5c131"]
+radius = 0.7
 
 [node name="Pumpkin" type="CharacterBody3D" unique_id=1367649949]
 script = ExtResource("1_x8an1")
@@ -38,3 +45,18 @@ text = "AHHAHAHHAHHAHHHHAHH
 AHHAHAHHAHHAHHHHAHH
 AHHAHAHHAHHAHHHHAHH"
 font_size = 42
+
+[node name="DamageCollider" parent="." unique_id=2135370593 instance=ExtResource("7_rwjsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999994, 0.70000005, -0.70000005)
+collision_layer = 4
+damage_amount = 12
+explodes_on_hit = false
+dies_on_hit = false
+shape = SubResource("SphereShape3D_rwjsl")
+
+[node name="HurtBox" parent="." unique_id=782627327 instance=ExtResource("6_5c131")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40000004, 0)
+collision_layer = 128
+collision_mask = 16
+max_health = 50
+shape = SubResource("SphereShape3D_5c131")

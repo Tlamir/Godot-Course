@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://i7uuov1ywdvq" path="res://Ghost.gd" id="1_5lke6"]
 [ext_resource type="Texture2D" uid="uid://nqgvpbq30ga6" path="res://Assets/Models/30_GHOST/Textures/colormap.png" id="2_4nm62"]
 [ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="3_dga1g"]
+[ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="4_vkpu7"]
+[ext_resource type="PackedScene" uid="uid://dy7tkg3eilevf" path="res://Scenes/Collider/HurtBox.tscn" id="5_mq6ye"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2fgo"]
 resource_name = "colormap"
@@ -1292,6 +1294,12 @@ _data = {
 &"walk": SubResource("Animation_i6biv")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mq6ye"]
+size = Vector3(0.5, 1, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkpu7"]
+size = Vector3(0.88, 0.865, 0.56)
+
 [node name="Ghost" type="Node3D" unique_id=1174169386]
 script = ExtResource("1_5lke6")
 
@@ -1335,6 +1343,21 @@ autoplay = &"walk"
 [node name="ScreenNotify" type="VisibleOnScreenNotifier3D" parent="." unique_id=858872341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 aabb = AABB(-0.39706326, -0.4352022, -0.2875285, 0.7941265, 0.8704044, 0.575057)
+
+[node name="DamageCollider" parent="." unique_id=782627327 instance=ExtResource("4_vkpu7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4126407, -0.28281307)
+collision_layer = 4
+damage_amount = 15
+explodes_on_hit = false
+dies_on_hit = false
+shape = SubResource("BoxShape3D_mq6ye")
+
+[node name="HurtBox" parent="." unique_id=946636005 instance=ExtResource("5_mq6ye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4102152, 0)
+collision_layer = 128
+collision_mask = 16
+max_health = 20
+shape = SubResource("BoxShape3D_vkpu7")
 
 [connection signal="screen_entered" from="ScreenNotify" to="." method="_on_screen_notify_screen_entered"]
 [connection signal="screen_exited" from="ScreenNotify" to="." method="_on_screen_notify_screen_exited"]

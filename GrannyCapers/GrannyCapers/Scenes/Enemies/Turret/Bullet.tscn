@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ca47m381i8cct" path="res://Assets/38_TURRET/weapon-ammo-bullet.glb" id="1_xoo5c"]
 [ext_resource type="PackedScene" uid="uid://d3xp7sxi4qcnb" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="2_n8166"]
 [ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="3_8n1i1"]
+[ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="5_8fxfu"]
 
 [sub_resource type="Curve" id="Curve_n8166"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -54,6 +55,10 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_8n1i1")
 size = Vector2(0.2, 0.2)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bwd7e"]
+radius = 0.2
+height = 0.7
+
 [node name="Bullet" type="Node3D" unique_id=554524198]
 script = ExtResource("1_8n1i1")
 
@@ -72,3 +77,9 @@ lifetime = 0.29000000000000004
 randomness = 0.42
 process_material = SubResource("ParticleProcessMaterial_n8166")
 draw_pass_1 = SubResource("QuadMesh_8fxfu")
+
+[node name="DamageCollider" parent="." unique_id=782627327 instance=ExtResource("5_8fxfu")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 8
+shape = SubResource("CapsuleShape3D_bwd7e")

@@ -6,6 +6,7 @@ class_name VampireCharacter
 @onready var running_effect: AudioStreamPlayer3D = $RunningEffect
 @onready var link_player: LinkPlayer = $LinkPlayer
 @onready var vampire_model: VampireModel = $VampireModel
+@onready var blood_suck_effect: AudioStreamPlayer3D = $BloodSuckEffect
 
 var _gravity: float = 20.0
 var _speed: float = 1.5
@@ -25,3 +26,8 @@ func _physics_process(delta: float) -> void:
 func _on_running_timer_timeout() -> void:
 	running_effect.stop()
 	running_effect.play()
+
+
+func _on_damage_collider_damage_given(amount: int) -> void:
+	if !blood_suck_effect.playing:
+		blood_suck_effect.play()
