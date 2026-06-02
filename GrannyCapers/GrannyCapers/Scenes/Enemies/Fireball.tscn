@@ -82,5 +82,5 @@ draw_pass_1 = SubResource("SphereMesh_bcuy3")
 
 [node name="DamageCollider" parent="." unique_id=782627327 instance=ExtResource("4_k56qn")]
 collision_layer = 16
-collision_mask = 128
+collision_mask = 129
 shape = SubResource("SphereShape3D_ggqpb")

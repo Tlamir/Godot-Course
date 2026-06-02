@@ -29,3 +29,6 @@ func apply_impact_effects():
 func _on_area_entered(_area: Area3D) -> void:
 	GrannyUtils.print_with_parent(self,"DamageCollider _on_area_entered()")
 	apply_impact_effects()
+
+func _on_body_entered(body: Node3D) -> void:
+	apply_impact_effects()
