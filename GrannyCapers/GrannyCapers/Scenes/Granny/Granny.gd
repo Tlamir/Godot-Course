@@ -3,6 +3,13 @@ extends CharacterBody3D
 
 class_name Granny
 
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var tree_sm_grounded: AnimationNodeStateMachinePlayback = animation_tree["parameters/Grounded/playback"]
+@onready var bone_attachment_3d: BoneAttachment3D = $Model/Armature/Skeleton3D/BoneAttachment3D
+@onready var debug_label: Label3D = $DebugLabel
+
+@onready var effect: AudioStreamPlayer3D = $Effect
+@onready var hurt_sounds: AudioStreamPlayer3D = $HurtSounds
 
 
 @export var gravity: float = -70.0
@@ -10,13 +17,12 @@ class_name Granny
 @export var roatation_speed: float = 4.3
 @export var jump_velocity: float=20 
 @export var air_control_factor: float = 0.7
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var tree_sm_grounded: AnimationNodeStateMachinePlayback = animation_tree["parameters/Grounded/playback"]
-@onready var bone_attachment_3d: BoneAttachment3D = $Model/Armature/Skeleton3D/BoneAttachment3D
-
 @export var shoot_speed: float=10.0
 @export var shoot_vertical_speed: float = 3.0
 
+const JUMPLAND = preload("res://Assets/Audio/55_PLAYER_SOUNDS/jumpland.wav")
+const DOUBLE_JUMP = preload("res://Assets/Audio/55_PLAYER_SOUNDS/double_jump.wav")
+const PLAYER_JUMP = preload("res://Assets/Audio/55_PLAYER_SOUNDS/player_jump.wav")
 
 const FIREBALL = preload("res://Scenes/Enemies/Fireball.tscn")
 
@@ -25,8 +31,9 @@ const GROUP_NAME = "Granny"
 var _can_double_jump: bool = false
 var _is_moving: bool = false	
 var _throwing:bool = false
+var _was_on_floor: bool =false
 
-@onready var debug_label: Label3D = $DebugLabel
+
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
@@ -38,8 +45,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	_was_on_floor= is_on_floor()
 	move_and_slide()
 	_update_debug()
+	_check_landing()
 	_handle_input(delta)
 
 func _handle_input(delta: float) -> void:
@@ -55,6 +64,13 @@ func _handle_input(delta: float) -> void:
 		
 		_handle_shoot()
 		_handle_jump()
+
+func _check_landing() -> void:
+	if _was_on_floor != is_on_floor():
+		_was_on_floor = is_on_floor()
+		if is_on_floor():
+			GrannyUtils.play_clip_stop(effect,JUMPLAND)
+		
 
 func _set_move_zero() -> void:
 	velocity.x=0.0
@@ -92,9 +108,12 @@ func _handle_jump() -> void:
 		if is_on_floor():
 			velocity.y=jump_velocity
 			_can_double_jump=true
+			GrannyUtils.play_clip_stop(effect,PLAYER_JUMP)
 		elif _can_double_jump and velocity.y>0.0:
 			velocity.y=jump_velocity
 			_can_double_jump=false
+			GrannyUtils.play_clip_stop(effect,DOUBLE_JUMP)
+			
 			
 			
 
@@ -114,3 +133,7 @@ func _create_fireball() -> void:
 	fb.setup(shoot_speed,-global_transform.basis.z,shoot_vertical_speed)
 	SignalHub.emit_add_new_scene(fb,bone_attachment_3d.global_position)
 	
+
+
+func _on_hurt_box_damage_taken(amount: int) -> void:
+	hurt_sounds.play()
