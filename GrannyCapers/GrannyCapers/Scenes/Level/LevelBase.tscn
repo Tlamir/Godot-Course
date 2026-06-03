@@ -9,10 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dgved8ku5vcl2" path="res://Scenes/PickUp/Coin.tscn" id="9_kt428"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickUpTracker/PickupTracker.tscn" id="10_6ehlo"]
 [ext_resource type="PackedScene" uid="uid://c6s0iu6kjw1us" path="res://Scenes/PickUp/Key.tscn" id="11_yeolc"]
+[ext_resource type="PackedScene" uid="uid://bv1b1nn566amr" path="res://Scenes/Scenery/Platforms/Moving/MovingPlatformPf.tscn" id="12_86rlm"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="12_ilrmw"]
-[ext_resource type="PackedScene" uid="uid://dcdf0vhsvbgdr" path="res://Scenes/Grave/VampireCoffin.tscn" id="15_t11kh"]
 [ext_resource type="PackedScene" uid="uid://dvtuo801fbd3h" path="res://Scenes/ObjectContainer.tscn" id="17_72khm"]
-[ext_resource type="PackedScene" uid="uid://dnpuusw507yfn" path="res://Scenes/Enemies/Turret/Turret.tscn" id="17_vi1qd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -27,8 +26,13 @@ sky = SubResource("Sky_78m1b")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t11kh"]
-size = Vector3(4.008911, 4.7495117, 1)
+[sub_resource type="Curve3D" id="Curve3D_yeolc"]
+closed = true
+_data = {
+"points": PackedVector3Array(-0.7575339, 1.0223352, 0, 0.7575339, -1.0223352, 0, 1.9312006, 0.0009957552, 0.41918945, -1.1532359, -1.3761005, 0, 1.1532359, 1.3761005, 0, 7.8586483, -0.02323085, 0.41918945, 2.5276437, 0.92061186, 0, -2.5276437, -0.92061186, 0, 5.494081, 3.865921, 0.41918945, 0, 0, 0, 0, 0, 0, 1.9715778, 1.9875789, 0.41918945),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="LevelBase" type="Node" unique_id=748250787]
 script = ExtResource("1_78m1b")
@@ -68,22 +72,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1073046, 0, -0.16631937)
 [node name="LevelExit" parent="." unique_id=1700915603 instance=ExtResource("12_ilrmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.725519, -4.7683716e-07, -3.026286)
 
-[node name="VampireCoffin" parent="." unique_id=1469871280 instance=ExtResource("15_t11kh")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 11.5, 0.1, -1.8000001)
-
 [node name="ObjectContainer" parent="." unique_id=668340910 instance=ExtResource("17_72khm")]
 
 [node name="Timer" type="Timer" parent="." unique_id=553743768]
 wait_time = 4.0
 
-[node name="Turret" parent="." unique_id=181623826 instance=ExtResource("17_vi1qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, -17.254307)
+[node name="Path3D" type="Path3D" parent="." unique_id=1986023629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+curve = SubResource("Curve3D_yeolc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1957707062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9132509, 0, -5.240644)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=968952212]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5044556, 1.8747559, -6.126594)
-shape = SubResource("BoxShape3D_t11kh")
+[node name="MovingPlatformPf" parent="Path3D" unique_id=1635957515 instance=ExtResource("12_86rlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0921, 0.34242257, 0.41918945)
+progress = 6.8
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
