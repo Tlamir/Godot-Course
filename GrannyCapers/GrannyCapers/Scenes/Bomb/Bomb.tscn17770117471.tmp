@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bapgljcf7tlam"]
+
+[ext_resource type="Script" uid="uid://dq7yper7b2kgf" path="res://Scenes/Bomb/Bomb.gd" id="1_sd4q4"]
+[ext_resource type="PackedScene" uid="uid://b00850d4d0xj8" path="res://Assets/61_BOMB_SCENE/bomb.glb" id="1_yghh8"]
+[ext_resource type="Script" uid="uid://b5n877oa4icnx" path="res://Scenes/Collider/DamageCollider.gd" id="2_6n4o4"]
+[ext_resource type="AudioStream" uid="uid://c3syjbpil8brp" path="res://Assets/61_BOMB_SCENE/117137__explosionbomb.wav" id="3_nikfl"]
+[ext_resource type="AudioStream" uid="uid://cc7ho6lkf4vbu" path="res://Assets/61_BOMB_SCENE/567361__alarm.wav" id="4_52pmk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yghh8"]
+radius = 0.68930167
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6n4o4"]
+radius = 2.1
+
+[sub_resource type="Animation" id="Animation_sd4q4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bomb2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bomb2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pc1bw"]
+resource_name = "bang"
+length = 3.3
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountDownSound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_52pmk")
+}],
+"times": PackedFloat32Array(0.099999994)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bomb2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1.0666667, 1.5333334, 2.0333335, 2.5000002, 3.0000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.5, 1.5, 1.5), Vector3(1.3, 1.3, 1.3), Vector3(1, 1, 1), Vector3(1.5, 1.5, 1.5), Vector3(1, 1, 1), Vector3(1.8, 1.8, 1.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bomb2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.0333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mdhff"]
+_data = {
+&"RESET": SubResource("Animation_sd4q4"),
+&"bang": SubResource("Animation_pc1bw")
+}
+
+[node name="Bomb" type="Node3D" unique_id=559348471]
+script = ExtResource("1_sd4q4")
+
+[node name="bomb2" parent="." unique_id=1343437261 instance=ExtResource("1_yghh8")]
+
+[node name="Trigger" type="Area3D" parent="." unique_id=581418300]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" unique_id=9645592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14908099, 0)
+shape = SubResource("SphereShape3D_yghh8")
+
+[node name="DamageCollider" type="Area3D" parent="." unique_id=1927534657]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_6n4o4")
+shape = SubResource("SphereShape3D_6n4o4")
+metadata/_custom_type_script = "uid://b5n877oa4icnx"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageCollider" unique_id=1421485168]
+shape = SubResource("SphereShape3D_6n4o4")
+
+[node name="ExplodeSound" type="AudioStreamPlayer3D" parent="." unique_id=1193836416]
+stream = ExtResource("3_nikfl")
+
+[node name="CountDownSound" type="AudioStreamPlayer3D" parent="." unique_id=873957406]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=295390643]
+libraries/ = SubResource("AnimationLibrary_mdhff")
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
+[connection signal="finished" from="ExplodeSound" to="." method="_on_explode_sound_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
