@@ -20,6 +20,7 @@ class_name Granny
 @export var air_control_factor: float = 0.7
 @export var shoot_speed: float=10.0
 @export var shoot_vertical_speed: float = 3.0
+@export var bounce_speed: float = 30.0
 
 const JUMPLAND = preload("res://Assets/Audio/55_PLAYER_SOUNDS/jumpland.wav")
 const DOUBLE_JUMP = preload("res://Assets/Audio/55_PLAYER_SOUNDS/double_jump.wav")
@@ -43,8 +44,12 @@ func _enter_tree() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalHub.emit_player_health_changed(hurt_box.current_health)
+	SignalHub.on_player_bounce.connect(player_bounce)
 	pass
 
+
+func player_bounce():
+	velocity.y+=bounce_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
