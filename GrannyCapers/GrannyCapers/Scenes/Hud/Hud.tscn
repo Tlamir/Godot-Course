@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dhcrh6rd4vyar" path="res://Assets/23_KEY/key.png" id="2_bbjj2"]
 [ext_resource type="Texture2D" uid="uid://c6deecgs7aio4" path="res://Assets/Images/Textures/Items/coin-gold.png" id="2_iteex"]
 [ext_resource type="Texture2D" uid="uid://bh0xh4b13rhw8" path="res://Assets/Images/Textures/Items/jewel.png" id="3_xymhr"]
+[ext_resource type="Texture2D" uid="uid://ciyex35jm27vf" path="res://Assets/56_PLAYER_HEALTH/heart.png" id="3_ysf55"]
+[ext_resource type="AudioStream" uid="uid://dvxhdoqb1xwpm" path="res://Assets/Audio/Music/Adventures in Adventureland.mp3" id="6_r61c6"]
+[ext_resource type="AudioStream" uid="uid://cgnfsivumhmys" path="res://Assets/Audio/Music/Lord of the Rangs.mp3" id="7_ogn3t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ysf55"]
 font_size = 105
@@ -26,8 +29,17 @@ corner_detail = 1
 [sub_resource type="LabelSettings" id="LabelSettings_bbjj2"]
 font_size = 32
 
+[sub_resource type="LabelSettings" id="LabelSettings_r61c6"]
+font_size = 32
+
 [sub_resource type="LabelSettings" id="LabelSettings_xymhr"]
 font_size = 32
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_txgif"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("6_r61c6")
+stream_1/stream = ExtResource("7_ogn3t")
 
 [node name="Hud" type="Control" unique_id=626522329]
 process_mode = 3
@@ -109,6 +121,21 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 13
 
+[node name="HBHealth" type="HBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1396677671]
+layout_mode = 2
+
+[node name="TextureRectHealth" type="TextureRect" parent="PanelContainer/HBoxContainer/HBHealth" unique_id=95594560]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_ysf55")
+
+[node name="LabelHealth" type="Label" parent="PanelContainer/HBoxContainer/HBHealth" unique_id=1293305166]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_r61c6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBCoin" type="HBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1366458512]
 layout_mode = 2
 
@@ -140,3 +167,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=232203404]
+
+[node name="InGameMusic" type="AudioStreamPlayer" parent="." unique_id=1371447204]
+stream = SubResource("AudioStreamRandomizer_txgif")
+volume_db = -6.0
+autoplay = true

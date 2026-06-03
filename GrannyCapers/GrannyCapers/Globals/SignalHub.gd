@@ -8,6 +8,10 @@ signal on_level_completed()
 signal on_player_died()
 signal on_add_new_scene(ob: Node3D, new_position: Vector3)
 signal on_add_new_explosion(new_position: Vector3)
+signal on_player_health_changed(health: int)
+
+func emit_player_health_changed(health: int):
+	on_player_health_changed.emit(health)
 
 func emit_add_new_explosion(new_position: Vector3):
 	on_add_new_explosion.emit(new_position)

@@ -10,6 +10,7 @@ class_name Granny
 
 @onready var effect: AudioStreamPlayer3D = $Effect
 @onready var hurt_sounds: AudioStreamPlayer3D = $HurtSounds
+@onready var hurt_box: HurtBox = $HurtBox
 
 
 @export var gravity: float = -70.0
@@ -40,7 +41,8 @@ func _enter_tree() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SignalHub.emit_player_health_changed(hurt_box.current_health)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -137,3 +139,14 @@ func _create_fireball() -> void:
 
 func _on_hurt_box_damage_taken(amount: int) -> void:
 	hurt_sounds.play()
+	SignalHub.emit_player_health_changed(hurt_box.current_health)
+
+
+func _on_hurt_box_died() -> void:
+	die()
+
+
+func die():
+	SignalHub.emit_player_died()
+	set_physics_process(false)
+	pass
