@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3qhbbee8xgka"]
 
-[ext_resource type="Script" uid="uid://bwve6f3es0unt" path="res://Scenes/Enemies/Pumpkin.gd" id="1_x8an1"]
+[ext_resource type="Script" uid="uid://bwve6f3es0unt" path="res://Scenes/Enemies/Pumpkin/Pumpkin.gd" id="1_x8an1"]
 [ext_resource type="PackedScene" uid="uid://b66qubu0y7jk8" path="res://Assets/Models/Kay/Pumpkin.glb" id="1_xo5vy"]
 [ext_resource type="AudioStream" uid="uid://dir3x7eq8pbpr" path="res://Assets/Enemies/29_PUMPKIN/pumpkin.wav" id="2_a0roh"]
 [ext_resource type="PackedScene" uid="uid://dwd0adpeokj6m" path="res://Scenes/FallsOff/FallsOff.tscn" id="3_8mxa7"]

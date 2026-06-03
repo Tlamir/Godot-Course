@@ -25,7 +25,8 @@ const JUMPLAND = preload("res://Assets/Audio/55_PLAYER_SOUNDS/jumpland.wav")
 const DOUBLE_JUMP = preload("res://Assets/Audio/55_PLAYER_SOUNDS/double_jump.wav")
 const PLAYER_JUMP = preload("res://Assets/Audio/55_PLAYER_SOUNDS/player_jump.wav")
 
-const FIREBALL = preload("res://Scenes/Enemies/Fireball.tscn")
+
+const FIREBALL = preload("res://Scenes/Enemies/Fireball/Fireball.tscn")
 
 const GROUP_NAME = "Granny"
 

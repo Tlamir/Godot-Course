@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cypju2e0thqri"]
 
-[ext_resource type="Script" uid="uid://7ndy5pwcr3si" path="res://Scenes/Enemies/VampireCharacter.gd" id="1_da5t6"]
-[ext_resource type="PackedScene" uid="uid://cefw52qbk3x0h" path="res://Scenes/Enemies/VampireModel.tscn" id="1_f74nq"]
+[ext_resource type="Script" uid="uid://7ndy5pwcr3si" path="res://Scenes/Enemies/Vampire/VampireCharacter.gd" id="1_da5t6"]
+[ext_resource type="PackedScene" uid="uid://cefw52qbk3x0h" path="res://Scenes/Enemies/Vampire/VampireModel.tscn" id="1_f74nq"]
 [ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="1_m6461"]
 [ext_resource type="PackedScene" uid="uid://dwd0adpeokj6m" path="res://Scenes/FallsOff/FallsOff.tscn" id="3_uf78h"]
 [ext_resource type="AudioStream" uid="uid://dhlmu8efolg0v" path="res://Assets/Enemies/Vampire/vampire-sucking-blood-short.wav" id="4_klt6b"]

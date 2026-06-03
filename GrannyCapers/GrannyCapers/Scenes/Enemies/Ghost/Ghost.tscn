@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cyarapgf8ijd3"]
 
-[ext_resource type="Script" uid="uid://i7uuov1ywdvq" path="res://Ghost.gd" id="1_5lke6"]
+[ext_resource type="Script" uid="uid://i7uuov1ywdvq" path="res://Scenes/Enemies/Ghost/Ghost.gd" id="1_5lke6"]
 [ext_resource type="Texture2D" uid="uid://nqgvpbq30ga6" path="res://Assets/Models/30_GHOST/Textures/colormap.png" id="2_4nm62"]
 [ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="3_dga1g"]
 [ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="4_vkpu7"]

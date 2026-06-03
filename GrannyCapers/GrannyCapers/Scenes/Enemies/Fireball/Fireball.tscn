@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b20qf48o4k4kl"]
 
-[ext_resource type="Script" uid="uid://dtr26vdu0jdca" path="res://Scenes/Enemies/Fireball.gd" id="1_6t018"]
+[ext_resource type="Script" uid="uid://dtr26vdu0jdca" path="res://Scenes/Enemies/Fireball/Fireball.gd" id="1_6t018"]
 [ext_resource type="PackedScene" uid="uid://d3xp7sxi4qcnb" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="1_vfhfp"]
 [ext_resource type="AudioStream" uid="uid://chjiubmc84804" path="res://Assets/Effetcs/player_shoot.wav" id="2_bcuy3"]
 [ext_resource type="PackedScene" uid="uid://br3j0ou8vlt0k" path="res://Scenes/Collider/DamageCollider.tscn" id="4_k56qn"]

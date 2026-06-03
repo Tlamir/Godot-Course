@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b50p247q1fips" path="res://Scenes/Grave/VampireCoffin.gd" id="1_gnxa0"]
 [ext_resource type="PackedScene" uid="uid://cdg2yf2br63ud" path="res://Assets/33_VAMPIRE_COFFIN/coffin.glb" id="1_n1y8b"]
 [ext_resource type="PackedScene" uid="uid://c37meidmxbw2r" path="res://Assets/33_VAMPIRE_COFFIN/coffin-old.glb" id="2_75yw0"]
-[ext_resource type="PackedScene" uid="uid://cefw52qbk3x0h" path="res://Scenes/Enemies/VampireModel.tscn" id="3_75yw0"]
+[ext_resource type="PackedScene" uid="uid://cefw52qbk3x0h" path="res://Scenes/Enemies/Vampire/VampireModel.tscn" id="3_75yw0"]
 [ext_resource type="AudioStream" uid="uid://b2lmri3k474bs" path="res://Assets/33_VAMPIRE_COFFIN/coffin_open.wav" id="4_an8mv"]
 [ext_resource type="AudioStream" uid="uid://ilvbxqu1s1kr" path="res://Assets/33_VAMPIRE_COFFIN/269115__visualpony__growl-4.wav" id="5_0htxb"]
 [ext_resource type="PackedScene" uid="uid://c33l85ymm3iug" path="res://Scenes/LinkPlayer/LinkPlayer.tscn" id="6_0htxb"]

@@ -1,6 +1,7 @@
 extends Node
 
-const FIREBALL = preload("res://Scenes/Enemies/Fireball.tscn")
+const FIREBALL = preload("res://Scenes/Enemies/Fireball/Fireball.tscn")
+
 
 func _on_timer_timeout() -> void:
 	var fireball : FireBall = FIREBALL.instantiate()
