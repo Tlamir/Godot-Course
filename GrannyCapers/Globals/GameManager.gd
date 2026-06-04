@@ -5,8 +5,13 @@ const MAIN_SCENE = preload("res://Scenes/Main/Main.tscn")
 
 
 const LEVELS: Dictionary[int, PackedScene] = {
-	1: preload("res://Scenes/Level/LevelBase.tscn")
+	1: preload("res://Scenes/Level/Level1.tscn"),
+	2: preload("res://Scenes/Level/Level2.tscn"),
+	3: preload("res://Scenes/Level/Level3.tscn")
+	
 }
+
+var current_level: int =0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("quit"):
@@ -21,10 +26,12 @@ func _exit_tree():
 
 
 func change_to_main():
+		current_level=0
 		ScoreManager.reset_score()
 		get_tree().change_scene_to_packed(MAIN_SCENE)
 
 
 
 func load_next_level():
-	get_tree().change_scene_to_packed(LEVELS[1])
+	current_level+=1
+	get_tree().change_scene_to_packed(LEVELS[current_level])

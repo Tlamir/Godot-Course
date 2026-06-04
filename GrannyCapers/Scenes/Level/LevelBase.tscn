@@ -3,22 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cbfj8x6yxtq32" path="res://Assets/Images/Hdr/LevelSky.hdr" id="1_5ufo3"]
 [ext_resource type="Script" uid="uid://dkv081yb17o7j" path="res://Scenes/Level/LevelBase.gd" id="1_78m1b"]
 [ext_resource type="PackedScene" uid="uid://diiqqw6341r72" path="res://Scenes/Hud/Hud.tscn" id="2_bgw71"]
-[ext_resource type="PackedScene" uid="uid://cljbtw17fkdry" path="res://Scenes/Scenery/Platforms/TestPlatform.tscn" id="6_v5c15"]
 [ext_resource type="PackedScene" uid="uid://c2ns5tnh3hn7f" path="res://Scenes/Granny/Granny.scn" id="7_yqkkm"]
 [ext_resource type="PackedScene" uid="uid://b7jarbbyqplg0" path="res://Scenes/PickUp/Jewel.tscn" id="8_y3j2c"]
-[ext_resource type="PackedScene" uid="uid://dgved8ku5vcl2" path="res://Scenes/PickUp/Coin.tscn" id="9_kt428"]
 [ext_resource type="PackedScene" uid="uid://cc6ylirm6ip1f" path="res://Scenes/PickUpTracker/PickupTracker.tscn" id="10_6ehlo"]
 [ext_resource type="PackedScene" uid="uid://c6s0iu6kjw1us" path="res://Scenes/PickUp/Key.tscn" id="11_yeolc"]
-[ext_resource type="PackedScene" uid="uid://bapgljcf7tlam" path="res://Scenes/Bomb/Bomb.tscn" id="12_86rlm"]
 [ext_resource type="PackedScene" uid="uid://dyldmp46jptqe" path="res://Scenes/LevelExit/LevelExit.tscn" id="12_ilrmw"]
-[ext_resource type="PackedScene" uid="uid://dhankj6bfl8xl" path="res://Scenes/Scenery/Scenery/TresCollider.tscn" id="13_86rlm"]
-[ext_resource type="PackedScene" uid="uid://cpcmc4i5rd4lg" path="res://Scenes/BounceButton/BounceButton.tscn" id="14_pggwt"]
-[ext_resource type="PackedScene" uid="uid://c236nknm616h1" path="res://Scenes/RopeBridge/RopeBridge.tscn" id="15_t11kh"]
-[ext_resource type="PackedScene" uid="uid://dnpuusw507yfn" path="res://Scenes/Enemies/Turret/Turret.tscn" id="16_5t4eg"]
 [ext_resource type="PackedScene" uid="uid://dvtuo801fbd3h" path="res://Scenes/ObjectContainer.tscn" id="17_72khm"]
-[ext_resource type="PackedScene" uid="uid://bv1b1nn566amr" path="res://Scenes/Scenery/Platforms/Moving/MovingPlatformPf.tscn" id="17_ypf5a"]
-[ext_resource type="ArrayMesh" uid="uid://bmmx4fnrbcpu1" path="res://Resources/TestMovingPlatformMesh.tres" id="18_vi1qd"]
-[ext_resource type="Shape3D" uid="uid://bp8p70fy80n6j" path="res://Resources/TestMovingPlatformShape.tres" id="19_vi1qd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -33,14 +23,6 @@ sky = SubResource("Sky_78m1b")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="Curve3D" id="Curve3D_5t4eg"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.49612093, 0.8966999, -0.28243732, 0, 0, 0, 0, 0, 0, 0.46740294, 0.89661014, -0.024564743, 0, 0, 0, 0, 0, 0, 0.010453224, 0.8333632, 4.0110617, 0, 0, 0, 0, 0, 0, -0.6800904, 2.0366464, 11.529922, 0, 0, 0, 0, 0, 0, -0.40770197, -2.6169114, 15.069572, 0, 0, 0, 0, 0, 0, -1.5964456, 2.0958352, 19.82629, 0, 0, 0, 0, 0, 0, -2.1988454, -0.77481115, 22.098785, 0, 0, 0, 0, 0, 0, -2.2344365, 0.05382836, 23.324585, 0, 0, 0, 0, 0, 0, -0.9828954, 9.612788, 22.534088),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 9
-
 [node name="LevelBase" type="Node" unique_id=748250787]
 script = ExtResource("1_78m1b")
 
@@ -53,78 +35,21 @@ shadow_enabled = true
 
 [node name="Hud" parent="." unique_id=694539190 instance=ExtResource("2_bgw71")]
 
-[node name="TestPlatform" parent="." unique_id=508629629 instance=ExtResource("6_v5c15")]
-
 [node name="Granny" parent="." unique_id=1239572103 instance=ExtResource("7_yqkkm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 17.794708, 21.55266)
 
 [node name="Pickups" type="Node" parent="." unique_id=2068813653]
-
-[node name="Coin" parent="Pickups" unique_id=1208324445 instance=ExtResource("9_kt428")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9355335)
-
-[node name="Coin2" parent="Pickups" unique_id=535693328 instance=ExtResource("9_kt428")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-
-[node name="Coin3" parent="Pickups" unique_id=1389660151 instance=ExtResource("9_kt428")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
 [node name="jewel" parent="Pickups" unique_id=1792505896 instance=ExtResource("8_y3j2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, -2.2)
 
-[node name="PickupTracker" parent="." unique_id=1119397065 instance=ExtResource("10_6ehlo")]
-
-[node name="Key" parent="." unique_id=122312897 instance=ExtResource("11_yeolc")]
+[node name="Key" parent="Pickups" unique_id=122312897 instance=ExtResource("11_yeolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1073046, 0, -0.16631937)
+
+[node name="PickupTracker" parent="Pickups" unique_id=1119397065 instance=ExtResource("10_6ehlo")]
 
 [node name="LevelExit" parent="." unique_id=1700915603 instance=ExtResource("12_ilrmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.725519, -4.7683716e-07, -3.026286)
 
 [node name="ObjectContainer" parent="." unique_id=668340910 instance=ExtResource("17_72khm")]
 
-[node name="Timer" type="Timer" parent="." unique_id=553743768]
-wait_time = 4.0
-
-[node name="Bomb" parent="." unique_id=559348471 instance=ExtResource("12_86rlm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 0, 4.1)
-
-[node name="TresCollider" parent="." unique_id=1877595848 instance=ExtResource("13_86rlm")]
-
-[node name="BounceButton" parent="." unique_id=1981828558 instance=ExtResource("14_pggwt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.2)
-
-[node name="RopeBridge" parent="." unique_id=393439535 instance=ExtResource("15_t11kh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7782354, 1.4555569, 4.667655)
-
-[node name="Turret" parent="." unique_id=181623826 instance=ExtResource("16_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.5)
-
-[node name="Turret2" parent="." unique_id=817985139 instance=ExtResource("16_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9.5)
-
-[node name="Turret3" parent="." unique_id=1788578510 instance=ExtResource("16_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9.5)
-
-[node name="Turret4" parent="." unique_id=2102096960 instance=ExtResource("16_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9.5)
-
-[node name="Turret5" parent="." unique_id=2123036951 instance=ExtResource("16_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -9.5)
-
-[node name="Turret6" parent="." unique_id=903146730 instance=ExtResource("16_5t4eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9.5)
-
-[node name="Path3D" type="Path3D" parent="." unique_id=96740035]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.284868, 1.4, 16.52032)
-curve = SubResource("Curve3D_5t4eg")
-
-[node name="MovingPlatformPf" parent="Path3D" unique_id=1635957515 instance=ExtResource("17_ypf5a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3553899, 1.4708506, 7.9944777)
-progress = 8.372031
-speed = 6.0
-platform_mesh = ExtResource("18_vi1qd")
-shape_position = Vector3(0, 0, 0)
-platform_mesh_position = Vector3(0, 0, 0)
-shape = ExtResource("19_vi1qd")
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Enemies" type="Node" parent="." unique_id=1588399109]

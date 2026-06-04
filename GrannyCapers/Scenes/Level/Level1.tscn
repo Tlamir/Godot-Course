@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://mxfr7bc5q7nh"]
+
+[ext_resource type="PackedScene" uid="uid://bmmfc1vvnuyfq" path="res://Scenes/Level/LevelBase.tscn" id="1_g1stx"]
+[ext_resource type="Texture2D" uid="uid://b8m24nrqete45" path="res://Assets/Images/Textures/kenney_prototype-textures/PNG/Dark/texture_07.png" id="2_8ux1l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mddlf"]
+albedo_texture = ExtResource("2_8ux1l")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_g1stx"]
+material = SubResource("StandardMaterial3D_mddlf")
+size = Vector3(30, 0.2, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b2j2l"]
+size = Vector3(30, 0.2, 30)
+
+[node name="Level1" unique_id=748250787 instance=ExtResource("1_g1stx")]
+
+[node name="Granny" parent="." index="3" unique_id=1239572103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6000001, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="8" unique_id=145235563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("BoxMesh_g1stx")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" index="0" unique_id=1780221958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" index="0" unique_id=531096032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_b2j2l")
