@@ -10,6 +10,10 @@ signal on_add_new_scene(ob: Node3D, new_position: Vector3)
 signal on_add_new_explosion(new_position: Vector3)
 signal on_player_health_changed(health: int)
 signal on_player_bounce()
+signal on_score_changed(score: int)
+
+func emit_score_changed(score:int) -> void:
+	on_score_changed.emit(score)
 
 func emit_player_bounce():
 	on_player_bounce.emit()

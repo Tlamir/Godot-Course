@@ -9,6 +9,9 @@ extends Control
 @onready var label_health: Label = $PanelContainer/HBoxContainer/HBHealth/LabelHealth
 @onready var complete_label: Label = $LevelCompleteRect/VBoxContainer/CompleteLabel
 @onready var in_game_music: AudioStreamPlayer = $InGameMusic
+@onready var label_score: Label = $PanelContainer/HBoxContainer/LabelScore
+
+
 
 const PARADISE_FOUND = preload("res://Assets/Audio/Music/Paradise_Found.mp3")
 const DARKLING = preload("res://Assets/Audio/Music/Darkling.mp3")
@@ -27,6 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	get_tree().paused=false
 	level_complete_rect.hide()
+	update_score(ScoreManager.current_score)
 	
 	
 
@@ -45,8 +49,11 @@ func  _enter_tree() -> void:
 		)
 	SignalHub.on_player_died.connect(on_player_died)
 	SignalHub.on_player_health_changed.connect(_update_health)
+	SignalHub.on_score_changed.connect(update_score)
 	
-	
+
+func update_score(score: int ):
+	label_score.text="Score: %d" % score
 
 func on_player_died():
 	show_game_over(true)
