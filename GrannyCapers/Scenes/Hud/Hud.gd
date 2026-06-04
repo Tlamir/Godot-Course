@@ -10,6 +10,7 @@ extends Control
 @onready var complete_label: Label = $LevelCompleteRect/VBoxContainer/CompleteLabel
 @onready var in_game_music: AudioStreamPlayer = $InGameMusic
 @onready var label_score: Label = $PanelContainer/HBoxContainer/LabelScore
+@onready var label_level: Label = $"PanelContainer/HBoxContainer/Label Level"
 
 
 
@@ -31,6 +32,7 @@ func _ready() -> void:
 	get_tree().paused=false
 	level_complete_rect.hide()
 	update_score(ScoreManager.current_score)
+	label_level.text="Level: %d " %GameManager.current_level
 	
 	
 
@@ -70,6 +72,9 @@ func show_game_over(is_dead: bool):
 		GrannyUtils.play_clip_plain(audio_stream_player,DARKLING)
 	else:
 		_can_continue=true
+		if GameManager.is_it_last_level():
+			complete_label.text="Congratulations This was the last level 🎉"
+			continue_label.text="Go back to Level 1 "
 		continue_label.show()
 		GrannyUtils.play_clip_plain(audio_stream_player,PARADISE_FOUND)
 

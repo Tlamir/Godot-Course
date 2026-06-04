@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cgnfsivumhmys" path="res://Assets/Audio/Music/Lord of the Rangs.mp3" id="7_ogn3t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ysf55"]
-font_size = 105
+font_size = 85
 shadow_size = 14
 shadow_color = Color(0, 0, 0, 0.84300005)
 
@@ -123,6 +123,11 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 13
+
+[node name="Label Level" type="Label" parent="PanelContainer/HBoxContainer" unique_id=1116219292]
+layout_mode = 2
+text = "Level: 1"
+label_settings = SubResource("LabelSettings_ogn3t")
 
 [node name="LabelScore" type="Label" parent="PanelContainer/HBoxContainer" unique_id=14528775]
 layout_mode = 2

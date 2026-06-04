@@ -21,6 +21,7 @@ class_name Granny
 @export var shoot_speed: float=10.0
 @export var shoot_vertical_speed: float = 3.0
 @export var bounce_speed: float = 30.0
+@export var fall_off_y: float = -20.0
 
 const JUMPLAND = preload("res://Assets/Audio/55_PLAYER_SOUNDS/jumpland.wav")
 const DOUBLE_JUMP = preload("res://Assets/Audio/55_PLAYER_SOUNDS/double_jump.wav")
@@ -57,6 +58,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_update_debug()
 	_check_landing()
+	_check_fall_off()
 	_handle_input(delta)
 
 func _handle_input(delta: float) -> void:
@@ -79,6 +81,10 @@ func _check_landing() -> void:
 		if is_on_floor():
 			GrannyUtils.play_clip_stop(effect,JUMPLAND)
 		
+
+func _check_fall_off():
+	if global_position.y<fall_off_y:
+		die()
 
 func _set_move_zero() -> void:
 	velocity.x=0.0

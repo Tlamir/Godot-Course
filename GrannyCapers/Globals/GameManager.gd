@@ -30,8 +30,18 @@ func change_to_main():
 		ScoreManager.reset_score()
 		get_tree().change_scene_to_packed(MAIN_SCENE)
 
-
+func is_it_last_level() -> bool:
+	var flag: bool = false
+	if current_level==LEVELS.size():
+		flag=true
+	else:
+		flag=false
+	return flag
+	
+	
 
 func load_next_level():
 	current_level+=1
+	if current_level >LEVELS.size():
+		current_level=1
 	get_tree().change_scene_to_packed(LEVELS[current_level])
