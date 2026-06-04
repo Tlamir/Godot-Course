@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cxebfgpj38ymb"]
+
+[ext_resource type="Script" uid="uid://cou17gy71g6bf" path="res://Scenes/HighScoreDisplay/HighScoreDisplay.gd" id="1_7q3mo"]
+[ext_resource type="FontFile" uid="uid://c3844posdmli7" path="res://Assets/Fonts/LuckiestGuy-Regular.ttf" id="2_a8wiw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sb1we"]
+font = ExtResource("2_a8wiw")
+font_size = 24
+font_color = Color(0.96232605, 0.99559915, 0.9242996, 1)
+
+[node name="HighScoreDisplay" type="HBoxContainer" unique_id=1134544022]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+script = ExtResource("1_7q3mo")
+
+[node name="LabelScore" type="Label" parent="." unique_id=584126530]
+layout_mode = 2
+text = "00000"
+label_settings = SubResource("LabelSettings_sb1we")
+
+[node name="LabelTime" type="Label" parent="." unique_id=1828001355]
+layout_mode = 2
+text = "05/06 2026 15:30"
+label_settings = SubResource("LabelSettings_sb1we")
