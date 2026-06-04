@@ -119,8 +119,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.284868, 1.4, 16.52032)
 curve = SubResource("Curve3D_5t4eg")
 
 [node name="MovingPlatformPf" parent="Path3D" unique_id=1635957515 instance=ExtResource("17_ypf5a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74298704, 8.198969, 18.833065)
-progress = 43.453526
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3553899, 1.4708506, 7.9944777)
+progress = 8.372031
 speed = 6.0
 platform_mesh = ExtResource("18_vi1qd")
 shape_position = Vector3(0, 0, 0)
