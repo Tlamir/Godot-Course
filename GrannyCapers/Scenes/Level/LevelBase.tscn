@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://c236nknm616h1" path="res://Scenes/RopeBridge/RopeBridge.tscn" id="15_t11kh"]
 [ext_resource type="PackedScene" uid="uid://dnpuusw507yfn" path="res://Scenes/Enemies/Turret/Turret.tscn" id="16_5t4eg"]
 [ext_resource type="PackedScene" uid="uid://dvtuo801fbd3h" path="res://Scenes/ObjectContainer.tscn" id="17_72khm"]
+[ext_resource type="PackedScene" uid="uid://bv1b1nn566amr" path="res://Scenes/Scenery/Platforms/Moving/MovingPlatformPf.tscn" id="17_ypf5a"]
+[ext_resource type="ArrayMesh" uid="uid://bmmx4fnrbcpu1" path="res://Resources/TestMovingPlatformMesh.tres" id="18_vi1qd"]
+[ext_resource type="Shape3D" uid="uid://bp8p70fy80n6j" path="res://Resources/TestMovingPlatformShape.tres" id="19_vi1qd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
 panorama = ExtResource("1_5ufo3")
@@ -29,6 +32,14 @@ background_mode = 2
 sky = SubResource("Sky_78m1b")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_5t4eg"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.49612093, 0.8966999, -0.28243732, 0, 0, 0, 0, 0, 0, 0.46740294, 0.89661014, -0.024564743, 0, 0, 0, 0, 0, 0, 0.010453224, 0.8333632, 4.0110617, 0, 0, 0, 0, 0, 0, -0.6800904, 2.0366464, 11.529922, 0, 0, 0, 0, 0, 0, -0.40770197, -2.6169114, 15.069572, 0, 0, 0, 0, 0, 0, -1.5964456, 2.0958352, 19.82629, 0, 0, 0, 0, 0, 0, -2.1988454, -0.77481115, 22.098785, 0, 0, 0, 0, 0, 0, -2.2344365, 0.05382836, 23.324585, 0, 0, 0, 0, 0, 0, -0.9828954, 9.612788, 22.534088),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
 
 [node name="LevelBase" type="Node" unique_id=748250787]
 script = ExtResource("1_78m1b")
@@ -45,6 +56,7 @@ shadow_enabled = true
 [node name="TestPlatform" parent="." unique_id=508629629 instance=ExtResource("6_v5c15")]
 
 [node name="Granny" parent="." unique_id=1239572103 instance=ExtResource("7_yqkkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 17.794708, 21.55266)
 
 [node name="Pickups" type="Node" parent="." unique_id=2068813653]
 
@@ -101,5 +113,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -9.5)
 
 [node name="Turret6" parent="." unique_id=903146730 instance=ExtResource("16_5t4eg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9.5)
+
+[node name="Path3D" type="Path3D" parent="." unique_id=96740035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.284868, 1.4, 16.52032)
+curve = SubResource("Curve3D_5t4eg")
+
+[node name="MovingPlatformPf" parent="Path3D" unique_id=1635957515 instance=ExtResource("17_ypf5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74298704, 8.198969, 18.833065)
+progress = 43.453526
+speed = 6.0
+platform_mesh = ExtResource("18_vi1qd")
+shape_position = Vector3(0, 0, 0)
+platform_mesh_position = Vector3(0, 0, 0)
+shape = ExtResource("19_vi1qd")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
