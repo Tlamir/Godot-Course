@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b7jarbbyqplg0" path="res://Scenes/PickUp/Jewel.tscn" id="2_cithu"]
 [ext_resource type="PackedScene" uid="uid://c236nknm616h1" path="res://Scenes/RopeBridge/RopeBridge.tscn" id="2_yk6ck"]
 [ext_resource type="PackedScene" uid="uid://3qhbbee8xgka" path="res://Scenes/Enemies/Pumpkin/Pumpkin.tscn" id="3_6f3v7"]
+[ext_resource type="PackedScene" uid="uid://dnpuusw507yfn" path="res://Scenes/Enemies/Turret/Turret.tscn" id="4_dap3h"]
 [ext_resource type="PackedScene" uid="uid://dcdf0vhsvbgdr" path="res://Scenes/Grave/VampireCoffin.tscn" id="4_kxj7e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohp1u"]
@@ -229,10 +230,10 @@ height = 7.743436
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9, 0.6, 0.4)
 
 [node name="jewel2" parent="Pickups" parent_id_path=PackedInt32Array(2068813653) index="1" unique_id=1208324445 instance=ExtResource("2_cithu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2428465, 0.6, 21.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0428467, 0.6, 19.099998)
 
 [node name="Key" parent="Pickups" parent_id_path=PackedInt32Array(2068813653) index="2" unique_id=122312897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.892695, 0.3, -0.16631937)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.892695, 0.54255134, -0.16631937)
 
 [node name="Coin" parent="Pickups" parent_id_path=PackedInt32Array(2068813653) index="4" unique_id=89477147 instance=ExtResource("2_6f3v7")]
 transform = Transform3D(0.34202015, 0, -0.9396926, 0, 1, 0, 0.9396926, 0, 0.34202015, 3.06349, 0.3, -19)
@@ -255,14 +256,20 @@ transform = Transform3D(0.67575747, 0, 0.737124, 0, 1, 0, -0.737124, 0, 0.675757
 [node name="Coin7" parent="Pickups" parent_id_path=PackedInt32Array(2068813653) index="10" unique_id=1437598137 instance=ExtResource("2_6f3v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.642342, 0.3, -18.909143)
 
+[node name="Turret" parent="Pickups" parent_id_path=PackedInt32Array(2068813653) index="11" unique_id=181623826 instance=ExtResource("4_dap3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5513132, 0.3734265, 21.849411)
+
 [node name="LevelExit" parent="." index="5" unique_id=1700915603]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32680964, -0.047138214, -26.275928)
 
 [node name="Pumpkin" parent="Enemies" parent_id_path=PackedInt32Array(1588399109) index="0" unique_id=1367649949 instance=ExtResource("3_6f3v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.3, -21.6)
 
-[node name="VampireCoffin" parent="Enemies" parent_id_path=PackedInt32Array(1588399109) index="1" unique_id=1469871280 instance=ExtResource("4_kxj7e")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 9.700001, 0.3, -1.9999998)
+[node name="Pumpkin2" parent="Enemies" parent_id_path=PackedInt32Array(1588399109) index="1" unique_id=1918475998 instance=ExtResource("3_6f3v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6, 0.3, -0.6000004)
+
+[node name="VampireCoffin" parent="Enemies" parent_id_path=PackedInt32Array(1588399109) index="2" unique_id=1469871280 instance=ExtResource("4_kxj7e")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 9.700001, 0.54255134, -1.9999998)
 
 [node name="Scenery" type="Node" parent="." index="8" unique_id=561843061]
 
@@ -356,7 +363,62 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
 shape = SubResource("CapsuleShape3D_6jy46")
 
-[node name="platform_2_bright_brown_004" type="MeshInstance3D" parent="Scenery" index="10" unique_id=650513287]
+[node name="Pine Tree Tall13" type="MeshInstance3D" parent="Scenery" index="10" unique_id=1353253003]
+transform = Transform3D(0.5903381, 0, 0.8071562, 0, 1, 0, -0.8071562, 0, 0.5903381, 8.294278, -0.3318076, -3.6752815)
+mesh = SubResource("ArrayMesh_dap3h")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Pine Tree Tall13" index="0" unique_id=1538731845]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Pine Tree Tall13/StaticBody3D" index="0" unique_id=1878826755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
+shape = SubResource("CapsuleShape3D_6jy46")
+
+[node name="Pine Tree Tall14" type="MeshInstance3D" parent="Scenery" index="11" unique_id=200226932]
+transform = Transform3D(0.5903381, 0, 0.8071562, 0, 1, 0, -0.8071562, 0, 0.5903381, 8.294278, -0.3318076, 1.8157349)
+mesh = SubResource("ArrayMesh_dap3h")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Pine Tree Tall14" index="0" unique_id=1644706640]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Pine Tree Tall14/StaticBody3D" index="0" unique_id=1597905021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
+shape = SubResource("CapsuleShape3D_6jy46")
+
+[node name="Pine Tree Tall15" type="MeshInstance3D" parent="Scenery" index="12" unique_id=1346202512]
+transform = Transform3D(0.9941869, 0, -0.10766974, 0, 1, 0, 0.10766974, 0, 0.9941869, 10.500202, -0.49346852, 1.2108591)
+mesh = SubResource("ArrayMesh_dap3h")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Pine Tree Tall15" index="0" unique_id=1634147853]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Pine Tree Tall15/StaticBody3D" index="0" unique_id=180475757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
+shape = SubResource("CapsuleShape3D_6jy46")
+
+[node name="Pine Tree Tall16" type="MeshInstance3D" parent="Scenery" index="13" unique_id=1897967468]
+transform = Transform3D(0.9941869, 0, -0.10766974, 0, 1, 0, 0.10766974, 0, 0.9941869, 7.2844734, -0.49346852, -6.0640635)
+mesh = SubResource("ArrayMesh_dap3h")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Pine Tree Tall16" index="0" unique_id=852646179]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Pine Tree Tall16/StaticBody3D" index="0" unique_id=130615095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
+shape = SubResource("CapsuleShape3D_6jy46")
+
+[node name="Pine Tree Tall17" type="MeshInstance3D" parent="Scenery" index="14" unique_id=232574724]
+transform = Transform3D(0.9941869, 0, -0.10766974, 0, 1, 0, 0.10766974, 0, 0.9941869, 7.2844734, -0.49346852, -3.8827097)
+mesh = SubResource("ArrayMesh_dap3h")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenery/Pine Tree Tall17" index="0" unique_id=1319738003]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Pine Tree Tall17/StaticBody3D" index="0" unique_id=660925638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
+shape = SubResource("CapsuleShape3D_6jy46")
+
+[node name="platform_2_bright_brown_004" type="MeshInstance3D" parent="Scenery" index="15" unique_id=650513287]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.0086899, -5.58319, 21.043179)
 mesh = SubResource("ArrayMesh_l62rj")
 skeleton = NodePath("")
@@ -366,10 +428,10 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/platform_2_bright_brown_004/StaticBody3D" index="0" unique_id=1384226295]
 shape = SubResource("ConvexPolygonShape3D_6f3v7")
 
-[node name="RopeBridge3" parent="Scenery" index="11" unique_id=110281088 instance=ExtResource("2_yk6ck")]
+[node name="RopeBridge3" parent="Scenery" index="16" unique_id=110281088 instance=ExtResource("2_yk6ck")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.044716, 0.5426805, 16.130764)
 
-[node name="Pine Tree Tall11" type="MeshInstance3D" parent="Scenery" index="12" unique_id=1050240765]
+[node name="Pine Tree Tall11" type="MeshInstance3D" parent="Scenery" index="17" unique_id=1050240765]
 transform = Transform3D(-0.8071562, 0, 0.59033805, 0, 1, 0, -0.59033805, 0, -0.8071562, -6.981987, -0.031836748, 23.434494)
 mesh = SubResource("ArrayMesh_dap3h")
 skeleton = NodePath("")
@@ -380,7 +442,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
 shape = SubResource("CapsuleShape3D_6jy46")
 
-[node name="Pine Tree Tall12" type="MeshInstance3D" parent="Scenery" index="13" unique_id=736984124]
+[node name="Pine Tree Tall12" type="MeshInstance3D" parent="Scenery" index="18" unique_id=736984124]
 transform = Transform3D(-0.8071562, 0, 0.59033805, 0, 1, 0, -0.59033805, 0, -0.8071562, -6.981987, -0.24763894, 24.601006)
 mesh = SubResource("ArrayMesh_dap3h")
 skeleton = NodePath("")
@@ -391,7 +453,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
 shape = SubResource("CapsuleShape3D_6jy46")
 
-[node name="Pine Tree Tall6" type="MeshInstance3D" parent="Scenery" index="14" unique_id=54854434]
+[node name="Pine Tree Tall6" type="MeshInstance3D" parent="Scenery" index="19" unique_id=54854434]
 transform = Transform3D(0.8071561, 0, -0.59033805, 0, 1, 0, 0.59033805, 0, 0.8071561, -2.0267038, -0.24763894, -25.996286)
 mesh = SubResource("ArrayMesh_dap3h")
 skeleton = NodePath("")
@@ -402,7 +464,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
 shape = SubResource("CapsuleShape3D_6jy46")
 
-[node name="Pine Tree Tall7" type="MeshInstance3D" parent="Scenery" index="15" unique_id=228219454]
+[node name="Pine Tree Tall7" type="MeshInstance3D" parent="Scenery" index="20" unique_id=228219454]
 transform = Transform3D(0.8071561, 0, -0.59033805, 0, 1, 0, 0.59033805, 0, 0.8071561, -2.9593043, -0.4183824, -24.710232)
 mesh = SubResource("ArrayMesh_dap3h")
 skeleton = NodePath("")
@@ -413,7 +475,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
 shape = SubResource("CapsuleShape3D_6jy46")
 
-[node name="Pine Tree Tall8" type="MeshInstance3D" parent="Scenery" index="16" unique_id=1778527200]
+[node name="Pine Tree Tall8" type="MeshInstance3D" parent="Scenery" index="21" unique_id=1778527200]
 transform = Transform3D(0.8071561, 0, -0.59033805, 0, 1, 0, 0.59033805, 0, 0.8071561, 2.2566304, -0.5359485, -25.816475)
 mesh = SubResource("ArrayMesh_dap3h")
 skeleton = NodePath("")
