@@ -6,6 +6,12 @@ const GROUP_NAME="Pickup"
 
 enum PickUpType {Jewel, Key , Coin}
 
+const PICKUP_POINTS: Dictionary[PickUpType,int]={
+	PickUpType.Jewel: 10,
+	PickUpType.Key:30,
+	PickUpType.Coin:5,
+}
+
 @export var pickup_type: PickUpType=PickUpType.Jewel
 @onready var effects: AudioStreamPlayer3D = $Effects
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
@@ -13,6 +19,9 @@ enum PickUpType {Jewel, Key , Coin}
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_NAME)
+
+func get_score()-> int:
+	return PICKUP_POINTS[pickup_type]
 
 
 func _on_body_entered(body: Node3D) -> void:
