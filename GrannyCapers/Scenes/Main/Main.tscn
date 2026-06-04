@@ -9,10 +9,14 @@
 [sub_resource type="LabelSettings" id="LabelSettings_i3fi7"]
 font_size = 96
 font_color = Color(0.31764707, 0.40784314, 1, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o8wgc"]
 font_size = 45
 font_color = Color(1, 0.39215687, 0.23529412, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_i3fi7"]
 resource_name = "Flash"

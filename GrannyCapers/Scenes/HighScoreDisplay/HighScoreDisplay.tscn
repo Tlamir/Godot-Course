@@ -12,6 +12,7 @@ font_color = Color(0.96232605, 0.99559915, 0.9242996, 1)
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
+theme_override_constants/separation = 10
 script = ExtResource("1_7q3mo")
 
 [node name="LabelScore" type="Label" parent="." unique_id=584126530]

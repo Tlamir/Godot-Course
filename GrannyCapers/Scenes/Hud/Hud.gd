@@ -77,6 +77,9 @@ func _update_health(health: int):
 	label_health.text="%d" % health
 	if health<=30:
 		label_health.label_settings.font_color= Color(0.722, 0.0, 0.0, 1.0)
+	else: 
+		label_health.label_settings.font_color= Color(1.0, 1.0, 1.0, 1.0)
+		
 
 func on_key_collected():
 		if tween:

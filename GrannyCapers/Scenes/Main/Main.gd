@@ -16,8 +16,10 @@ func set_press_on():
 	_can_press=true
 	
 func add_scores():
-	for i in range(10):
-		gc_high_scores.add_child(HIGH_SCORE_DISPLAY.instantiate())
+	for hs: HighScore in ScoreManager.high_scores.get_scores_list():
+		var ns: HighScoreDisplay=HIGH_SCORE_DISPLAY.instantiate()
+		ns.setup(hs)
+		gc_high_scores.add_child(ns)
 	gc_high_scores.show()
 
 	

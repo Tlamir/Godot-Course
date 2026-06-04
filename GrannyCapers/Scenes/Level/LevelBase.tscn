@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dhankj6bfl8xl" path="res://Scenes/Scenery/Scenery/TresCollider.tscn" id="13_86rlm"]
 [ext_resource type="PackedScene" uid="uid://cpcmc4i5rd4lg" path="res://Scenes/BounceButton/BounceButton.tscn" id="14_pggwt"]
 [ext_resource type="PackedScene" uid="uid://c236nknm616h1" path="res://Scenes/RopeBridge/RopeBridge.tscn" id="15_t11kh"]
+[ext_resource type="PackedScene" uid="uid://dnpuusw507yfn" path="res://Scenes/Enemies/Turret/Turret.tscn" id="16_5t4eg"]
 [ext_resource type="PackedScene" uid="uid://dvtuo801fbd3h" path="res://Scenes/ObjectContainer.tscn" id="17_72khm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bgw71"]
@@ -82,5 +83,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.2)
 
 [node name="RopeBridge" parent="." unique_id=393439535 instance=ExtResource("15_t11kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7782354, 1.4555569, 4.667655)
+
+[node name="Turret" parent="." unique_id=181623826 instance=ExtResource("16_5t4eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.5)
+
+[node name="Turret2" parent="." unique_id=817985139 instance=ExtResource("16_5t4eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9.5)
+
+[node name="Turret3" parent="." unique_id=1788578510 instance=ExtResource("16_5t4eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9.5)
+
+[node name="Turret4" parent="." unique_id=2102096960 instance=ExtResource("16_5t4eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9.5)
+
+[node name="Turret5" parent="." unique_id=2123036951 instance=ExtResource("16_5t4eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -9.5)
+
+[node name="Turret6" parent="." unique_id=903146730 instance=ExtResource("16_5t4eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9.5)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
