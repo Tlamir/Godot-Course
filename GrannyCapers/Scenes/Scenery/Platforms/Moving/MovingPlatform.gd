@@ -2,7 +2,7 @@ extends AnimatableBody3D
 
 
 @export var points: Array[Vector3] = []  
-@export var speed: float = 5.0  
+@export var speed: float = 2.0  
 
 
 var _tween: Tween # we use one tween here to avoid creating multiple tweens and overlapping movements
