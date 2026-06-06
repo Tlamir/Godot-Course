@@ -269,7 +269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.3, -21.6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6, 0.3, -0.6000004)
 
 [node name="VampireCoffin" parent="Enemies" parent_id_path=PackedInt32Array(1588399109) index="2" unique_id=1469871280 instance=ExtResource("4_kxj7e")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 9.700001, 0.54255134, -1.9999998)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 7.391864, 0.54255134, -1.9999998)
 
 [node name="Scenery" type="Node" parent="." index="8" unique_id=561843061]
 
@@ -329,7 +329,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.871718, 0)
 shape = SubResource("CapsuleShape3D_6jy46")
 
 [node name="platform_2_bright_brown_003" type="MeshInstance3D" parent="Scenery" index="6" unique_id=737664571]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20.745163, -5.58319, 0.2980156)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21.438343, -5.58319, 0.2980156)
 mesh = SubResource("ArrayMesh_l62rj")
 skeleton = NodePath("")
 
@@ -339,7 +339,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_6f3v7")
 
 [node name="RopeBridge2" parent="Scenery" index="7" unique_id=361070041 instance=ExtResource("2_yk6ck")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.832747, 0.3592875, 0.2619896)
+transform = Transform3D(-4.370621e-08, 0.015393196, 0.9998815, 6.7285794e-10, 0.9998815, -0.015393196, -1, 0, -4.371139e-08, -16.26509, 0.34930775, 1.281493)
 
 [node name="Pine Tree Tall9" type="MeshInstance3D" parent="Scenery" index="8" unique_id=1600347401]
 transform = Transform3D(0.5903381, 0, 0.8071562, 0, 1, 0, -0.8071562, 0, 0.5903381, -23.136477, -0.031836748, -3.6752815)
