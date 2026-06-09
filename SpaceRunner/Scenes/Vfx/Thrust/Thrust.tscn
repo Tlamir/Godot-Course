@@ -2,36 +2,47 @@
 
 [ext_resource type="Texture2D" uid="uid://lrqrpqnjqg88" path="res://Assets/Particles/ParticleDot.png" id="1_a47dc"]
 
+[sub_resource type="Curve" id="Curve_sqshl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0eo6g"]
+curve = SubResource("Curve_sqshl")
+
+[sub_resource type="Gradient" id="Gradient_okhey"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0wftq"]
+gradient = SubResource("Gradient_okhey")
+
 [sub_resource type="Gradient" id="Gradient_a47dc"]
-offsets = PackedFloat32Array(0.052188553, 0.96127945)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0.39215687, 0, 1)
+offsets = PackedFloat32Array(0.052188553, 0.6936027, 0.96127945)
+colors = PackedColorArray(0.78039217, 0.5058824, 0, 1, 0.014451742, 0.020915061, 0.026942628, 1, 0, 0.011764706, 0.02745098, 0.14901961)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_sqshl"]
 gradient = SubResource("Gradient_a47dc")
 
-[sub_resource type="CurveTexture" id="CurveTexture_a47dc"]
-
 [sub_resource type="Curve" id="Curve_a47dc"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.566129, 0.60211897), 0.0, 0.0, 0, 0, Vector2(0.99354845, 0.13537377), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_sqshl"]
 curve = SubResource("Curve_a47dc")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a47dc"]
 direction = Vector3(0, 1, 0)
-spread = 0.561
+spread = 1.0
 initial_velocity_min = 1.0
 initial_velocity_max = 4.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = 2.9999976
 linear_accel_max = 5.9999976
-linear_accel_curve = SubResource("CurveTexture_a47dc")
-scale_min = 0.29999998
+scale_min = 0.59999996
 scale_max = 0.59999996
 scale_curve = SubResource("CurveTexture_sqshl")
 color = Color(1.6197081, 0.636142, 0.12568358, 1)
 color_ramp = SubResource("GradientTexture1D_sqshl")
+color_initial_ramp = SubResource("GradientTexture1D_0wftq")
+alpha_curve = SubResource("CurveTexture_0eo6g")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqshl"]
 transparency = 1
@@ -40,6 +51,7 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_a47dc")
 billboard_mode = 3
+billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
@@ -50,7 +62,7 @@ material = SubResource("StandardMaterial3D_sqshl")
 [node name="Thrust" type="Node3D" unique_id=1951256286]
 
 [node name="Fire" type="GPUParticles3D" parent="." unique_id=1020117189]
-amount = 72
+amount = 90
 lifetime = 0.5
 explosiveness = 0.2
 randomness = 1.0
