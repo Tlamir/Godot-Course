@@ -1,0 +1,93 @@
+[gd_resource type="VisualShader" format=3 uid="uid://ctfegubnbkuqf"]
+
+[ext_resource type="Texture2D" uid="uid://b8bgxsugdfsro" path="res://Assets/Textures/ShaderTexture/CustomUVChecker_byValle_1K.png" id="1_38u85"]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_38u85"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_44aug"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_b21vw"]
+parameter_name = "Speed"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_fwuu0"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeUVPolarCoord" id="VisualShaderNodeUVPolarCoord_38u85"]
+
+[sub_resource type="Gradient" id="Gradient_38u85"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_44aug"]
+gradient = SubResource("Gradient_38u85")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_b21vw"]
+texture = SubResource("GradientTexture1D_44aug")
+
+[sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_fwuu0"]
+default_input_values = [0, 0.4, 1, 0.8, 2, 0.5]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_44aug"]
+expanded_output_ports = [0]
+source = 5
+texture = ExtResource("1_38u85")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_38u85"]
+texture = ExtResource("1_38u85")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_b21vw"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_fwuu0"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_bolqe"]
+parameter_name = "Speed2"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bdcew"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeUVPolarCoord" id="VisualShaderNodeUVPolarCoord_hdkqt"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_bog7q"]
+parameter_name = "Image"
+texture_type = 1
+
+[resource]
+modes/cull = 2
+flags/unshaded = true
+nodes/vertex/0/position = Vector2(480, 160)
+nodes/fragment/0/position = Vector2(400, 60)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_38u85")
+nodes/fragment/2/position = Vector2(-60, -720)
+nodes/fragment/11/node = SubResource("VisualShaderNodeUVFunc_38u85")
+nodes/fragment/11/position = Vector2(-380, -620)
+nodes/fragment/12/node = SubResource("VisualShaderNodeInput_44aug")
+nodes/fragment/12/position = Vector2(-1100, -600)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVec2Parameter_b21vw")
+nodes/fragment/13/position = Vector2(-1100, -500)
+nodes/fragment/14/node = SubResource("VisualShaderNodeVectorOp_fwuu0")
+nodes/fragment/14/position = Vector2(-640, -580)
+nodes/fragment/15/node = SubResource("VisualShaderNodeUVPolarCoord_38u85")
+nodes/fragment/15/position = Vector2(-620, -840)
+nodes/fragment/16/node = SubResource("VisualShaderNodeTexture_b21vw")
+nodes/fragment/16/position = Vector2(420, -500)
+nodes/fragment/18/node = SubResource("VisualShaderNodeSmoothStep_fwuu0")
+nodes/fragment/18/position = Vector2(740, -500)
+nodes/fragment/19/node = SubResource("VisualShaderNodeTexture_44aug")
+nodes/fragment/19/position = Vector2(140, 60)
+nodes/fragment/20/node = SubResource("VisualShaderNodeUVFunc_b21vw")
+nodes/fragment/20/position = Vector2(-220, -180)
+nodes/fragment/21/node = SubResource("VisualShaderNodeInput_fwuu0")
+nodes/fragment/21/position = Vector2(-940, -160)
+nodes/fragment/22/node = SubResource("VisualShaderNodeVec2Parameter_bolqe")
+nodes/fragment/22/position = Vector2(-940, -60)
+nodes/fragment/23/node = SubResource("VisualShaderNodeVectorOp_bdcew")
+nodes/fragment/23/position = Vector2(-480, -140)
+nodes/fragment/24/node = SubResource("VisualShaderNodeUVPolarCoord_hdkqt")
+nodes/fragment/24/position = Vector2(-460, -400)
+nodes/fragment/25/node = SubResource("VisualShaderNodeTexture2DParameter_bog7q")
+nodes/fragment/25/position = Vector2(-340, 160)
+nodes/fragment/connections = PackedInt32Array(12, 0, 14, 0, 13, 0, 14, 1, 14, 0, 11, 2, 11, 0, 2, 0, 15, 0, 11, 0, 16, 0, 18, 2, 21, 0, 23, 0, 22, 0, 23, 1, 23, 0, 20, 2, 20, 0, 19, 0, 25, 0, 19, 2, 19, 0, 0, 0)
