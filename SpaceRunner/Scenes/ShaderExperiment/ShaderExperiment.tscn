@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://ctfegubnbkuqf" path="res://Scenes/ShaderExperiment/Shaders/PanningShader.tres" id="1_e22y7"]
 [ext_resource type="Texture2D" uid="uid://b8bgxsugdfsro" path="res://Assets/Textures/ShaderTexture/CustomUVChecker_byValle_1K.png" id="2_xs5k6"]
+[ext_resource type="Shader" uid="uid://dtjxut5c7f7mq" path="res://Scenes/ShaderExperiment/Shaders/IconShader.tres" id="3_r6btj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xs5k6"]
 render_priority = 0
@@ -21,9 +22,18 @@ shader_parameter/Image = ExtResource("2_xs5k6")
 [sub_resource type="BoxMesh" id="BoxMesh_41cv3"]
 material = SubResource("ShaderMaterial_e22y7")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41cv3"]
+render_priority = 0
+shader = ExtResource("3_r6btj")
+shader_parameter/Dissolve = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_xs5k6"]
+material = SubResource("ShaderMaterial_41cv3")
+
 [node name="ShaderExperiment" type="Node" unique_id=1257928376]
 
 [node name="Panning" type="Node3D" parent="." unique_id=1569669984]
+visible = false
 
 [node name="Quad" type="MeshInstance3D" parent="Panning" unique_id=1971335385]
 mesh = SubResource("QuadMesh_r6btj")
@@ -31,3 +41,8 @@ mesh = SubResource("QuadMesh_r6btj")
 [node name="Box" type="MeshInstance3D" parent="Panning" unique_id=3981287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 mesh = SubResource("BoxMesh_41cv3")
+
+[node name="Masking" type="Node3D" parent="." unique_id=1643134017]
+
+[node name="Icon" type="MeshInstance3D" parent="Masking" unique_id=1715996873]
+mesh = SubResource("QuadMesh_xs5k6")
