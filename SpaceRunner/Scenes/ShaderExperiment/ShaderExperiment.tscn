@@ -3,6 +3,8 @@
 [ext_resource type="Shader" uid="uid://ctfegubnbkuqf" path="res://Scenes/ShaderExperiment/Shaders/PanningShader.tres" id="1_e22y7"]
 [ext_resource type="Texture2D" uid="uid://b8bgxsugdfsro" path="res://Assets/Textures/ShaderTexture/CustomUVChecker_byValle_1K.png" id="2_xs5k6"]
 [ext_resource type="Shader" uid="uid://dtjxut5c7f7mq" path="res://Scenes/ShaderExperiment/Shaders/IconShader.tres" id="3_r6btj"]
+[ext_resource type="Shader" uid="uid://bfwit107fhixg" path="res://Scenes/ShaderExperiment/Shaders/GrassShader.tres" id="4_41cv3"]
+[ext_resource type="Shader" uid="uid://dw1wytfuovo8v" path="res://Scenes/ShaderExperiment/Shaders/SphereShader.tres" id="5_gk5y5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xs5k6"]
 render_priority = 0
@@ -30,6 +32,21 @@ shader_parameter/Dissolve = 0.0
 [sub_resource type="QuadMesh" id="QuadMesh_xs5k6"]
 material = SubResource("ShaderMaterial_41cv3")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gk5y5"]
+render_priority = 0
+shader = ExtResource("4_41cv3")
+shader_parameter/Fade = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_y8sm0"]
+material = SubResource("ShaderMaterial_gk5y5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y8sm0"]
+render_priority = 0
+shader = ExtResource("5_gk5y5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_41cv3"]
+material = SubResource("ShaderMaterial_y8sm0")
+
 [node name="ShaderExperiment" type="Node" unique_id=1257928376]
 
 [node name="Panning" type="Node3D" parent="." unique_id=1569669984]
@@ -45,4 +62,12 @@ mesh = SubResource("BoxMesh_41cv3")
 [node name="Masking" type="Node3D" parent="." unique_id=1643134017]
 
 [node name="Icon" type="MeshInstance3D" parent="Masking" unique_id=1715996873]
+visible = false
 mesh = SubResource("QuadMesh_xs5k6")
+
+[node name="Grass" type="MeshInstance3D" parent="Masking" unique_id=347146820]
+visible = false
+mesh = SubResource("QuadMesh_y8sm0")
+
+[node name="Sphere" type="MeshInstance3D" parent="Masking" unique_id=1517681039]
+mesh = SubResource("SphereMesh_41cv3")
