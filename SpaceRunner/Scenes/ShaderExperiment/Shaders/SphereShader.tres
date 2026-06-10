@@ -1,3 +1,86 @@
 [gd_resource type="VisualShader" format=3 uid="uid://dw1wytfuovo8v"]
 
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_kw7fu"]
+parameter_name = "Edge1"
+hint = 1
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_firnl"]
+parameter_name = "Highlight0"
+hint = 1
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_ijgg7"]
+parameter_name = "Highlight1"
+hint = 1
+
+[sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_kw7fu"]
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_firnl"]
+function = 31
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_nhl0h"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_ijgg7"]
+parameter_name = "Emmision"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_y8ewq"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_kw7fu"]
+parameter_name = "BaseColor"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_firnl"]
+parameter_name = "HighlightColor"
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_nhl0h"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_kw7fu"]
+parameter_name = "Noise"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_firnl"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_nhl0h"]
+parameter_name = "Edge0"
+hint = 1
+
+[sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_firnl"]
+
 [resource]
+nodes/fragment/0/position = Vector2(1260, 300)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_kw7fu")
+nodes/fragment/2/position = Vector2(-560, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_firnl")
+nodes/fragment/3/position = Vector2(-560, 360)
+nodes/fragment/4/node = SubResource("VisualShaderNodeMix_nhl0h")
+nodes/fragment/4/position = Vector2(140, 280)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture2DParameter_kw7fu")
+nodes/fragment/5/position = Vector2(-880, 1140)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_firnl")
+nodes/fragment/6/position = Vector2(-520, 1140)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_nhl0h")
+nodes/fragment/7/position = Vector2(-540, 620)
+nodes/fragment/9/node = SubResource("VisualShaderNodeSmoothStep_firnl")
+nodes/fragment/9/position = Vector2(-140, 700)
+nodes/fragment/10/node = SubResource("VisualShaderNodeFloatParameter_kw7fu")
+nodes/fragment/10/position = Vector2(-540, 880)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatParameter_firnl")
+nodes/fragment/11/position = Vector2(-900, 1580)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatParameter_ijgg7")
+nodes/fragment/12/position = Vector2(-900, 1840)
+nodes/fragment/13/node = SubResource("VisualShaderNodeSmoothStep_kw7fu")
+nodes/fragment/13/position = Vector2(-200, 1300)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatFunc_firnl")
+nodes/fragment/14/position = Vector2(-20, 1420)
+nodes/fragment/15/node = SubResource("VisualShaderNodeFloatOp_nhl0h")
+nodes/fragment/15/position = Vector2(240, 1200)
+nodes/fragment/16/node = SubResource("VisualShaderNodeColorParameter_ijgg7")
+nodes/fragment/16/position = Vector2(240, 1420)
+nodes/fragment/17/node = SubResource("VisualShaderNodeVectorOp_y8ewq")
+nodes/fragment/17/position = Vector2(540, 1080)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 4, 1, 5, 0, 6, 2, 4, 0, 0, 0, 7, 0, 9, 0, 10, 0, 9, 1, 6, 1, 9, 2, 9, 0, 4, 2, 11, 0, 13, 0, 12, 0, 13, 1, 6, 2, 13, 2, 13, 0, 14, 0, 14, 0, 15, 1, 13, 0, 15, 0, 15, 0, 17, 0, 16, 0, 17, 1, 17, 0, 0, 5)

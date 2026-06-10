@@ -40,9 +40,25 @@ shader_parameter/Fade = 1.0
 [sub_resource type="QuadMesh" id="QuadMesh_y8sm0"]
 material = SubResource("ShaderMaterial_gk5y5")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gk5y5"]
+noise_type = 3
+frequency = 0.0057
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y8sm0"]
+noise = SubResource("FastNoiseLite_gk5y5")
+seamless = true
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y8sm0"]
 render_priority = 0
 shader = ExtResource("5_gk5y5")
+shader_parameter/BaseColor = Color(0.11, 0.11, 0.11, 1)
+shader_parameter/HighlightColor = Color(0, 0, 0.79607844, 1)
+shader_parameter/Edge0 = 0.30800001463
+shader_parameter/Edge1 = 0.386000018335
+shader_parameter/Noise = SubResource("NoiseTexture2D_y8sm0")
+shader_parameter/Highlight0 = 0.4750000225625
+shader_parameter/Highlight1 = 0.5250000249375
+shader_parameter/Emmision = Color(3.0966642, 2.5012574, 1.208788, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_41cv3"]
 material = SubResource("ShaderMaterial_y8sm0")
