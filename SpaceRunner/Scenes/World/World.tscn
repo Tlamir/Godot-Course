@@ -57,6 +57,6 @@ autostart = true
 [node name="Walls" type="Node3D" parent="." unique_id=1225474186]
 
 [node name="ShadedWall" parent="Walls" unique_id=411413712 instance=ExtResource("8_p7pgw")]
-transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, 9.400001, 0, 0)
+transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, 29.759693, 0, -13.772022)
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]
