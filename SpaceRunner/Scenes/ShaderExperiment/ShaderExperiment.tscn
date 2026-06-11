@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://cwgy23euvp3ip" path="res://Scenes/ShaderExperiment/Shaders/FresnelShader.tres" id="6_y8sm0"]
 [ext_resource type="Shader" uid="uid://b8x3mffb2irn5" path="res://Scenes/ShaderExperiment/Shaders/VertexDispShader.tres" id="7_jafdo"]
 [ext_resource type="Shader" uid="uid://cxywrt8t8ncea" path="res://Scenes/ShaderExperiment/Shaders/FlagShader.tres" id="8_xn1g6"]
+[ext_resource type="Shader" uid="uid://dffviaftmaii6" path="res://Scenes/ShaderExperiment/Shaders/SphereDispShader.tres" id="9_15pvs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xs5k6"]
 render_priority = 0
@@ -102,6 +103,17 @@ size = Vector2(3, 1.5)
 subdivide_width = 36
 subdivide_depth = 12
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qednr"]
+render_priority = 0
+shader = ExtResource("9_15pvs")
+shader_parameter/Speed = 0.0
+shader_parameter/Strength = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_8ankk"]
+material = SubResource("ShaderMaterial_qednr")
+radius = 5.0
+height = 10.0
+
 [node name="ShaderExperiment" type="Node" unique_id=1257928376]
 
 [node name="Panning" type="Node3D" parent="." unique_id=1569669984]
@@ -143,4 +155,8 @@ mesh = SubResource("PlaneMesh_y8sm0")
 
 [node name="Flag" type="MeshInstance3D" parent="Vertex" unique_id=1226463424]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_jafdo")
+
+[node name="SphereDisp" type="MeshInstance3D" parent="Vertex" unique_id=18553941]
+mesh = SubResource("SphereMesh_8ankk")
