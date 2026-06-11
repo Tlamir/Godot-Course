@@ -5,7 +5,9 @@
 [ext_resource type="Shader" uid="uid://dtjxut5c7f7mq" path="res://Scenes/ShaderExperiment/Shaders/IconShader.tres" id="3_r6btj"]
 [ext_resource type="Shader" uid="uid://bfwit107fhixg" path="res://Scenes/ShaderExperiment/Shaders/GrassShader.tres" id="4_41cv3"]
 [ext_resource type="Shader" uid="uid://dw1wytfuovo8v" path="res://Scenes/ShaderExperiment/Shaders/SphereShader.tres" id="5_gk5y5"]
-[ext_resource type="Shader" uid="uid://cwgy23euvp3ip" path="res://Scenes/ShaderExperiment/FresnelShader.tres" id="6_y8sm0"]
+[ext_resource type="Shader" uid="uid://cwgy23euvp3ip" path="res://Scenes/ShaderExperiment/Shaders/FresnelShader.tres" id="6_y8sm0"]
+[ext_resource type="Shader" uid="uid://b8x3mffb2irn5" path="res://Scenes/ShaderExperiment/Shaders/VertexDispShader.tres" id="7_jafdo"]
+[ext_resource type="Shader" uid="uid://cxywrt8t8ncea" path="res://Scenes/ShaderExperiment/Shaders/FlagShader.tres" id="8_xn1g6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xs5k6"]
 render_priority = 0
@@ -77,6 +79,29 @@ shader_parameter/Speed = 0.25600001216
 [sub_resource type="SphereMesh" id="SphereMesh_xn1g6"]
 material = SubResource("ShaderMaterial_jafdo")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xn1g6"]
+render_priority = 0
+shader = ExtResource("7_jafdo")
+shader_parameter/Height = 0.66
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y8sm0"]
+material = SubResource("ShaderMaterial_xn1g6")
+size = Vector2(4, 4)
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15pvs"]
+render_priority = 0
+shader = ExtResource("8_xn1g6")
+shader_parameter/Freq = 5.43600025821
+shader_parameter/Speed = 10.57600050236
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jafdo"]
+material = SubResource("ShaderMaterial_15pvs")
+size = Vector2(3, 1.5)
+subdivide_width = 36
+subdivide_depth = 12
+
 [node name="ShaderExperiment" type="Node" unique_id=1257928376]
 
 [node name="Panning" type="Node3D" parent="." unique_id=1569669984]
@@ -105,6 +130,17 @@ visible = false
 mesh = SubResource("SphereMesh_41cv3")
 
 [node name="Fresnel" type="Node3D" parent="." unique_id=898339289]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fresnel" unique_id=1002768199]
 mesh = SubResource("SphereMesh_xn1g6")
+
+[node name="Vertex" type="Node3D" parent="." unique_id=306763410]
+
+[node name="Plane" type="MeshInstance3D" parent="Vertex" unique_id=1469740003]
+visible = false
+mesh = SubResource("PlaneMesh_y8sm0")
+
+[node name="Flag" type="MeshInstance3D" parent="Vertex" unique_id=1226463424]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_jafdo")
