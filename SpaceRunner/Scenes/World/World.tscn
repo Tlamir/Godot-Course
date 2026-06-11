@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bvk67n8u20soc" path="res://Assets/Audio/tense-suspense-background-music-376385.mp3" id="6_87yka"]
 [ext_resource type="PackedScene" uid="uid://gtsnv33a1cye" path="res://Scenes/Player/Player.tscn" id="7_87yka"]
 [ext_resource type="PackedScene" uid="uid://b5s5dito4uyp1" path="res://Scenes/Spawner/Spawner.tscn" id="8_kjd5s"]
+[ext_resource type="PackedScene" uid="uid://b6ciqxekh3jeq" path="res://Scenes/Vfx/ShadedWall/ShadedWall.tscn" id="8_p7pgw"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
@@ -52,5 +53,10 @@ wait_time = 3.0
 autostart = true
 
 [node name="Player" parent="." unique_id=1060538748 instance=ExtResource("7_87yka")]
+
+[node name="Walls" type="Node3D" parent="." unique_id=1225474186]
+
+[node name="ShadedWall" parent="Walls" unique_id=411413712 instance=ExtResource("8_p7pgw")]
+transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, 9.400001, 0, 0)
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]
