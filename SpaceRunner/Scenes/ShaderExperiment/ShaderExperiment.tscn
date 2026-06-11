@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://dtjxut5c7f7mq" path="res://Scenes/ShaderExperiment/Shaders/IconShader.tres" id="3_r6btj"]
 [ext_resource type="Shader" uid="uid://bfwit107fhixg" path="res://Scenes/ShaderExperiment/Shaders/GrassShader.tres" id="4_41cv3"]
 [ext_resource type="Shader" uid="uid://dw1wytfuovo8v" path="res://Scenes/ShaderExperiment/Shaders/SphereShader.tres" id="5_gk5y5"]
+[ext_resource type="Shader" uid="uid://cwgy23euvp3ip" path="res://Scenes/ShaderExperiment/FresnelShader.tres" id="6_y8sm0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xs5k6"]
 render_priority = 0
@@ -42,7 +43,7 @@ material = SubResource("ShaderMaterial_gk5y5")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gk5y5"]
 noise_type = 3
-frequency = 0.0057
+frequency = 0.0052
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y8sm0"]
 noise = SubResource("FastNoiseLite_gk5y5")
@@ -53,15 +54,28 @@ render_priority = 0
 shader = ExtResource("5_gk5y5")
 shader_parameter/BaseColor = Color(0.11, 0.11, 0.11, 1)
 shader_parameter/HighlightColor = Color(0, 0, 0.79607844, 1)
-shader_parameter/Edge0 = 0.30800001463
-shader_parameter/Edge1 = 0.386000018335
+shader_parameter/Edge0 = 0.2190000104025
+shader_parameter/Edge1 = 0.470000022325
 shader_parameter/Noise = SubResource("NoiseTexture2D_y8sm0")
-shader_parameter/Highlight0 = 0.4750000225625
+shader_parameter/Highlight0 = 0.5030000238925
 shader_parameter/Highlight1 = 0.5250000249375
 shader_parameter/Emmision = Color(3.0966642, 2.5012574, 1.208788, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_41cv3"]
 material = SubResource("ShaderMaterial_y8sm0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jafdo"]
+render_priority = 0
+shader = ExtResource("6_y8sm0")
+shader_parameter/Base = Color(0.0055897734, 0.0055897734, 0, 1)
+shader_parameter/Rim = Color(4.331519, 2.0977, 0, 1)
+shader_parameter/Power = 5.602000266095
+shader_parameter/Edge0 = 0.50000002375
+shader_parameter/Edge1 = 0.90000004275
+shader_parameter/Speed = 0.25600001216
+
+[sub_resource type="SphereMesh" id="SphereMesh_xn1g6"]
+material = SubResource("ShaderMaterial_jafdo")
 
 [node name="ShaderExperiment" type="Node" unique_id=1257928376]
 
@@ -76,6 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 mesh = SubResource("BoxMesh_41cv3")
 
 [node name="Masking" type="Node3D" parent="." unique_id=1643134017]
+visible = false
 
 [node name="Icon" type="MeshInstance3D" parent="Masking" unique_id=1715996873]
 visible = false
@@ -86,4 +101,10 @@ visible = false
 mesh = SubResource("QuadMesh_y8sm0")
 
 [node name="Sphere" type="MeshInstance3D" parent="Masking" unique_id=1517681039]
+visible = false
 mesh = SubResource("SphereMesh_41cv3")
+
+[node name="Fresnel" type="Node3D" parent="." unique_id=898339289]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fresnel" unique_id=1002768199]
+mesh = SubResource("SphereMesh_xn1g6")
