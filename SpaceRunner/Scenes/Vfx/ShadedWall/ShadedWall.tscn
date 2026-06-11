@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b6ciqxekh3jeq"]
+
+[ext_resource type="Shader" uid="uid://bre7agxi5tmum" path="res://Scenes/Vfx/ShadedWall/Shader/ShadedWallShader.tres" id="1_a6xgn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3oir"]
+render_priority = 0
+shader = ExtResource("1_a6xgn")
+shader_parameter/WallColor = Color(0.67058825, 0, 1, 1)
+shader_parameter/Speed = 0.1890000089775
+shader_parameter/Strength = 0.9370000445075
+
+[sub_resource type="QuadMesh" id="QuadMesh_ft5q6"]
+material = SubResource("ShaderMaterial_f3oir")
+size = Vector2(20, 16)
+
+[node name="ShadedWall" type="Node3D" unique_id=14709117]
+
+[node name="WallMesh" type="MeshInstance3D" parent="." unique_id=399392329]
+mesh = SubResource("QuadMesh_ft5q6")
