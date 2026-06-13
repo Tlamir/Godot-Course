@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bu7uljw2fjku4"]
+
+[ext_resource type="AudioStream" uid="uid://bj8lyqc2dns1c" path="res://Assets/Audio/Effects/583451__hit.wav" id="1_51w2k"]
+[ext_resource type="Texture2D" uid="uid://5530qje21ilg" path="res://Assets/Particles/scorch_02.png" id="1_wbjw5"]
+[ext_resource type="Script" uid="uid://ctvb5hg3b3028" path="res://Scenes/Vfx/ImpactFlash/ImpactFlash.gd" id="2_ydsgq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u4ybo"]
+emission_shape = 1
+emission_sphere_radius = 0.15
+angle_min = -44.99999
+angle_max = 45.00001
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so3o7"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_wbjw5")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_jqok2"]
+material = SubResource("StandardMaterial3D_so3o7")
+size = Vector2(2, 2)
+
+[node name="ImpactFlash" type="GPUParticles3D" unique_id=1105616688]
+amount = 4
+lifetime = 4.0
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_u4ybo")
+draw_pass_1 = SubResource("QuadMesh_jqok2")
+script = ExtResource("2_ydsgq")
+
+[node name="ImpactSound" type="AudioStreamPlayer3D" parent="." unique_id=68703602]
+stream = ExtResource("1_51w2k")
+unit_size = 40.0
