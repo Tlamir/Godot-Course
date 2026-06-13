@@ -15,11 +15,10 @@ var _wall_material: ShaderMaterial
 
 
 func _ready() -> void:
-
 	_wall_material = wall_mesh.material_override as ShaderMaterial
 
 	# Why is this not working???? i tried to reset my pc and it stuck at yellow dram error i had to manually
-	# turn off and on again. Even with empty script just proces print not working. I tried recrating the node3d mesh no luck
+	# turn off and on again.
 
 func _physics_process(_delta: float) -> void:
 	if is_y:
@@ -32,6 +31,4 @@ func _physics_process(_delta: float) -> void:
 		0.0, 
 		1.0
 	)
-	print("Test2 str: " , strength)
 	_wall_material.set_shader_parameter("Strength", strength)
-	print("Test3 updated str: " , _wall_material.get_shader_parameter("Strength"))
