@@ -1,10 +1,12 @@
 extends Node
 
-@onready var world_environment: WorldEnvironment = $WorldEnvironment
-
-@export var sky_rotation_speed: float = -0.008
 const IMPACT_FLASH = preload("res://Scenes/Vfx/ImpactFlash/ImpactFlash.tscn")
 
+@onready var player_laser: Laser = $PlayerLaser
+@onready var world_environment: WorldEnvironment = $WorldEnvironment
+@onready var node_3d: Node3D = $Node3D
+
+@export var sky_rotation_speed: float = -0.008
 @export var sky_rotation_direction: Vector3 = Vector3.UP:
 	set(value):
 		sky_rotation_direction = value.normalized()
@@ -24,6 +26,4 @@ func _rotate_sky(delta: float) -> void:
 
 
 func _on_test_timer_timeout() -> void:
-	var ns = IMPACT_FLASH.instantiate()
-	add_child(ns)
-	ns.global_position = Vector3(0,0,-30)
+	player_laser.start(node_3d.transform)

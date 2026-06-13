@@ -60,7 +60,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
 [node name="GameUi" parent="." unique_id=1840153794 instance=ExtResource("11_0d0er")]
 
 [node name="TestTimer" type="Timer" parent="." unique_id=805505202]
-wait_time = 3.0
+wait_time = 4.0
+autostart = true
 
 [node name="Player" parent="." unique_id=1060538748 instance=ExtResource("7_87yka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3888245, 4.7000003, 0)
@@ -103,12 +104,15 @@ shape = SubResource("WorldBoundaryShape3D_ng1ea")
 [node name="PlayerCam" parent="." unique_id=2008918247 instance=ExtResource("9_p7pgw")]
 physics_interpolation_mode = 2
 
+[node name="Node3D" type="Node3D" parent="." unique_id=362534411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88091, -5.5381536)
+
 [node name="PlayerLaser" parent="." unique_id=627085430 instance=ExtResource("10_kuxid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88091, -5.5381536)
 speed = 20.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1265464973]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 4.6, -18.294237)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7263489, 4.6, -22.58579)
 collision_layer = 2
 collision_mask = 0
 
