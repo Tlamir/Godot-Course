@@ -8,6 +8,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_h54ih"]
 size = Vector3(4.8305054, 0.82714844, 4.4710846)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ude3g"]
+size = Vector2(0.235, 2)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04r6b"]
 resource_name = "Material-3"
 cull_mode = 2
@@ -62,10 +65,18 @@ shape = SubResource("BoxShape3D_h54ih")
 muzzles = [NodePath("Muzzle1"), NodePath("Muzzle2")]
 
 [node name="Muzzle1" type="Node3D" parent="Pivot/Gun" unique_id=1996132828]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.2, -1.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70000005, -0.1, -1.4)
+
+[node name="MuzzleDebugMesh1" type="MeshInstance3D" parent="Pivot/Gun/Muzzle1" unique_id=1826932896]
+visible = false
+mesh = SubResource("PlaneMesh_ude3g")
 
 [node name="Muzzle2" type="Node3D" parent="Pivot/Gun" unique_id=1258240840]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.2, -1.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70000005, -0.1, -1.4)
+
+[node name="MuzzleDebugMesh1" type="MeshInstance3D" parent="Pivot/Gun/Muzzle2" unique_id=1021710718]
+visible = false
+mesh = SubResource("PlaneMesh_ude3g")
 
 [node name="MeshShip" type="MeshInstance3D" parent="Pivot" unique_id=448414878]
 transform = Transform3D(-0.100000024, -1.5099584e-08, 6.600238e-16, 0, -4.37114e-09, -0.100000024, 1.5099584e-08, -0.100000024, 4.37114e-09, 0, 0, 0)

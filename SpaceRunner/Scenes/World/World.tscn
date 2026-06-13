@@ -54,7 +54,6 @@ volume_db = -10.0
 autoplay = true
 
 [node name="Spawner" parent="." unique_id=306557163 instance=ExtResource("8_kjd5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
 
 [node name="GameUi" parent="." unique_id=1840153794 instance=ExtResource("11_0d0er")]
 

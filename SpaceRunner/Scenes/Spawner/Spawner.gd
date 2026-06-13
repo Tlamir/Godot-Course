@@ -30,7 +30,9 @@ func _ready() -> void:
 	SignalHub.on_create_laser.connect(on_create_laser)
 
 func on_create_laser(p_tr: Transform3D, laser_type: Spawner.LaserTypes ):
-	pass
+	match  laser_type:
+		LaserTypes.PlayerLaser: _playerLaserPool.activate_next_scene(p_tr)
+		
 
 func add_with_transform(ob: Node3D, p_tr: Transform3D) -> void:
 	add_child(ob)

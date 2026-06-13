@@ -17,9 +17,6 @@ const GROUP_PLAYER: String = "player"
 @onready var pivot: Node3D = $Pivot
 @onready var gun: Gun = $Pivot/Gun
 
-func _unhandled_input(event: InputEvent) -> void:
-	if  event.is_action_pressed("shoot"): shoot()
-
 func _physics_process(delta: float) -> void:
 	
 	var pitch_input = Input.get_axis("pitch_down", "pitch_up")
@@ -31,6 +28,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_ship_rotation(roll_input, pitch_input, delta)
 	
+	if Input.is_action_pressed("shoot"):
+		shoot()
 
 
 func update_ship_rotation(roll_input: float, pitch_input: float, delta: float) -> void:
