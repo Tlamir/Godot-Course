@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://gwgyxcty2ubc"]
+
+[ext_resource type="Script" uid="uid://b7fjhv587fdbj" path="res://Scenes/PlayerCam.gd" id="1_ndt3m"]
+[ext_resource type="PackedScene" uid="uid://dbx4srq242e5i" path="res://Scenes/PlayerRef/PlayerRef.tscn" id="2_oyfud"]
+
+[node name="PlayerCam" type="Camera3D" unique_id=2008918247]
+script = ExtResource("1_ndt3m")
+
+[node name="PlayerRef" parent="." unique_id=1224399973 instance=ExtResource("2_oyfud")]
