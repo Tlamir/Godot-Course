@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dbx4srq242e5i" path="res://Scenes/PlayerRef/PlayerRef.tscn" id="3_ikcdj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a6xgn"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_a6xgn")
 shader_parameter/WallColor = Color(0.80784315, 0, 1, 1)

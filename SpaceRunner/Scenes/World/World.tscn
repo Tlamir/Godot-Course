@@ -26,6 +26,16 @@ stream_count = 2
 stream_0 = ExtResource("5_hveh7")
 stream_1 = ExtResource("6_87yka")
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_kjd5s"]
+resource_local_to_scene = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_p7pgw"]
+plane = Plane(0, -1, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_kuxid"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ng1ea"]
+
 [node name="World" type="Node" unique_id=392109840]
 script = ExtResource("1_87yka")
 
@@ -46,17 +56,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
 [node name="GameUi" parent="." unique_id=1840153794 instance=ExtResource("11_0d0er")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=110818863]
-transform = Transform3D(1, 0, 0, 0, 0.91548014, 0.40236324, 0, -0.40236324, 0.91548014, 0, 17.96882, 14.22603)
+transform = Transform3D(1, 0, 0, 0, 0.91548014, 0.40236324, 0, -0.40236324, 0.91548014, 0, 16.203854, 14.22603)
 
 [node name="TestTimer" type="Timer" parent="." unique_id=805505202]
 wait_time = 3.0
 autostart = true
 
 [node name="Player" parent="." unique_id=1060538748 instance=ExtResource("7_87yka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3888245, 4.7000003, 0)
 
 [node name="Walls" type="Node3D" parent="." unique_id=1225474186]
 
-[node name="ShadedWall" parent="Walls" unique_id=411413712 instance=ExtResource("8_p7pgw")]
-transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, 29.759693, 0, -13.772022)
+[node name="ShadedWallRight" parent="Walls" unique_id=411413712 instance=ExtResource("8_p7pgw")]
+transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, 25, -0.76673126, -13.772)
+
+[node name="ShadedWallLeft" parent="Walls" unique_id=1236439686 instance=ExtResource("8_p7pgw")]
+transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -32.76504, -0.76673126, -13.771997)
+
+[node name="ShadedWallTop" parent="Walls" unique_id=179855610 instance=ExtResource("8_p7pgw")]
+transform = Transform3D(-3.496911e-07, 11.52, -3.496911e-07, 0, -5.035552e-07, -8, -8, -5.035552e-07, 1.5285484e-14, -5.7774973, 23.937292, 5.102092)
+is_y = true
+
+[node name="ShadedWallBottom" parent="Walls" unique_id=1475418851 instance=ExtResource("8_p7pgw")]
+transform = Transform3D(-3.496911e-07, 11.52, -3.496911e-07, 0, -5.035552e-07, -8, -8, -5.035552e-07, 1.5285484e-14, -5.7774973, -12.862708, 5.102092)
+is_y = true
+
+[node name="WorldCollider" type="StaticBody3D" parent="Walls" unique_id=1288994401]
+
+[node name="CollisionShapeBottom" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=1075915371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.711772, 0)
+shape = SubResource("WorldBoundaryShape3D_kjd5s")
+
+[node name="CollisionShapeTop" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=2136679369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.488228, 0)
+shape = SubResource("WorldBoundaryShape3D_p7pgw")
+
+[node name="CollisionShapeLeft" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=491620542]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 20.400002, 7, 0)
+shape = SubResource("WorldBoundaryShape3D_kuxid")
+
+[node name="CollisionShapeRight" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=1511386524]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -24.500004, 4.4, 0)
+shape = SubResource("WorldBoundaryShape3D_ng1ea")
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]
