@@ -5,6 +5,7 @@
 
 [node name="Gun" type="Node3D" unique_id=1498391528]
 script = ExtResource("1_qhghm")
+debounce = 0.05
 sound_effect = ExtResource("2_vgdsy")
 
 [node name="Effects" type="AudioStreamPlayer3D" parent="." unique_id=1284032232]

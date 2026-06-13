@@ -1,5 +1,3 @@
-extends Object
-
 class_name LaserPool
 
 var _scenes_list: Array[Laser]
