@@ -10,9 +10,17 @@ class_name Spawner
 @onready var tie_timer: Timer = $TieTimer
 @onready var asteroid_timer: Timer = $AsteroidTimer
 
+const IMPACT_FLASH = preload("res://Scenes/Vfx/ImpactFlash/ImpactFlash.tscn")
+
+enum SceneNames { ImpactFlash }
+
+const SCENES_DICT: Dictionary[int,PackedScene] = {
+	SceneNames.ImpactFlash: IMPACT_FLASH
+}
+
 
 func _ready() -> void:
-	pass
+	SignalHub.on_create_one_off.connect(on_create_one_off)
 
 
 func add_with_transform(ob: Node3D, p_tr: Transform3D) -> void:
@@ -28,6 +36,12 @@ func add_with_position(ob: Node3D, p_pos: Vector3) -> void:
 func on_create_packed_scene(p_tr: Transform3D, ps: PackedScene) -> void:
 	var ns = ps.instantiate()
 	call_deferred("add_with_transform", ns, p_tr)
+
+func on_create_one_off(p_pos: Vector3, scene_name: Spawner.SceneNames) -> void:
+	if !SCENES_DICT.has(scene_name): return
+	var ns = SCENES_DICT[scene_name].instantiate()
+	call_deferred("add_with_position",ns,p_pos)
+		
 
 
 func _on_tie_timer_timeout() -> void:
