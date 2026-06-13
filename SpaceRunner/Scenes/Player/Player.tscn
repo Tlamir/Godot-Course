@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpq2wvf6he07o" path="res://Scenes/Player/Player.gd" id="1_s0eop"]
 [ext_resource type="Texture2D" uid="uid://jmdemuo4m6ba" path="res://Assets/Models/PlayerShip_tex03-512.png" id="2_ft8w5"]
 [ext_resource type="PackedScene" uid="uid://d3la78i816037" path="res://Scenes/Vfx/Thrust/Thrust.tscn" id="3_h54ih"]
+[ext_resource type="PackedScene" uid="uid://dydsolferl8vj" path="res://Scenes/Gun/Gun.tscn" id="4_ude3g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h54ih"]
 size = Vector3(4.8305054, 0.82714844, 4.4710846)
@@ -56,6 +57,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013122559, 0.024902344, -
 shape = SubResource("BoxShape3D_h54ih")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1354092252]
+
+[node name="Gun" parent="Pivot" unique_id=1498391528 node_paths=PackedStringArray("muzzles") instance=ExtResource("4_ude3g")]
+muzzles = [NodePath("Muzzle1"), NodePath("Muzzle2")]
+
+[node name="Muzzle1" type="Node3D" parent="Pivot/Gun" unique_id=1996132828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.2, -1.4)
+
+[node name="Muzzle2" type="Node3D" parent="Pivot/Gun" unique_id=1258240840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.2, -1.4)
 
 [node name="MeshShip" type="MeshInstance3D" parent="Pivot" unique_id=448414878]
 transform = Transform3D(-0.100000024, -1.5099584e-08, 6.600238e-16, 0, -4.37114e-09, -0.100000024, 1.5099584e-08, -0.100000024, 4.37114e-09, 0, 0, 0)

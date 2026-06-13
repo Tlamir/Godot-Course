@@ -15,8 +15,10 @@ const GROUP_PLAYER: String = "player"
 
 
 @onready var pivot: Node3D = $Pivot
+@onready var gun: Gun = $Pivot/Gun
 
-	
+func _unhandled_input(event: InputEvent) -> void:
+	if  event.is_action_pressed("shoot"): shoot()
 
 func _physics_process(delta: float) -> void:
 	
@@ -36,4 +38,8 @@ func update_ship_rotation(roll_input: float, pitch_input: float, delta: float) -
 	var target_pitch = pitch_input * max_tilt_angle
 	pivot.rotation_degrees.x = lerp(pivot.rotation_degrees.x, target_pitch, delta * tilt_speed)
 	pivot.rotation_degrees.z = lerp(pivot.rotation_degrees.z, target_roll, delta * roll_speed)
+	
+	
+func shoot() -> void:
+	gun.shoot()
 

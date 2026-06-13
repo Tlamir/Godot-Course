@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dydsolferl8vj"]
+
+[ext_resource type="Script" uid="uid://d2komcafg4xsn" path="res://Scenes/Gun/Gun.gd" id="1_qhghm"]
+[ext_resource type="AudioStream" uid="uid://odqg565qvaui" path="res://Assets/Audio/Effects/Blaster1_short.wav" id="2_vgdsy"]
+
+[node name="Gun" type="Node3D" unique_id=1498391528]
+script = ExtResource("1_qhghm")
+sound_effect = ExtResource("2_vgdsy")
+
+[node name="Effects" type="AudioStreamPlayer3D" parent="." unique_id=1284032232]
