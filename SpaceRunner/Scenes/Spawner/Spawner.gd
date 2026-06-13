@@ -7,12 +7,17 @@ class_name Spawner
 @export var x_range: Vector2 = Vector2(-20, 20)
 @export var y_range: Vector2 = Vector2(-20, 20)
 @export var enabled: bool = true
+
 @onready var tie_timer: Timer = $TieTimer
 @onready var asteroid_timer: Timer = $AsteroidTimer
 
+var _playerLaserPool: LaserPool
+
 const IMPACT_FLASH = preload("res://Scenes/Vfx/ImpactFlash/ImpactFlash.tscn")
+const PLAYER_LASER = preload("res://Scenes/Laser/PlayerLaser.tscn")
 
 enum SceneNames { ImpactFlash }
+enum LaserTypes { PlayerLaser }
 
 const SCENES_DICT: Dictionary[int,PackedScene] = {
 	SceneNames.ImpactFlash: IMPACT_FLASH
@@ -20,8 +25,12 @@ const SCENES_DICT: Dictionary[int,PackedScene] = {
 
 
 func _ready() -> void:
+	_playerLaserPool = LaserPool.new(10,PLAYER_LASER,self,"PlayerLaser_")
 	SignalHub.on_create_one_off.connect(on_create_one_off)
+	SignalHub.on_create_laser.connect(on_create_laser)
 
+func on_create_laser(p_tr: Transform3D, laser_type: Spawner.LaserTypes ):
+	pass
 
 func add_with_transform(ob: Node3D, p_tr: Transform3D) -> void:
 	add_child(ob)

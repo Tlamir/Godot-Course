@@ -2,7 +2,6 @@ extends Node
 
 const IMPACT_FLASH = preload("res://Scenes/Vfx/ImpactFlash/ImpactFlash.tscn")
 
-@onready var player_laser: Laser = $PlayerLaser
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
 @onready var node_3d: Node3D = $Node3D
 
@@ -26,4 +25,4 @@ func _rotate_sky(delta: float) -> void:
 
 
 func _on_test_timer_timeout() -> void:
-	player_laser.start(node_3d.transform)
+	pass
