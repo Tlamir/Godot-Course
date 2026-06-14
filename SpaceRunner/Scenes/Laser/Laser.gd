@@ -7,7 +7,6 @@ const OFF_SCREEN: Vector3 = Vector3(0,0,200)
 @export var damage: int = 10
 @export var speed: float = 80.0
 
-
 @onready var impact_point: Marker3D = $ImpactPoint
 @onready var life_timer: LifeTimer = $LifeTimer
 
@@ -44,7 +43,6 @@ func blow_up() -> void:
 
 func _on_area_entered(_area: Area3D) -> void:
 	blow_up()
-
 
 func _on_body_entered(_body: Node3D) -> void:
 	blow_up()

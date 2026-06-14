@@ -12,7 +12,6 @@ class_name TieFighter
 @onready var gun: Gun = $Pivot/Gun
 @onready var mesh_tie_fighter: MeshInstance3D = $Pivot/TieFighter
 
-
 func _ready() -> void:
 	if enemy_behaviour : 
 		enemy_behaviour.setup(self)
@@ -32,8 +31,6 @@ func shoot_burst():
 	for i in range(burst_amount):
 		gun.shoot()
 		await get_tree().create_timer(burst_delay).timeout
-		
-
 
 func _on_hitbox_died() -> void:
 	queue_free()
