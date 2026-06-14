@@ -120,6 +120,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k0qry")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ukorm"]
+size = Vector3(3.7438965, 4.795166, 4.057129)
+
 [node name="TieFighter" type="Node3D" unique_id=34549500]
 script = ExtResource("1_jo6g7")
 enemy_behaviour = ExtResource("2_ukorm")
@@ -150,3 +153,10 @@ life_time = 20.0
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="." unique_id=1779026447]
 stream = ExtResource("4_aolki")
 unit_size = 60.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1532906740]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=809132566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036743164, 0.029907227, -0.20922852)
+shape = SubResource("BoxShape3D_ukorm")

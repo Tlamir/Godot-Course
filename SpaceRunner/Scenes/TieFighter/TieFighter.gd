@@ -2,9 +2,10 @@ extends Node3D
 
 class_name TieFighter
 
-#@export var engine_sound_distance: float = 120.0
 @export var stay_still : bool = false
 @export var enemy_behaviour: EnemyBehaviour
+@export var burst_delay : float = 0.25
+@export var burst_amount : int = 3
 
 @onready var engine_sound: AudioStreamPlayer3D = $EngineSound
 @onready var player_ref: LinkPlayer = $PlayerRef
@@ -26,4 +27,9 @@ func _face_player() -> void:
 		rotation.y=PI
 	else:
 		rotation=Vector3.ZERO
+		
+func shoot_burst():
+	for i in range(burst_amount):
+		gun.shoot()
+		await get_tree().create_timer(burst_delay).timeout
 		
