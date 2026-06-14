@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://iws2vud6j45k" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="5_tpqrc"]
 [ext_resource type="PackedScene" uid="uid://dydsolferl8vj" path="res://Scenes/Gun/Gun.tscn" id="6_aolki"]
 [ext_resource type="PackedScene" uid="uid://dbx4srq242e5i" path="res://Scenes/PlayerRef/PlayerRef.tscn" id="7_jv6vg"]
+[ext_resource type="PackedScene" uid="uid://ciqv37gjkqfs5" path="res://Scenes/Hitbox/Hitbox.tscn" id="12_ul70j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_815ps"]
 resource_name = "Material.001"
@@ -120,8 +121,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k0qry")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ukorm"]
-size = Vector3(3.7438965, 4.795166, 4.057129)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ul70j"]
+size = Vector3(3.85, 4.91, 4.29)
 
 [node name="TieFighter" type="Node3D" unique_id=34549500]
 script = ExtResource("1_jo6g7")
@@ -154,9 +155,8 @@ life_time = 20.0
 stream = ExtResource("4_aolki")
 unit_size = 60.0
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1532906740]
+[node name="Hitbox" parent="." unique_id=572742583 instance=ExtResource("12_ul70j")]
 collision_layer = 2
+shape_resource = SubResource("BoxShape3D_ul70j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=809132566]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036743164, 0.029907227, -0.20922852)
-shape = SubResource("BoxShape3D_ukorm")
+[connection signal="died" from="Hitbox" to="." method="_on_hitbox_died"]

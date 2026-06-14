@@ -52,8 +52,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jg2e1")
 
 [node name="Player" type="CharacterBody3D" unique_id=1060538748 groups=["player"]]
-collision_layer = 64
-collision_mask = 2
+collision_layer = 72
 motion_mode = 1
 script = ExtResource("1_s0eop")
 
