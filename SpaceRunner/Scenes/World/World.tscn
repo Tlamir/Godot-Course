@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5s5dito4uyp1" path="res://Scenes/Spawner/Spawner.tscn" id="8_kjd5s"]
 [ext_resource type="PackedScene" uid="uid://b6ciqxekh3jeq" path="res://Scenes/Vfx/ShadedWall/ShadedWall.tscn" id="8_p7pgw"]
 [ext_resource type="PackedScene" uid="uid://gwgyxcty2ubc" path="res://Scenes/PlayerCam.tscn" id="9_p7pgw"]
+[ext_resource type="PackedScene" uid="uid://cipgqsj3htr1f" path="res://Scenes/TieFighter/TieFighter.tscn" id="10_kuxid"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
@@ -36,9 +37,6 @@ resource_local_to_scene = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ng1ea"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kuxid"]
-size = Vector3(37.4, 30.2, 1)
-
 [node name="World" type="Node" unique_id=392109840]
 script = ExtResource("1_87yka")
 
@@ -64,16 +62,15 @@ wait_time = 4.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3888245, 4.7000003, 0)
 
 [node name="Walls" type="Node3D" parent="." unique_id=1225474186]
-visible = false
 
 [node name="ShadedWallRight" parent="Walls" unique_id=411413712 instance=ExtResource("8_p7pgw")]
-transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, 25, -0.76673126, -13.772)
+transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, 25, -0.76673126, -7.1720004)
 
 [node name="ShadedWallLeft" parent="Walls" unique_id=1236439686 instance=ExtResource("8_p7pgw")]
 transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -32.76504, -0.76673126, -13.771997)
 
 [node name="ShadedWallTop" parent="Walls" unique_id=179855610 instance=ExtResource("8_p7pgw")]
-transform = Transform3D(-3.496911e-07, 11.52, -3.496911e-07, 0, -5.035552e-07, -8, -8, -5.035552e-07, 1.5285484e-14, -5.7774973, 23.937292, 5.102092)
+transform = Transform3D(-3.496911e-07, 11.52, -3.496911e-07, 0, -5.035552e-07, -8, -8, -5.035552e-07, 1.5285484e-14, -5.7774973, 23.937292, 7.902092)
 is_y = true
 
 [node name="ShadedWallBottom" parent="Walls" unique_id=1475418851 instance=ExtResource("8_p7pgw")]
@@ -104,13 +101,7 @@ physics_interpolation_mode = 2
 [node name="Node3D" type="Node3D" parent="." unique_id=362534411]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88091, -5.5381536)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1265464973]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7263489, 4.6, -22.58579)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=514216405]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7999997, -5.3999996, -6.246907)
-shape = SubResource("BoxShape3D_kuxid")
+[node name="TieFighter" parent="." unique_id=34549500 instance=ExtResource("10_kuxid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.878605, 5.8, -39.09866)
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]

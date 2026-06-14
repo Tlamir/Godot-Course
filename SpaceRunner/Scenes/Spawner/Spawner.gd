@@ -17,7 +17,7 @@ const IMPACT_FLASH = preload("res://Scenes/Vfx/ImpactFlash/ImpactFlash.tscn")
 const PLAYER_LASER = preload("res://Scenes/Laser/PlayerLaser.tscn")
 
 enum SceneNames { ImpactFlash }
-enum LaserTypes { PlayerLaser }
+enum LaserTypes { PlayerLaser , TieLaser }
 
 const SCENES_DICT: Dictionary[int,PackedScene] = {
 	SceneNames.ImpactFlash: IMPACT_FLASH
