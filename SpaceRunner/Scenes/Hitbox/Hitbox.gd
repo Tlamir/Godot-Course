@@ -7,8 +7,10 @@ signal  died
 
 @export var shape_resource: Shape3D
 @export var start_health: int = 100
+@export var explosion_scene: PackedScene = TIE_EXPLOSION_EFFECT
 
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+const TIE_EXPLOSION_EFFECT = preload("res://Scenes/Vfx/TieExplosionEffect/TieExplosionEffect.tscn")
 
 var _current_health: int =0
 var _dead: bool = false
@@ -33,7 +35,9 @@ func die():
 	disable()
 	
 func blow_up():
-	print("Blow")
+	if explosion_scene: 
+		SignalHub.emit_create_packed_scene(global_transform,explosion_scene)
+		print("Tie Blowing")
 
 func take_damage(v: int):
 	if _dead: return

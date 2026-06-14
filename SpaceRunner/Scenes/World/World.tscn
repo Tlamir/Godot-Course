@@ -107,7 +107,8 @@ physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88091, -5.5381536)
 
 [node name="TieFighter" parent="." unique_id=34549500 instance=ExtResource("10_kuxid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.878605, 21.400002, -206.64125)
+transform = Transform3D(-0.99996215, -0.00064513227, 0.008681068, 0, 0.99725, 0.07411051, -0.008705006, 0.07410769, -0.9972123, 0.39384717, 3.8582659, -28.944962)
+stay_still = true
 enemy_behaviour = SubResource("Resource_ng1ea")
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]

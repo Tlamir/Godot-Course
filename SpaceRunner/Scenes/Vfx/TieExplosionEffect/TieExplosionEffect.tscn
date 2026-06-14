@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cprvomvd27sio"]
+
+[ext_resource type="AudioStream" uid="uid://c0xk8boxwk51q" path="res://Assets/Audio/Effects/646966__tie_explode.wav" id="1_l7en7"]
+[ext_resource type="Script" uid="uid://cfwmamnn7c7d4" path="res://Scenes/Vfx/TieExplosionEffect/TieExplosionEffect.gd" id="1_pbwgt"]
+[ext_resource type="Texture2D" uid="uid://lrqrpqnjqg88" path="res://Assets/Particles/ParticleDot.png" id="2_a7fho"]
+
+[sub_resource type="Curve" id="Curve_a7fho"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5804878, 0.37979418), -2.1813564, -2.1813564, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pbwgt"]
+curve = SubResource("Curve_a7fho")
+
+[sub_resource type="Gradient" id="Gradient_bs4v2"]
+offsets = PackedFloat32Array(0.1015625, 0.7760417)
+colors = PackedColorArray(0.7505669, 0.7505669, 0.7505669, 1, 1, 0.56078434, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1syg6"]
+gradient = SubResource("Gradient_bs4v2")
+
+[sub_resource type="Curve" id="Curve_2cgib"]
+_data = [Vector2(0, 0.58044904), 0.0, 0.0, 0, 0, Vector2(0.24146342, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3dscm"]
+curve = SubResource("Curve_2cgib")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l7en7"]
+particle_flag_align_y = true
+emission_shape = 2
+emission_sphere_radius = 1.0
+radial_velocity_min = 3.9999776
+radial_velocity_max = 7.9999776
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.99999774
+radial_accel_max = 1.9999977
+scale_min = 0.59999996
+scale_curve = SubResource("CurveTexture_3dscm")
+color = Color(5.4700704, 1.46528, 0.54109764, 1)
+color_ramp = SubResource("GradientTexture1D_1syg6")
+alpha_curve = SubResource("CurveTexture_pbwgt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7en7"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.56028485, 0.56028485, 0.56028485, 1)
+albedo_texture = ExtResource("2_a7fho")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a7fho"]
+material = SubResource("StandardMaterial3D_l7en7")
+size = Vector2(0.14, 1.6)
+
+[node name="TieExplosionEffect" type="Node3D" unique_id=1865794263]
+script = ExtResource("1_pbwgt")
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="." unique_id=99113523]
+stream = ExtResource("1_l7en7")
+unit_size = 25.0
+autoplay = true
+
+[node name="Spark" type="GPUParticles3D" parent="." unique_id=788605748]
+emitting = false
+amount = 64
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_l7en7")
+draw_pass_1 = SubResource("QuadMesh_a7fho")

@@ -32,6 +32,7 @@ func _ready() -> void:
 	_TieLaserPool = LaserPool.new(10,TIE_LASER,self,"TieLaser_")
 	SignalHub.on_create_one_off.connect(on_create_one_off)
 	SignalHub.on_create_laser.connect(on_create_laser)
+	SignalHub.on_create_packed_scene.connect(on_create_packed_scene)
 
 func on_create_laser(p_tr: Transform3D, laser_type: Spawner.LaserTypes ):
 	match  laser_type:
