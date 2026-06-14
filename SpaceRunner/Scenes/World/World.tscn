@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://gwgyxcty2ubc" path="res://Scenes/PlayerCam.tscn" id="9_p7pgw"]
 [ext_resource type="PackedScene" uid="uid://cipgqsj3htr1f" path="res://Scenes/TieFighter/TieFighter.tscn" id="10_kuxid"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
-[ext_resource type="Script" uid="uid://dlqpj8xuridv4" path="res://Scenes/TieFighter/Behaviours/TurnShoot.gd" id="11_ng1ea"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
 panorama = ExtResource("1_xf6vi")
@@ -37,10 +36,6 @@ resource_local_to_scene = true
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_kuxid"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ng1ea"]
-
-[sub_resource type="Resource" id="Resource_0d0er"]
-script = ExtResource("11_ng1ea")
-metadata/_custom_type_script = "uid://dlqpj8xuridv4"
 
 [node name="World" type="Node" unique_id=392109840]
 script = ExtResource("1_87yka")
@@ -108,6 +103,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88091, -5.5381536)
 
 [node name="TieFighter" parent="." unique_id=34549500 instance=ExtResource("10_kuxid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.878605, 5.8, -206.64125)
-enemy_behaviour = SubResource("Resource_0d0er")
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]

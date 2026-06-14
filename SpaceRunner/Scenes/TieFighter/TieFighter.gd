@@ -9,6 +9,7 @@ class_name TieFighter
 @onready var engine_sound: AudioStreamPlayer3D = $EngineSound
 @onready var player_ref: LinkPlayer = $PlayerRef
 @onready var gun: Gun = $Pivot/Gun
+@onready var mesh_tie_fighter: MeshInstance3D = $Pivot/TieFighter
 
 
 func _ready() -> void:

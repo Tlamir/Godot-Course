@@ -13,5 +13,3 @@ func update(_delta: float) -> void:
 		_engaged=true
 		owner.gun.shoot()
 	super(_delta)
-	
-		
