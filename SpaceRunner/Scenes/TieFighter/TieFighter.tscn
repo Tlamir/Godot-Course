@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cipgqsj3htr1f"]
 
 [ext_resource type="Texture2D" uid="uid://ii21bfavvae3" path="res://Assets/Models/TieFighter/TieFighter_Image_0.png" id="1_fj06c"]
+[ext_resource type="Script" uid="uid://t7wrf4n6osa4" path="res://Scenes/TieFighter/TieFighter.gd" id="1_jo6g7"]
 [ext_resource type="Texture2D" uid="uid://c3fwtxi8ugdc5" path="res://Assets/Models/TieFighter/TieFighter_Image_1.png" id="2_nlirc"]
 [ext_resource type="Texture2D" uid="uid://brpemkclpna4l" path="res://Assets/Models/TieFighter/TieFighter_Image_2.jpg" id="3_78yh6"]
 [ext_resource type="AudioStream" uid="uid://byn8gkcnre2bp" path="res://Assets/Audio/Effects/658839_TieBlast.wav" id="3_jv6vg"]
@@ -119,25 +120,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k0qry")
 
 [node name="TieFighter" type="Node3D" unique_id=34549500]
-
-[node name="LifeTimer" parent="." unique_id=1574380432 instance=ExtResource("5_tpqrc")]
-life_time = 20.0
-
-[node name="Gun" parent="." unique_id=1498391528 node_paths=PackedStringArray("muzzles") instance=ExtResource("6_aolki")]
-muzzles = [NodePath("MuzzleLeft"), NodePath("MuzzleRight")]
-sound_effect = ExtResource("3_jv6vg")
-laser_type = 1
-
-[node name="MuzzleLeft" type="Node3D" parent="Gun" unique_id=1522670385]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90000004, 0, -0.2)
-
-[node name="MuzzleRight" type="Node3D" parent="Gun" unique_id=637604320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90000004, 0, -0.20000002)
-
-[node name="PlayerRef" parent="." unique_id=692089496 instance=ExtResource("7_jv6vg")]
-
-[node name="Effect" type="AudioStreamPlayer3D" parent="." unique_id=1779026447]
-stream = ExtResource("4_aolki")
+script = ExtResource("1_jo6g7")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1963315085]
 
@@ -145,3 +128,23 @@ stream = ExtResource("4_aolki")
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, 0, 0, 0)
 mesh = SubResource("ArrayMesh_r8dr8")
 skeleton = NodePath("")
+
+[node name="Gun" parent="Pivot" unique_id=1498391528 node_paths=PackedStringArray("muzzles") instance=ExtResource("6_aolki")]
+muzzles = [NodePath("MuzzleLeft"), NodePath("MuzzleRight")]
+sound_effect = ExtResource("3_jv6vg")
+laser_type = 1
+
+[node name="MuzzleLeft" type="Node3D" parent="Pivot/Gun" unique_id=1522670385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90000004, 0, -0.2)
+
+[node name="MuzzleRight" type="Node3D" parent="Pivot/Gun" unique_id=637604320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90000004, 0, -0.20000002)
+
+[node name="PlayerRef" parent="." unique_id=692089496 instance=ExtResource("7_jv6vg")]
+
+[node name="LifeTimer" parent="." unique_id=1574380432 instance=ExtResource("5_tpqrc")]
+life_time = 20.0
+
+[node name="EngineSound" type="AudioStreamPlayer3D" parent="." unique_id=1779026447]
+stream = ExtResource("4_aolki")
+unit_size = 60.0

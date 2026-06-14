@@ -102,6 +102,6 @@ physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88091, -5.5381536)
 
 [node name="TieFighter" parent="." unique_id=34549500 instance=ExtResource("10_kuxid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.878605, 5.8, -39.09866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.878605, 5.8, -132.09866)
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]
